@@ -1,0 +1,34 @@
+{
+    "hero": {
+        "title": "Mich Dev",
+        "sub_title": "New Dev vector",
+        "tag_title": "h1",
+        "class": "hero-title"
+    },
+    "advantages": [
+        {
+            "title": "Tailored Solutions",
+            "paragraph": "We create unique landing pages and applications that perfectly align with your specific needs and business goals."
+        },
+        {
+            "title": "High-Quality Development",
+            "paragraph": "Our experts ensure top-notch coding standards, guaranteeing excellent performance across all devices."
+        },
+        {
+            "title": "Fast Project Turnaround",
+            "paragraph": "We value your time and promise quick project completion without compromising on quality."
+        },
+        {
+            "title": "User Friendly Design",
+            "paragraph": "Our websites and applications are intuitively designed for users, enhancing their overall experience and effectiveness."
+        },
+        {
+            "title": "Transparent Process",
+            "paragraph": "We ensure complete visibility throughout the development process, keeping you informed at every stage."
+        },
+        {
+            "title": "Ongoing Support",
+            "paragraph": "We offer reliable support and maintenance after project completion, allowing you to focus on growing your business."
+        }
+    ]
+}

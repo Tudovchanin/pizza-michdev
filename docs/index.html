@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/img/mich-dev.png" />
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+    	content="Mich Dev специализируется на разработке лендингов и приложений. Мы создаем адаптивные, удобные для пользователей веб-сайты и инновационные приложения, адаптированные под ваши бизнес-потребности." />
+    
+    <meta name="keywords"
+    	content="разработка лендингов, создание игр, разработка приложений, веб-разработка, мобильные приложения, креативный дизайн, UI/UX дизайн, адаптивная верстка, программирование игр, Mich Dev, создание сайтов, дизайн интерфейсов, высококонверсионные лендинги, разработка под ключ" />
+    
+    <meta name="author" content="Vlad Halimov" />
+    <meta property="og:title" content="Mich Dev — Разработка лендингов и приложений | Mich Dev" />
+    <meta property="og:description" content="Mich Dev — компания, специализирующаяся на разработке высококонверсионных лендингов, игр и приложений. Мы создаем адаптивные решения, которые удовлетворяют потребности вашего бизнеса."/>
+    
+    <meta property="og:image" content="assets/img/mich-dev.png"/>
+    <meta property="og:url" content="http://michdev.ru" />
+    
+    <meta name="twitter:title" content="Mich Dev — Разработка лендингов и приложений | Mich Dev" />
+    <meta name="twitter:description" content="Mich Dev — компания, специализирующаяся на разработке высококонверсионных лендингов, игр и приложений. Мы создаем адаптивные решения, которые удовлетворяют потребности вашего бизнеса." />
+    <meta name="twitter:image" content="assets/img/mich-dev.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <title>Pizzashop</title></head>
+<body class="dark-theme">
+    <header style="display: flex; justify-content: space-between; margin-bottom: 200px; padding:20px;" class="header">
+    <h1 style="color: aliceblue; font-size: 30px;">Pizza</h1>
+    <div style="color: rgb(218, 198, 198); border: solid; padding: 10px; cursor: pointer;" id="cart-btn">Cart</div>
+    </header>    
+    
+    
+    <main class="main">
+    
+      <section style="display: flex; gap: 20px; flex-wrap: wrap;" id="menuPizza" class="menu">
+      
+        <article  data-id="8" class="pizza-card">
+          <header class="pizza-card__header">
+            <figure class="pizza-card__figure">
+              <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.webp" alt="Meat pizza" />
+            </figure>
+            <h3 class="pizza-card__title">Italian</h3>
+          </header>
+          <div class="pizza-card__ingredients">
+            <p class="pizza-card__first-line">Filling: onion, potato, tomato,</p>
+            <p class="pizza-card__second-line text-ellipsis">
+              mushrooms, cheese, olives, meat, ingredient
+            </p>
+          </div>
+      
+      
+      
+          <!-- 22: 8.35, 28: 15.33, 33: 19.60 -->
+          <form class="pizza-card__form">
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="10" type="radio" name="size" value="22" checked />
+              <span class="pizza-card__size-text">22</span>
+            </label>
+      
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="20.8" type="radio" name="size" value="28" />
+              <span class="pizza-card__size-text">28</span>
+            </label>
+      
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="30" type="radio" name="size" value="33" />
+              <span class="pizza-card__size-text">33</span>
+            </label>
+          </form>
+      
+      
+      
+          <button class="pizza-card__customize-btn">
+            <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+          </button>
+          <div class="pizza-card__order-controls">
+            <p class="pizza-card__price text-ellipsis">
+              <span class="total-price">10</span><span class="pizza-card__currency">$</span>
+            </p>
+            <div class="pizza-card__quantity-controls">
+              <button disabled class="pizza-card__quantity-btn decrement-pizza">
+                <svg width="8" height="2" viewBox="0 0 12 2">
+                  <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+              <p class="pizza-card__quantity">1</p>
+              <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-pizza">
+                <svg width="8" height="8" viewBox="0 0 12 12">
+                  <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="pizza-card__order">Order Now</button>
+        </article>
+        <article  data-id="9" class="pizza-card">
+          <header class="pizza-card__header">
+            <figure class="pizza-card__figure">
+              <img class="pizza-card__img" src="./assets/img/pizza/italian-x2-pizza.webp" alt="Meat pizza" />
+            </figure>
+            <h3 class="pizza-card__title">Mexico</h3>
+          </header>
+          <div class="pizza-card__ingredients">
+            <p class="pizza-card__first-line">Filling: onion, potato, tomato,</p>
+            <p class="pizza-card__second-line text-ellipsis">
+              mushrooms, cheese, olives, meat, ingredient
+            </p>
+          </div>
+      
+      
+      
+          <!-- 22: 8.35, 28: 15.33, 33: 19.60 -->
+          <form class="pizza-card__form">
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="10" type="radio" name="size" value="22" checked />
+              <span class="pizza-card__size-text">22</span>
+            </label>
+      
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="20.8" type="radio" name="size" value="28" />
+              <span class="pizza-card__size-text">28</span>
+            </label>
+      
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="30" type="radio" name="size" value="33" />
+              <span class="pizza-card__size-text">33</span>
+            </label>
+          </form>
+      
+      
+      
+          <button class="pizza-card__customize-btn">
+            <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+          </button>
+          <div class="pizza-card__order-controls">
+            <p class="pizza-card__price text-ellipsis">
+              <span class="total-price">10</span><span class="pizza-card__currency">$</span>
+            </p>
+            <div class="pizza-card__quantity-controls">
+              <button disabled class="pizza-card__quantity-btn decrement-pizza">
+                <svg width="8" height="2" viewBox="0 0 12 2">
+                  <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+              <p class="pizza-card__quantity">1</p>
+              <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-pizza">
+                <svg width="8" height="8" viewBox="0 0 12 12">
+                  <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="pizza-card__order">Order Now</button>
+        </article>
+        <article  data-id="3" class="pizza-card">
+          <header class="pizza-card__header">
+            <figure class="pizza-card__figure">
+              <img class="pizza-card__img" src="./assets/img/pizza/mushroom-pizza.png" alt="Meat pizza" />
+            </figure>
+            <h3 class="pizza-card__title">London</h3>
+          </header>
+          <div class="pizza-card__ingredients">
+            <p class="pizza-card__first-line">Filling: onion, potato, tomato,</p>
+            <p class="pizza-card__second-line text-ellipsis">
+              mushrooms, cheese, olives, meat, ingredient
+            </p>
+          </div>
+      
+      
+      
+          <!-- 22: 8.35, 28: 15.33, 33: 19.60 -->
+          <form class="pizza-card__form">
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="10" type="radio" name="size" value="22" checked />
+              <span class="pizza-card__size-text">22</span>
+            </label>
+      
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="20.8" type="radio" name="size" value="28" />
+              <span class="pizza-card__size-text">28</span>
+            </label>
+      
+            <label class="pizza-card__size-label">
+              <input class="pizza-card__size-radio visually-hidden" data-price="30" type="radio" name="size" value="33" />
+              <span class="pizza-card__size-text">33</span>
+            </label>
+          </form>
+      
+      
+      
+          <button class="pizza-card__customize-btn">
+            <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+          </button>
+          <div class="pizza-card__order-controls">
+            <p class="pizza-card__price text-ellipsis">
+              <span class="total-price">10</span><span class="pizza-card__currency">$</span>
+            </p>
+            <div class="pizza-card__quantity-controls">
+              <button disabled class="pizza-card__quantity-btn decrement-pizza">
+                <svg width="8" height="2" viewBox="0 0 12 2">
+                  <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+              <p class="pizza-card__quantity">1</p>
+              <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-pizza">
+                <svg width="8" height="8" viewBox="0 0 12 12">
+                  <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button class="pizza-card__order">Order Now</button>
+        </article>
+      
+      
+      </section>
+    
+    </main>
+    
+    <aside>
+      <div style="position: fixed; background-color: antiquewhite;" id="cart" class="cart">
+        Корзина
+      </div>
+    </aside>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

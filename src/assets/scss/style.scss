@@ -1,0 +1,19 @@
+@use './utils/variables';
+@use './utils/mediaMixins' as *;
+@use './utils/reset';
+@use './utils/fonts';
+@use './utils/helpers';
+
+
+@use './cards/pizza';
+
+
+
+body {
+  min-height: 100vh;
+  font-family: 'Muller', sans-serif;
+  background: var(--bg-gradient);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+

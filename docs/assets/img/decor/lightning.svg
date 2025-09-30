@@ -1,0 +1,9 @@
+<svg viewBox="0 0 84.7872 97.6974" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84.787170" height="97.697388" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_5" x1="41.9135742" x2="7.40896606" y1="-3.05175781e-05" y2="84.7133484" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,100.175,50.4098)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,161.992,39.7848)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<path id="Lightning 2" d="M37.9826 0.294721L9.33155 1.08465C6.83827 1.15339 4.76551 3.02571 4.44443 5.49918L0.742707 34.0158C0.348973 37.049 2.71091 39.7373 5.76952 39.7373L9.87518 39.7373C12.235 39.7373 14.2827 41.3658 14.814 43.665L20.0937 66.5127C21.2575 71.549 28.3292 71.817 29.8709 66.8832L40.7849 31.9542C41.6315 29.2447 39.6073 26.4915 36.7687 26.4915C33.2733 26.4915 31.3019 22.4766 33.4393 19.7109L42.1332 8.46145C44.7478 5.07821 42.2568 0.176879 37.9826 0.294721Z" fill="url(#paint_linear_5)" fill-rule="nonzero" transform="matrix(0.863152,0.504944,-0.504944,0.863152,42.7755,0)" />
+</svg>
