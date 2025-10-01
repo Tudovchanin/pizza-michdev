@@ -10,19 +10,65 @@
 const pizzaProducts = getPizzaData();
 const utils = getUtils();
 
+const $menuPizza = document.getElementById('menuPizza');
+const $cartBtn = document.getElementById('cartBtn');
+
+
+
+// header list decor
+
+ function initHeaderListUi() {
+  const $headerList = document.querySelectorAll('.header .link-nav');
+
+  $headerList.forEach(link => {
+    link.addEventListener('click', (e)=> {
+      $headerList.forEach(link=> link.classList.remove('link-nav--active'))
+      e.target.classList.add('link-nav--active');
+    })
+  })
+ }
+
+
+ initHeaderListUi();
+
+
 
 // cart
+const savedCart = localStorage.getItem('cart');
+const cart = savedCart ? JSON.parse(savedCart) : {};
 
-const cart = {}
+$menuPizza.addEventListener('click', (e)=> {
+  if (!e.target.closest('.pizza-card__order')) return;
+  const $pizzaCard = e.target.closest('.pizza-card');
+  if (!$pizzaCard) return;
 
+  const idPizza = +$pizzaCard.getAttribute('data-id');
+  
+  const $quantityPizza = $pizzaCard.querySelector('.pizza-card__quantity');
+  const $selectedSizeRadio = $pizzaCard.querySelector('input[name="size"]:checked');
 
+  const numberOfPizzas = +$quantityPizza.textContent;
+  const sizePizza = $selectedSizeRadio.value;
+
+  if(!cart[idPizza]) {
+    console.log('записываем');
+    cart[idPizza] = {
+        [sizePizza]:numberOfPizzas
+    }
+  } else {
+      cart[idPizza][sizePizza] = (cart[idPizza][sizePizza] || 0) + numberOfPizzas;
+  }
+ 
+  
+  console.log(cart);
+  utils.saveCart(cart);
+});
 
 
 // cards pizza ui -------------------------------------------
 
-const menuPizza = document.getElementById('menuPizza');
 
-menuPizza.addEventListener('click', (e) => {
+$menuPizza.addEventListener('click', (e) => {
 
   if (!e.target.closest('.pizza-card__quantity-btn')) return;
 
@@ -78,7 +124,7 @@ menuPizza.addEventListener('click', (e) => {
 
 });
 
-menuPizza.addEventListener('change', (e) => {
+$menuPizza.addEventListener('change', (e) => {
   if (!e.target.closest('.pizza-card__size-radio')) return;
 
   const $pizzaCard = e.target.closest('.pizza-card');
@@ -90,4 +136,6 @@ menuPizza.addEventListener('change', (e) => {
 
   $totalPricePizza.textContent = utils.formatPrice(numberOfPizzas * pricePerPizza);
 })
+
+
 

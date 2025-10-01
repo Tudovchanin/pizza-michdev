@@ -4,16 +4,53 @@
 @use './utils/fonts';
 @use './utils/helpers';
 
+@use './ui/btn';
 
-@use './cards/pizza';
 
+@use './sections/header';
+@use './pages/home';
+
+@use './utils/global';
 
 
 body {
   min-height: 100vh;
   font-family: 'Muller', sans-serif;
   background: var(--bg-gradient);
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
+.logo {
+  display: block;
+  width: 162px;
+  height: 37px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.link-nav {
+
+  &:hover {
+
+    @include helpers.text-gradient(var(--elem-gradient));
+  }
+
+  &--active {
+    @include helpers.text-gradient(var(--elem-gradient));
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: '';
+      left: 50%;
+      bottom: -15px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background: var(--elem-gradient);
+    }
+  }
+}

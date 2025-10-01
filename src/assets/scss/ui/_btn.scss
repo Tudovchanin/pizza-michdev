@@ -1,0 +1,49 @@
+.wrapper-btn-orange {
+  font-size: 20px;
+}
+
+.wrapper-btn-dark {
+  font-size: 22px;
+}
+
+.btn {
+  max-width: 232px;
+  width: 100%;
+  min-height: 62px;
+  border: none;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: inherit;
+  line-height: 1.24;
+  &:active {
+    transform: scale(0.98);
+  }
+ 
+  &--dark {
+    position: relative;
+    background: var(--btn-dark);
+    color: var(--color-1);
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      inset: 0;
+      background-color: var(--btn-dark);
+      filter: blur(20px) brightness(1.7);
+    }
+    &:active::before {
+      opacity: 0;
+    }
+  }
+
+  &--accent {
+    background: var(--btn-accent);
+    color: var(--color-1);
+  }
+
+  &--small {
+    min-height: 44px;
+    border-radius: 84px;
+  }
+
+}

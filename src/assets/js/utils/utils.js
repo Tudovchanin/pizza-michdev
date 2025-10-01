@@ -9,6 +9,9 @@ function getUtils() {
         minimumFractionDigits:0,
         maximumFractionDigits: 2
       }).format(price);
+    },
+    saveCart(cart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
     
   }

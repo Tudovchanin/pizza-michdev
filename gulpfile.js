@@ -13,7 +13,9 @@ const cssnano = require("gulp-cssnano");// Минимизирует CSS
 const uglify = require("gulp-uglify");// Минимизирует JavaScript
 
 const plumber = require("gulp-plumber");// Обрабатывает ошибки в потоках Gulp
+
 const panini = require("panini");// Шаблонизатор для HTML
+const Handlebars = require("handlebars");
 
 const imagemin = require("gulp-imagemin"); // Оптимизирует изображения
 const pngquant = require("gulp-pngquant"); // Импортируем плагин pngquant
@@ -23,6 +25,15 @@ const del = require("del");// Удаляет файлы и папки
 const notify = require("gulp-notify");  // Отправляет уведомления об ошибках
 
 const browserSync = require("browser-sync").create(); // Создает локальный сервер для разработки
+
+
+
+const helpers = require('./src/tpl/helpers');
+
+Object.entries(helpers).forEach(([name, fn]) => {
+    Handlebars.registerHelper(name, fn);
+  });
+
 
 /* Paths */
 const srcPath = "src/";// Путь к исходным файлам
@@ -68,6 +79,7 @@ const path = {
     clean: "./" + distPath  // Путь для очистки выходной папки перед сборкой
 }
 
+
 // Функция для запуска локального сервера с помощью BrowserSync
 function serve() {
     browserSync.init({
@@ -87,7 +99,7 @@ function html() {
             root: srcPath,
             layouts: srcPath + "tpl/layouts/",
             partials: srcPath + "tpl/partials/",
-            data: srcPath + "tpl/data/"
+            data: srcPath + "tpl/data/",
         }))
         .pipe(dest(path.build.html))  // Сохраняет собранные HTML файлы в выходную папку
         .pipe(browserSync.reload({ stream: true }));  // Обновляет страницу в браузере при изменении HTML файла

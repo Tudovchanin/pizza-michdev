@@ -1,0 +1,60 @@
+
+
+<article data-id="{{id}}" class="pizza-card">
+  <header class="pizza-card__header">
+    <figure class="pizza-card__figure">
+      <img class="pizza-card__img" src="./assets/img/pizza/{{image}}.png" alt="{{name}}" />
+    </figure>
+    <h3 class="pizza-card__title">{{name}}</h3>
+  </header>
+  <div class="pizza-card__ingredients">
+    <p class="pizza-card__first-line text-ellipsis">
+      Filling: {{#each ingredients}} {{#if (lt @index 3)}}{{this}},{{/if}}
+      {{/each}}
+    </p>
+    <p class="pizza-card__second-line text-ellipsis">
+      {{#each ingredients}} {{#if (gt @index 2)}} {{this}}{{#unless @last}},
+      {{/unless}} {{/if}} {{/each}}
+    </p>
+  </div>
+
+  <form class="pizza-card__form">
+    {{#each price}}
+
+    <label class="pizza-card__size-label">
+      <input class="pizza-card__size-radio visually-hidden" data-price="{{this}}" type="radio" name="size"
+        value="{{@key}}" {{#if @first}}checked{{/if}} />
+      <span class="pizza-card__size-text">{{@key}}</span>
+    </label>
+    {{/each}}
+  </form>
+
+  <button class="pizza-card__customize-btn">
+    <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+  </button>
+  <div class="pizza-card__order-controls">
+    <p class="pizza-card__price text-ellipsis">
+      <span class="total-price">
+        {{#each price}} {{#if @first}}{{this}}{{/if}} {{/each}} </span><span class="pizza-card__currency">$</span>
+    </p>
+    <div class="pizza-card__quantity-controls">
+      <button disabled class="pizza-card__quantity-btn decrement-pizza">
+        <svg width="8" height="2" viewBox="0 0 12 2">
+          <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </button>
+      <p class="pizza-card__quantity">1</p>
+      <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-pizza">
+        <svg width="8" height="8" viewBox="0 0 12 12">
+          <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <button class="pizza-card__order btn btn--accent btn--small">
+    Order Now
+  </button>
+</article>
+
+
+

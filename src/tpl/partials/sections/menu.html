@@ -1,0 +1,22 @@
+<section id="menuPizza" class="menu">
+  <div class="menu__card">
+    {{#each pizza_1}}
+    {{#each this}}
+    {{> pizza this}}
+    {{/each}}
+    {{/each}}
+
+    <div style="grid-column: 1/-1; height: 286px; background-color: bisque;">
+      <h1 style="text-align: center;line-height: 286px; font-size: 60px;">Картинка или Видео</h1>
+    </div>
+
+    {{#each pizza_2}}
+    {{#each this}}
+    {{> pizza this}}
+    {{/each}}
+    {{/each}}
+
+  </div>
+</section>
+
+<!-- узнать про рекламный ролик -->

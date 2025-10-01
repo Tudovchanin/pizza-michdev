@@ -1,4 +1,5 @@
 .pizza-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +10,15 @@
   padding-bottom: 21px;
   border-radius: 29px;
   background: var(--card-pizza);
+  @media (hover:hover) {
+    transition: box-shadow 0.3s ease-out;
+    &:hover{
+      box-shadow: 0 0 6px 2px var(--color-4);
+    }
+    &:hover .pizza-card__img {
+      transform: scale(1.1);
+    }
+  }
 
   &__header {
     position: relative;
@@ -29,6 +39,9 @@
     width: 100%;
     max-width: initial;
     height: 100%;
+    transition: transform 0.3s;
+    pointer-events: none;
+    user-select: none;
   }
 
   &__title {
@@ -39,7 +52,6 @@
   }
 
   &__ingredients {
-    
     max-width: 224px;
     margin-bottom: 22px;
     color: var(--color-text-secondary);
@@ -55,6 +67,7 @@
     justify-content: center;
     gap: 15%;
     margin-bottom: 22px;
+    user-select: none;
   }
 
   &__size-label {
@@ -117,6 +130,8 @@
     background-color: transparent;
     font-size: 16px;
     cursor: pointer;
+    user-select: none;
+
 
     &:active {
       transform: scale(0.99);
@@ -133,12 +148,13 @@
       font-size: 14px;
     }
 
+    
+
     &::before,
     &::after {
       position: absolute;
       content: "";
     }
-
     &::before {
       z-index: 1;
       inset: 0;
@@ -146,7 +162,6 @@
       background-color: var(--card-pizza);
       transition: opacity 0.3s;
     }
-
     &::after {
       z-index: 0;
       inset: -1px;
@@ -210,7 +225,7 @@
       color: var(--color-text-primary);
     }
      &:active {
-      opacity: 0.5;;
+      opacity: 0.5;
     }
 
     &:disabled {
@@ -240,13 +255,13 @@
     position: relative;
     z-index: 0;
     max-width: 194px;
-    width: 100%;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border-radius: 84px;
-    border: none;
-    background: var(--elem-gradient);
-    color: var(--color-text-primary);
+    // width: 100%;
+    // padding-top: 14px;
+    // padding-bottom: 14px;
+    // border-radius: 84px;
+    // border: none;
+    // background: var(--elem-gradient);
+    // color: var(--color-text-primary);
     font-size: 18px;
     user-select: none;
 
@@ -271,40 +286,5 @@
       }
     }
 
-    &:active {
-      transform: scale(0.99);
-    }
   }
 }
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.text-ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.text-gradient {
-  background: var(--elem-gradient);
-  /* Градиент для текста */
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.ps-rel-idx-100 {
-  position: relative;
-  z-index: 100;
-}
-

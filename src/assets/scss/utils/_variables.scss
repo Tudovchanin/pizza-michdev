@@ -1,24 +1,33 @@
 :root {
-	
-  --color-1: hsl(0, 0%, 100%);
-  --color-2:  hsl(0, 0%, 64%);;
-  --color-3: hsl(34, 100%, 58%);
-  --color-4: hsl(15, 100%, 60%);
-  --color-5:  hsl(17, 94%, 7%);;
 
-	--bg-gradient:linear-gradient(245.71deg, #1C0C00 4.96%, #1C0700 33.7%, #140900 68.41%, #1C0C00 96.42%);
-	--elem-gradient:linear-gradient(261.69deg, #FF5924 12.12%, #FFA229 86.72%);
+	--color-1: hsl(0, 0%, 100%);
+	--color-2: hsl(0, 0%, 64%);
+	--color-3: hsl(34, 100%, 58%);
+	--color-4: hsl(15, 100%, 60%);
+	--color-5: hsl(17, 94%, 7%);
 
 
-  --color-text-primary: var(--color-1);
-  --color-text-secondary: var(--color-2);
+	--bg-gradient: linear-gradient(245.71deg, hsl(26, 100%, 5%) 4.96%, hsl(15, 100%, 5%) 33.7%, hsl(27, 100%, 4%) 68.41%, hsl(26, 100%, 5%) 96.42%);
+	--elem-gradient: linear-gradient(261.69deg, hsl(15, 100%, 57%) 12.12%, hsl(34, 100%, 58%) 86.72%);
 
+
+	--color-text-primary: var(--color-1);
+	--color-text-secondary: var(--color-2);
+
+
+	// elements
 	--card-pizza: var(--color-5);
+
+
+	--btn-accent: var(--elem-gradient);
+	--btn-dark:var(--color-5);
+	
+	--switch-color:var(--bg-gradient);
+	--switch-border: var(--elem-gradient);
 }
 
 @media (max-width:1024px) {
-	:root {
-	}
+	:root {}
 }
 
 
@@ -27,4 +36,3 @@
 		--size-cube: 50vw;
 	}
 }
-

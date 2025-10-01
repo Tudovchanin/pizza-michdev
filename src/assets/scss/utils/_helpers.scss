@@ -3,3 +3,10 @@
     @content;
   }
 }
+
+@mixin text-gradient($gradient) {
+  background: #{$gradient};
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
