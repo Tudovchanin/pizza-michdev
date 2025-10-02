@@ -32,7 +32,7 @@ function getPizzaData (){
         namePizza: "Pepperoni Classic",
         description: "Double pepperoni with extra cheese",
         price: { 22: 11, 28: 15, 33: 19 },
-        image: "pepperoni-pizza",
+        image: "meat-pizza",
         ingredients: ["pepperoni", "mozzarella", "tomato sauce", "oregano"]
       },
       {
@@ -83,7 +83,7 @@ function getPizzaData (){
         namePizza: "Vegetarian",
         description: "Fresh vegetables and herbs",
         price: { 22: 11, 28: 15, 33: 19 },
-        image: "vegetarian-pizza",
+        image: "tomato-pizza",
         ingredients: ["bell peppers", "tomatoes", "onions", "olives", "mushrooms", "mozzarella"]
       },
       {
@@ -118,7 +118,7 @@ function getPizzaData (){
         namePizza: "Truffle Mushroom",
         description: "Mushrooms with truffle oil",
         price: { 22: 13, 28: 17, 33: 21 },
-        image: "truffle-pizza",
+        image: "mushroom-pizza",
         ingredients: ["mushrooms", "truffle oil", "parmesan", "mozzarella", "cream sauce"]
       }
     ],

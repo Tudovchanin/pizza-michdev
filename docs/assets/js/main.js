@@ -37,7 +37,7 @@ function getPizzaData (){
         namePizza: "Pepperoni Classic",
         description: "Double pepperoni with extra cheese",
         price: { 22: 11, 28: 15, 33: 19 },
-        image: "pepperoni-pizza",
+        image: "meat-pizza",
         ingredients: ["pepperoni", "mozzarella", "tomato sauce", "oregano"]
       },
       {
@@ -88,7 +88,7 @@ function getPizzaData (){
         namePizza: "Vegetarian",
         description: "Fresh vegetables and herbs",
         price: { 22: 11, 28: 15, 33: 19 },
-        image: "vegetarian-pizza",
+        image: "tomato-pizza",
         ingredients: ["bell peppers", "tomatoes", "onions", "olives", "mushrooms", "mozzarella"]
       },
       {
@@ -123,7 +123,7 @@ function getPizzaData (){
         namePizza: "Truffle Mushroom",
         description: "Mushrooms with truffle oil",
         price: { 22: 13, 28: 17, 33: 21 },
-        image: "truffle-pizza",
+        image: "mushroom-pizza",
         ingredients: ["mushrooms", "truffle oil", "parmesan", "mozzarella", "cream sauce"]
       }
     ],
@@ -268,21 +268,21 @@ const $cartBtn = document.getElementById('cartBtn');
 
 // header list decor
 
- function initHeaderListUi() {
+function initHeaderListUi() {
   const $headerList = document.querySelectorAll('.header .link-nav');
 
   $headerList.forEach(link => {
-    link.addEventListener('click', (e)=> {
-      $headerList.forEach(link=> link.classList.remove('link-nav--active'))
+    link.addEventListener('click', (e) => {
+      $headerList.forEach(link => link.classList.remove('link-nav--active'))
       e.target.classList.add('link-nav--active');
     })
   })
- }
+}
 
 
- initHeaderListUi();
+initHeaderListUi();
 
-
+// feat(menu): connect tabs filtering with card rendering
 
 //  tabs 
 
@@ -293,33 +293,115 @@ const $allTab = document.querySelectorAll('.menu__tab-btn button');
 const topContainerCards = document.getElementById('top-cards');
 const bottomContainerCards = document.getElementById('bottom-cards');
 
+
+
+
+$tabs.addEventListener('click', (e) => {
+
+  const button = e.target.closest('button');
+  if (!button) return;
+  const category = button.getAttribute('data-category');
+
+  $allTab.forEach(tab => {
+    tab.classList.remove('btn--accent')
+    const li = tab.closest('li');
+    if (li) {
+      li.classList.remove('menu__tab-btn--active');
+    }
+  })
+  button.classList.add('btn--accent');
+  const li = button.closest('li');
+  if (li) {
+    li.classList.add('menu__tab-btn--active')
+  }
+
+  utils.removeCards();
+
+  if (category === 'all') {
+    const allProducts = Object.values(pizzaProducts).flat();
+    console.log(allProducts);
+    const cardsTopData = allProducts.slice(0, 4);
+    const cardsBottomData = allProducts.slice(4);
+    
+  if (cardsTopData.length) {
+    const arrCards = renderAllCards(cardsTopData, utils.renderCard);
+
+    topContainerCards.innerHTML = `${arrCards.join('')}`
+  }
+
+  
+  if (cardsBottomData.length) {
+    const arrCards = renderAllCards(cardsBottomData, utils.renderCard);
+    bottomContainerCards.innerHTML = `${arrCards.join('')}`
+  }
+
+    return;
+  }
+
+
+  const cardsTopData = pizzaProducts[category].slice(0, 4);
+  const cardsBottomData = pizzaProducts[category].slice(4);
+
+
+  if (cardsTopData.length) {
+    const arrCards = renderAllCards(cardsTopData, utils.renderCard);
+    topContainerCards.innerHTML = `${arrCards.join('')}`
+  }
+
+  if (cardsBottomData.length) {
+    const arrCards = renderAllCards(cardsBottomData, utils.renderCard);
+    bottomContainerCards.innerHTML = `${arrCards.join('')}`
+  }
+
+})
+
+
+
+function renderAllCards(cards, renderFun) {
+
+  const arrCards = cards.map(card => {
+    return renderFun(card)
+  });
+
+  return arrCards;
+}
+
+
+
+
+
+
+
+
+
+
 // cart
 const savedCart = localStorage.getItem('cart');
 const cart = savedCart ? JSON.parse(savedCart) : {};
 
-$menuPizza.addEventListener('click', (e)=> {
+$menuPizza.addEventListener('click', (e) => {
   if (!e.target.closest('.pizza-card__order')) return;
   const $pizzaCard = e.target.closest('.pizza-card');
   if (!$pizzaCard) return;
 
   const idPizza = +$pizzaCard.getAttribute('data-id');
-  
+
   const $quantityPizza = $pizzaCard.querySelector('.pizza-card__quantity');
   const $selectedSizeRadio = $pizzaCard.querySelector('input[name="size"]:checked');
 
   const numberOfPizzas = +$quantityPizza.textContent;
   const sizePizza = $selectedSizeRadio.value;
 
-  if(!cart[idPizza]) {
+  if (!cart[idPizza]) {
     console.log('записываем');
     cart[idPizza] = {
-        [sizePizza]:numberOfPizzas
+      [sizePizza]: numberOfPizzas
     }
   } else {
-      cart[idPizza][sizePizza] = (cart[idPizza][sizePizza] || 0) + numberOfPizzas;
+    cart[idPizza][sizePizza] = (cart[idPizza][sizePizza] || 0) + numberOfPizzas;
   }
- 
-  
+
+
   console.log(cart);
   utils.saveCart(cart);
 });
@@ -329,13 +411,12 @@ $menuPizza.addEventListener('click', (e)=> {
 
 
 $menuPizza.addEventListener('click', (e) => {
-console.log(e.target);
   if (!e.target.closest('.pizza-card__quantity-btn')) return;
 
   const $pizzaCard = e.target.closest('.pizza-card');
   const $form = $pizzaCard.querySelector('.pizza-card__form');
   const $selectedSizeRadio = $form.querySelector('input[name="size"]:checked');
-  
+
   if (!$pizzaCard) return;
 
   const idPizza = +$pizzaCard.getAttribute('data-id');
@@ -346,7 +427,7 @@ console.log(e.target);
 
   if (!$quantityPizza) return;
 
-console.log($selectedSizeRadio, '$selectedSizeRadio');
+  console.log($selectedSizeRadio, '$selectedSizeRadio');
   let numberOfPizzas = +$quantityPizza.textContent;
   const pricePerPizza = +$selectedSizeRadio.getAttribute('data-price');
 
@@ -355,7 +436,7 @@ console.log($selectedSizeRadio, '$selectedSizeRadio');
 
   if ($btnToggleQuantity.classList.contains('increment-pizza')) {
     ++numberOfPizzas;
-    
+
     if (numberOfPizzas > 1 && numberOfPizzas < 3) {
       const $btnDecrement = $pizzaCard.querySelector('.decrement-pizza');
       $btnDecrement.disabled = false;
@@ -395,31 +476,4 @@ $menuPizza.addEventListener('change', (e) => {
   const pricePerPizza = +e.target.getAttribute('data-price');
 
   $totalPricePizza.textContent = utils.formatPrice(numberOfPizzas * pricePerPizza);
-})
-
-
-
-
-$tabs.addEventListener('click', (e)=> {
-
-  const button = e.target.closest('button');
-  if(!button) return;
-  const category = button.getAttribute('data-category');
-  console.log(category);
-  $allTab.forEach(tab => {
-    tab.classList.remove('btn--accent')
-    const li = tab.closest('li');
-    if(li){
-      li.classList.remove('menu__tab-btn--active');
-    }
-  })
-  button.classList.add('btn--accent');
-  const li = button.closest('li');
-  if(li) {
-    li.classList.add('menu__tab-btn--active')
-  }
-  console.log(pizzaProducts[category][0]);
-  utils.removeCards();
-  const card = utils.renderCard(pizzaProducts[category][0]);
-  topContainerCards.innerHTML = `${card}`;
 })
