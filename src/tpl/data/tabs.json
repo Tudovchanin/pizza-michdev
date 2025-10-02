@@ -1,0 +1,29 @@
+{
+  "tabs": [
+    {
+      "value": "Show All",
+      "categories":"all",
+      "class": "btn btn--accent"
+    },
+    {
+      "value": "Show All",
+      "categories":"meat",
+      "class": "btn btn--dark"
+    },
+    {
+      "value": "Show All",
+      "categories":"vegetarian",
+      "class": "btn btn--dark"
+    },
+    {
+      "value": "Show All",
+      "categories":"sea",
+      "class": "btn btn--dark"
+    },
+    {
+      "value": "Show All",
+      "categories":"all",
+      "class": "btn btn--dark"
+    }
+  ]
+}

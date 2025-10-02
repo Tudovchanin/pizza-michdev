@@ -1,4 +1,12 @@
+
+
 <section id="menuPizza" class="menu">
+  <h2 class="menu__title">Menu</h2>
+  <div class="menu__tabs">
+
+  </div>
+
+
   <div class="menu__card">
     {{#each pizza_1}}
     {{#each this}}
@@ -6,8 +14,14 @@
     {{/each}}
     {{/each}}
 
-    <div style="grid-column: 1/-1; height: 286px; background-color: bisque;">
-      <h1 style="text-align: center;line-height: 286px; font-size: 60px;">Картинка или Видео</h1>
+    <div class="menu__promo">
+
+      <article class="video-content">
+          <div class="promo">
+            <h3 class="promo__title">Видео или картинка</h3>
+          </div>
+      </article>
+
     </div>
 
     {{#each pizza_2}}

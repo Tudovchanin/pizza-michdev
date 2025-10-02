@@ -4,6 +4,13 @@
   &__card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 22px;
+    column-gap: 22px;
+    row-gap: 70px;
+  }
+
+  &__promo {
+  grid-column: 1 /-1;
+  padding-bottom: 50px;
+   
   }
 }

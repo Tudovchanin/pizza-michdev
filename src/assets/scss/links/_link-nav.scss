@@ -1,0 +1,27 @@
+
+@use './utils/helpers';
+
+.link-nav {
+
+  &:hover {
+
+    @include helpers.text-gradient(var(--elem-gradient));
+  }
+
+  &--active {
+    @include helpers.text-gradient(var(--elem-gradient));
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: '';
+      left: 50%;
+      bottom: -15px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background: var(--elem-gradient);
+    }
+  }
+}
