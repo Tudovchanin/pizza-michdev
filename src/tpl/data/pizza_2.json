@@ -2,7 +2,7 @@
     "meat": [
       {
         "id": 5,
-        "name": "BBQ Chicken",
+        "namePizza": "BBQ Chicken",
         "description": "Grilled chicken with BBQ sauce",
         "price": { "22": 12, "28": 16, "33": 20 },
         "image": "italian-pizza",
@@ -12,7 +12,7 @@
     "vegetarian": [
       {
         "id": 6,
-        "name": "Cheese",
+        "namePizza": "Cheese",
         "description": "Mozzarella, gorgonzola, parmesan and ricotta",
         "price": { "22": 10, "28": 14, "33": 18 },
         "image": "cheese-pizza",
@@ -20,7 +20,7 @@
       },
       {
         "id": 7,
-        "name": "Tomato",
+        "namePizza": "Tomato",
         "description": "Classic with fresh tomatoes and basil",
         "price": { "22": 9, "28": 13, "33": 17 },
         "image": "tomato-pizza",
@@ -28,7 +28,7 @@
       },
       {
         "id": 8,
-        "name": "Italian",
+        "namePizza": "Italian",
         "description": "Traditional Italian recipe",
         "price": { "22": 8.35, "28": 15.33, "33": 19.60 },
         "image": "italian-pizza",
@@ -36,7 +36,7 @@
       },
       {
         "id": 9,
-        "name": "Italian x2",
+        "namePizza": "Italian x2",
         "description": "Double portion of Italian ingredients",
         "price": { "22": 13, "28": 17, "33": 21 },
         "image": "italian-x2-pizza",
@@ -44,7 +44,7 @@
       },
       {
         "id": 10,
-        "name": "Vegetarian",
+        "namePizza": "Vegetarian",
         "description": "Fresh vegetables and herbs",
         "price": { "22": 11, "28": 15, "33": 19 },
         "image": "tomato-pizza",
@@ -52,7 +52,7 @@
       },
       {
         "id": 11,
-        "name": "Mediterranean",
+        "namePizza": "Mediterranean",
         "description": "Sun-dried tomatoes, olives and feta cheese",
         "price": { "22": 12, "28": 16, "33": 20 },
         "image": "cheese-pizza",
@@ -62,7 +62,7 @@
     "mushroom": [
       {
         "id": 12,
-        "name": "Gribnaya",
+        "namePizza": "Gribnaya",
         "description": "Assorted mushrooms with creamy sauce",
         "price": { "22": 10, "28": 14, "33": 18 },
         "image": "mushroom-pizza",
@@ -70,7 +70,7 @@
       },
       {
         "id": 13,
-        "name": "Forest Mushroom",
+        "namePizza": "Forest Mushroom",
         "description": "Wild forest mushrooms with herbs",
         "price": { "22": 11, "28": 15, "33": 19 },
         "image": "tomato-pizza",
@@ -78,7 +78,7 @@
       },
       {
         "id": 14,
-        "name": "Truffle Mushroom",
+        "namePizza": "Truffle Mushroom",
         "description": "Mushrooms with truffle oil",
         "price": { "22": 13, "28": 17, "33": 21 },
         "image": "mushroom-pizza",
@@ -88,7 +88,7 @@
     "sea_products": [
       {
         "id": 15,
-        "name": "Seafood Mix",
+        "namePizza": "Seafood Mix",
         "description": "Shrimps, squid and mussels",
         "price": { "22": 14, "28": 18, "33": 22 },
         "image": "venecia-pizza",
@@ -96,7 +96,7 @@
       },
       {
         "id": 16,
-        "name": "Tuna & Corn",
+        "namePizza": "Tuna & Corn",
         "description": "Tuna with sweet corn and onions",
         "price": { "22": 12, "28": 16, "33": 20 },
         "image": "italian-x2-pizza",
@@ -104,7 +104,7 @@
       },
       {
         "id": 17,
-        "name": "Salmon Supreme",
+        "namePizza": "Salmon Supreme",
         "description": "Smoked salmon with cream cheese",
         "price": { "22": 15, "28": 19, "33": 23 },
         "image": "italian-pizza",

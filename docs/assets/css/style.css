@@ -141,8 +141,8 @@ h1, h2, h3, h4, h5, h6, p {
     min-height: 62px;
     border: none;
     border-radius: 100px;
-    font-weight: 500;
     font-size: inherit;
+    font-weight: inherit;
     line-height: 1.24;
 }
 
@@ -507,6 +507,7 @@ h1, h2, h3, h4, h5, h6, p {
     z-index: 0;
     max-width: 194px;
     font-size: 18px;
+    font-weight: 500;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -630,20 +631,27 @@ h1, h2, h3, h4, h5, h6, p {
 .menu__tabs {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 120px;
 }
 
 .menu__tab-btn {
     max-width: 229px;
     width: 100%;
+    font-size: 22px;
+    font-weight: 500;
 }
 
-.menu__card {
+.menu__tab-btn--active {
+    transform: scale(0.9);
+}
+
+.menu__card-top, .menu__card-bottom {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     -moz-column-gap: 22px;
     column-gap: 22px;
     row-gap: 70px;
+    padding-top: 100px;
+    padding-bottom: 150px;
 }
 
 .menu__promo {

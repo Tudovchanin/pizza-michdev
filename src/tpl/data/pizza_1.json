@@ -2,7 +2,7 @@
   "meat": [
     {
       "id": 1,
-      "name": "Meat",
+      "namePizza": "Meat",
       "description": "Assortment of beef, ham, pepperoni and bacon",
       "price": { "22": 12, "28": 16, "33": 20 },
       "image": "meat-pizza",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Argentina",
+      "namePizza": "Argentina",
       "description": "Juicy Argentinian beef with herbs",
       "price": { "22": 13, "28": 17, "33": 21 },
       "image": "argentina-pizza",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "Venecia",
+      "namePizza": "Venecia",
       "description": "Venetian style with Italian sausages",
       "price": { "22": 12, "28": 16, "33": 20 },
       "image": "venecia-pizza",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "name": "Pepperoni Classic",
+      "namePizza": "Pepperoni Classic",
       "description": "Double pepperoni with extra cheese",
       "price": { "22": 11, "28": 15, "33": 19 },
       "image": "cheese-pizza",

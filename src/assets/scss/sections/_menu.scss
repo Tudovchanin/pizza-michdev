@@ -5,17 +5,29 @@
   &__tabs {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 120px;
   }
   &__tab-btn {
     max-width: 229px;
     width: 100%;
+    font-size: 22px;
+    font-weight: 500;
+    &--active {
+      transform: scale(0.9);
+    }
   }
+
+
   &__card {
-    display: grid;
+   
+  }
+
+  &__card-top, &__card-bottom {
+     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 22px;
     row-gap: 70px;
+    padding-top: 100px;
+    padding-bottom: 150px;
   }
 
   &__promo {

@@ -39,23 +39,8 @@ const $tabs = document.getElementById('tabs');
 
 const $allTab = document.querySelectorAll('.menu__tab-btn button');
 
-$tabs.addEventListener('click', (e)=> {
-
-  const button = e.target.closest('button');
-  if(!button) return;
-
-  const category = button.getAttribute('data-category');
-  console.log(category);
-  console.log($allTab);
-  $allTab.forEach(tab => tab.classList.remove('btn--accent'));
-  button.classList.add('btn--accent');
-
-
-console.log(button);
-})
-
-console.log($tabs);
-
+const topContainerCards = document.getElementById('top-cards');
+const bottomContainerCards = document.getElementById('bottom-cards');
 
 // cart
 const savedCart = localStorage.getItem('cart');
@@ -93,7 +78,7 @@ $menuPizza.addEventListener('click', (e)=> {
 
 
 $menuPizza.addEventListener('click', (e) => {
-
+console.log(e.target);
   if (!e.target.closest('.pizza-card__quantity-btn')) return;
 
   const $pizzaCard = e.target.closest('.pizza-card');
@@ -110,7 +95,7 @@ $menuPizza.addEventListener('click', (e) => {
 
   if (!$quantityPizza) return;
 
-
+console.log($selectedSizeRadio, '$selectedSizeRadio');
   let numberOfPizzas = +$quantityPizza.textContent;
   const pricePerPizza = +$selectedSizeRadio.getAttribute('data-price');
 
@@ -163,3 +148,27 @@ $menuPizza.addEventListener('change', (e) => {
 
 
 
+
+$tabs.addEventListener('click', (e)=> {
+
+  const button = e.target.closest('button');
+  if(!button) return;
+  const category = button.getAttribute('data-category');
+  console.log(category);
+  $allTab.forEach(tab => {
+    tab.classList.remove('btn--accent')
+    const li = tab.closest('li');
+    if(li){
+      li.classList.remove('menu__tab-btn--active');
+    }
+  })
+  button.classList.add('btn--accent');
+  const li = button.closest('li');
+  if(li) {
+    li.classList.add('menu__tab-btn--active')
+  }
+  console.log(pizzaProducts[category][0]);
+  utils.removeCards();
+  const card = utils.renderCard(pizzaProducts[category][0]);
+  topContainerCards.innerHTML = `${card}`;
+})

@@ -10,7 +10,7 @@ function getPizzaData (){
     meat: [
       {
         id: 1,
-        name: "Meat",
+        namePizza: "Meat",
         description: "Assortment of beef, ham, pepperoni and bacon",
         price: { 22: 12, 28: 16, 33: 20 },
         image: "meat-pizza",
@@ -18,7 +18,7 @@ function getPizzaData (){
       },
       {
         id: 2,
-        name: "Argentina", 
+        namePizza: "Argentina", 
         description: "Juicy Argentinian beef with herbs",
         price: { 22: 13, 28: 17, 33: 21 },
         image: "argentina-pizza",
@@ -26,7 +26,7 @@ function getPizzaData (){
       },
       {
         id: 3,
-        name: "Venecia",
+        namePizza: "Venecia",
         description: "Venetian style with Italian sausages",
         price: { 22: 12, 28: 16, 33: 20 },
         image: "venecia-pizza",
@@ -34,7 +34,7 @@ function getPizzaData (){
       },
       {
         id: 4,
-        name: "Pepperoni Classic",
+        namePizza: "Pepperoni Classic",
         description: "Double pepperoni with extra cheese",
         price: { 22: 11, 28: 15, 33: 19 },
         image: "pepperoni-pizza",
@@ -42,10 +42,10 @@ function getPizzaData (){
       },
       {
         id: 5,
-        name: "BBQ Chicken",
+        namePizza: "BBQ Chicken",
         description: "Grilled chicken with BBQ sauce",
         price: { 22: 12, 28: 16, 33: 20 },
-        image: "bbq-chicken-pizza",
+        image: "meat-pizza",
         ingredients: ["chicken", "BBQ sauce", "red onions", "mozzarella", "corn"]
       }
     ],
@@ -53,7 +53,7 @@ function getPizzaData (){
     vegetarian: [
       {
         id: 6,
-        name: "Cheese",
+        namePizza: "Cheese",
         description: "Mozzarella, gorgonzola, parmesan and ricotta",
         price: { 22: 10, 28: 14, 33: 18 },
         image: "cheese-pizza",
@@ -61,7 +61,7 @@ function getPizzaData (){
       },
       {
         id: 7,
-        name: "Tomato",
+        namePizza: "Tomato",
         description: "Classic with fresh tomatoes and basil",
         price: { 22: 9, 28: 13, 33: 17 },
         image: "tomato-pizza",
@@ -69,7 +69,7 @@ function getPizzaData (){
       },
       {
         id: 8,
-        name: "Italian",
+        namePizza: "Italian",
         description: "Traditional Italian recipe",
         price: { 22: 8.35, 28: 15.33, 33: 19.60 },
         image: "italian-pizza",
@@ -77,7 +77,7 @@ function getPizzaData (){
       },
       {
         id: 9,
-        name: "Italian x2",
+        namePizza: "Italian x2",
         description: "Double portion of Italian ingredients",
         price: { 22: 13, 28: 17, 33: 21 },
         image: "italian-x2-pizza",
@@ -85,7 +85,7 @@ function getPizzaData (){
       },
       {
         id: 10,
-        name: "Vegetarian",
+        namePizza: "Vegetarian",
         description: "Fresh vegetables and herbs",
         price: { 22: 11, 28: 15, 33: 19 },
         image: "vegetarian-pizza",
@@ -93,10 +93,10 @@ function getPizzaData (){
       },
       {
         id: 11,
-        name: "Mediterranean",
+        namePizza: "Mediterranean",
         description: "Sun-dried tomatoes, olives and feta cheese",
         price: { 22: 12, 28: 16, 33: 20 },
-        image: "mediterranean-pizza",
+        image: "meat-pizza",
         ingredients: ["sun-dried tomatoes", "olives", "feta cheese", "spinach", "mozzarella"]
       }
     ],
@@ -104,7 +104,7 @@ function getPizzaData (){
     mushroom: [
       {
         id: 12,
-        name: "Gribnaya",
+        namePizza: "Gribnaya",
         description: "Assorted mushrooms with creamy sauce",
         price: { 22: 10, 28: 14, 33: 18 },
         image: "mushroom-pizza",
@@ -112,15 +112,15 @@ function getPizzaData (){
       },
       {
         id: 13,
-        name: "Forest Mushroom",
+        namePizza: "Forest Mushroom",
         description: "Wild forest mushrooms with herbs",
         price: { 22: 11, 28: 15, 33: 19 },
-        image: "forest-mushroom-pizza",
+        image: "argentina-pizza",
         ingredients: ["wild mushrooms", "herbs", "garlic", "mozzarella", "cream sauce"]
       },
       {
         id: 14,
-        name: "Truffle Mushroom",
+        namePizza: "Truffle Mushroom",
         description: "Mushrooms with truffle oil",
         price: { 22: 13, 28: 17, 33: 21 },
         image: "truffle-pizza",
@@ -131,26 +131,26 @@ function getPizzaData (){
     sea_products: [
       {
         id: 15,
-        name: "Seafood Mix",
+        namePizza: "Seafood Mix",
         description: "Shrimps, squid and mussels",
         price: { 22: 14, 28: 18, 33: 22 },
-        image: "seafood-pizza",
+        image: "argentina-pizza",
         ingredients: ["shrimps", "squid", "mussels", "garlic", "mozzarella", "white sauce"]
       },
       {
         id: 16,
-        name: "Tuna & Corn",
+        namePizza: "Tuna & Corn",
         description: "Tuna with sweet corn and onions",
         price: { 22: 12, 28: 16, 33: 20 },
-        image: "tuna-pizza",
+        image: "venecia-pizza",
         ingredients: ["tuna", "sweet corn", "red onions", "mozzarella", "tomato sauce"]
       },
       {
         id: 17,
-        name: "Salmon Supreme",
+        namePizza: "Salmon Supreme",
         description: "Smoked salmon with cream cheese",
         price: { 22: 15, 28: 19, 33: 23 },
-        image: "salmon-pizza",
+        image: "cheese-pizza",
         ingredients: ["smoked salmon", "cream cheese", "capers", "red onions", "dill"]
       }
     ]
@@ -163,18 +163,97 @@ return productsData;
 
 
 function getUtils() {
-  
+
   return {
     formatPrice(price, locale = 'en-US') {
       return new Intl.NumberFormat(locale, {
-        minimumFractionDigits:0,
+        minimumFractionDigits: 0,
         maximumFractionDigits: 2
       }).format(price);
     },
     saveCart(cart) {
       localStorage.setItem('cart', JSON.stringify(cart));
-    }
+    },
+    removeCards() {
+      topContainerCards.innerHTML = '';
+      bottomContainerCards.innerHTML = '';
+    },
+
+    renderCard(data) {
+      // Обрабатываем ингредиенты (первые 3 и остальные)
+      const firstThreeIngredients = data.ingredients.slice(0, 3).join(', ');
+      const remainingIngredients = data.ingredients.slice(3).join(', ');
+
+      // Получаем первую цену для отображения
+      const firstPrice = Object.values(data.price)[0];
+
+      // Генерируем радио-кнопки размеров
+      const sizeRadios = Object.entries(data.price)
+        .map(([size, price], index) => `
+      <label class="pizza-card__size-label">
+        <input class="pizza-card__size-radio visually-hidden" 
+               data-price="${price}" 
+               type="radio" 
+               name="size" 
+               value="${size}" 
+               ${index === 0 ? 'checked' : ''} />
+        <span class="pizza-card__size-text">${size}</span>
+      </label>
+    `).join('');
+
+      const card = `
+    <article data-id="${data.id}" class="pizza-card">
+      <header class="pizza-card__header">
+        <figure class="pizza-card__figure">
+          <img class="pizza-card__img" src="./assets/img/pizza/${data.image}.png" alt="${data.namePizza}" />
+        </figure>
+        <h3 class="pizza-card__title">${data.namePizza}</h3>
+      </header>
+      <div class="pizza-card__ingredients">
+        <p class="pizza-card__first-line text-ellipsis">
+          Filling: ${firstThreeIngredients}
+        </p>
+        ${remainingIngredients ? `
+          <p class="pizza-card__second-line text-ellipsis">
+            ${remainingIngredients}
+          </p>
+        ` : ''}
+      </div>
     
+      <form class="pizza-card__form">
+        ${sizeRadios}
+      </form>
+    
+      <button class="pizza-card__customize-btn">
+        <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+      </button>
+      <div class="pizza-card__order-controls">
+        <p class="pizza-card__price text-ellipsis">
+          <span class="total-price">${firstPrice}</span>
+          <span class="pizza-card__currency">$</span>
+        </p>
+        <div class="pizza-card__quantity-controls">
+          <button disabled class="pizza-card__quantity-btn decrement-pizza">
+            <svg width="8" height="2" viewBox="0 0 12 2">
+              <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+          <p class="pizza-card__quantity">1</p>
+          <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-pizza">
+            <svg width="8" height="8" viewBox="0 0 12 12">
+              <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <button class="pizza-card__order btn btn--accent btn--small">
+        Order Now
+      </button>
+    </article>
+  `;
+
+      return card;
+    },
   }
 }
 
@@ -211,23 +290,8 @@ const $tabs = document.getElementById('tabs');
 
 const $allTab = document.querySelectorAll('.menu__tab-btn button');
 
-$tabs.addEventListener('click', (e)=> {
-
-  const button = e.target.closest('button');
-  if(!button) return;
-
-  const category = button.getAttribute('data-category');
-  console.log(category);
-  console.log($allTab);
-  $allTab.forEach(tab => tab.classList.remove('btn--accent'));
-  button.classList.add('btn--accent');
-
-
-console.log(button);
-})
-
-console.log($tabs);
-
+const topContainerCards = document.getElementById('top-cards');
+const bottomContainerCards = document.getElementById('bottom-cards');
 
 // cart
 const savedCart = localStorage.getItem('cart');
@@ -265,7 +329,7 @@ $menuPizza.addEventListener('click', (e)=> {
 
 
 $menuPizza.addEventListener('click', (e) => {
-
+console.log(e.target);
   if (!e.target.closest('.pizza-card__quantity-btn')) return;
 
   const $pizzaCard = e.target.closest('.pizza-card');
@@ -282,7 +346,7 @@ $menuPizza.addEventListener('click', (e) => {
 
   if (!$quantityPizza) return;
 
-
+console.log($selectedSizeRadio, '$selectedSizeRadio');
   let numberOfPizzas = +$quantityPizza.textContent;
   const pricePerPizza = +$selectedSizeRadio.getAttribute('data-price');
 
@@ -331,4 +395,31 @@ $menuPizza.addEventListener('change', (e) => {
   const pricePerPizza = +e.target.getAttribute('data-price');
 
   $totalPricePizza.textContent = utils.formatPrice(numberOfPizzas * pricePerPizza);
+})
+
+
+
+
+$tabs.addEventListener('click', (e)=> {
+
+  const button = e.target.closest('button');
+  if(!button) return;
+  const category = button.getAttribute('data-category');
+  console.log(category);
+  $allTab.forEach(tab => {
+    tab.classList.remove('btn--accent')
+    const li = tab.closest('li');
+    if(li){
+      li.classList.remove('menu__tab-btn--active');
+    }
+  })
+  button.classList.add('btn--accent');
+  const li = button.closest('li');
+  if(li) {
+    li.classList.add('menu__tab-btn--active')
+  }
+  console.log(pizzaProducts[category][0]);
+  utils.removeCards();
+  const card = utils.renderCard(pizzaProducts[category][0]);
+  topContainerCards.innerHTML = `${card}`;
 })

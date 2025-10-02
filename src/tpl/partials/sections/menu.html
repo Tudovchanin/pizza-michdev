@@ -2,7 +2,7 @@
   <h2 class="menu__title">Menu</h2>
   <ul id="tabs" class="menu__tabs">
     {{#each tabs.data}}
-    <li class="menu__tab-btn">
+    <li class="menu__tab-btn {{#if active}}menu__tab-btn--active{{/if}}">
       <button class="{{classes}}" data-category="{{categories}}">
         {{value}}
       </button>
@@ -10,13 +10,17 @@
     {{/each}}
   </ul>
 
-
   <div class="menu__card">
-    {{#each pizza_1}}
-    {{#each this}}
-    {{> pizza this}}
-    {{/each}}
-    {{/each}}
+
+    <div id="top-cards" class="menu__card-top">
+      {{#each pizza_1}}
+      {{#each this}}
+      {{> pizza this}}
+      {{/each}}
+      {{/each}}
+    </div>
+
+
 
     <div class="menu__promo">
 
@@ -28,12 +32,13 @@
 
     </div>
 
-    {{#each pizza_2}}
-    {{#each this}}
-    {{> pizza this}}
-    {{/each}}
-    {{/each}}
-
+    <div id="bottom-cards" class="menu__card-bottom">
+      {{#each pizza_2}}
+      {{#each this}}
+      {{> pizza this}}
+      {{/each}}
+      {{/each}}
+    </div>
   </div>
 </section>
 

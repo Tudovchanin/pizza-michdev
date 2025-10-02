@@ -5,7 +5,7 @@ function getPizzaData (){
     meat: [
       {
         id: 1,
-        name: "Meat",
+        namePizza: "Meat",
         description: "Assortment of beef, ham, pepperoni and bacon",
         price: { 22: 12, 28: 16, 33: 20 },
         image: "meat-pizza",
@@ -13,7 +13,7 @@ function getPizzaData (){
       },
       {
         id: 2,
-        name: "Argentina", 
+        namePizza: "Argentina", 
         description: "Juicy Argentinian beef with herbs",
         price: { 22: 13, 28: 17, 33: 21 },
         image: "argentina-pizza",
@@ -21,7 +21,7 @@ function getPizzaData (){
       },
       {
         id: 3,
-        name: "Venecia",
+        namePizza: "Venecia",
         description: "Venetian style with Italian sausages",
         price: { 22: 12, 28: 16, 33: 20 },
         image: "venecia-pizza",
@@ -29,7 +29,7 @@ function getPizzaData (){
       },
       {
         id: 4,
-        name: "Pepperoni Classic",
+        namePizza: "Pepperoni Classic",
         description: "Double pepperoni with extra cheese",
         price: { 22: 11, 28: 15, 33: 19 },
         image: "pepperoni-pizza",
@@ -37,10 +37,10 @@ function getPizzaData (){
       },
       {
         id: 5,
-        name: "BBQ Chicken",
+        namePizza: "BBQ Chicken",
         description: "Grilled chicken with BBQ sauce",
         price: { 22: 12, 28: 16, 33: 20 },
-        image: "bbq-chicken-pizza",
+        image: "meat-pizza",
         ingredients: ["chicken", "BBQ sauce", "red onions", "mozzarella", "corn"]
       }
     ],
@@ -48,7 +48,7 @@ function getPizzaData (){
     vegetarian: [
       {
         id: 6,
-        name: "Cheese",
+        namePizza: "Cheese",
         description: "Mozzarella, gorgonzola, parmesan and ricotta",
         price: { 22: 10, 28: 14, 33: 18 },
         image: "cheese-pizza",
@@ -56,7 +56,7 @@ function getPizzaData (){
       },
       {
         id: 7,
-        name: "Tomato",
+        namePizza: "Tomato",
         description: "Classic with fresh tomatoes and basil",
         price: { 22: 9, 28: 13, 33: 17 },
         image: "tomato-pizza",
@@ -64,7 +64,7 @@ function getPizzaData (){
       },
       {
         id: 8,
-        name: "Italian",
+        namePizza: "Italian",
         description: "Traditional Italian recipe",
         price: { 22: 8.35, 28: 15.33, 33: 19.60 },
         image: "italian-pizza",
@@ -72,7 +72,7 @@ function getPizzaData (){
       },
       {
         id: 9,
-        name: "Italian x2",
+        namePizza: "Italian x2",
         description: "Double portion of Italian ingredients",
         price: { 22: 13, 28: 17, 33: 21 },
         image: "italian-x2-pizza",
@@ -80,7 +80,7 @@ function getPizzaData (){
       },
       {
         id: 10,
-        name: "Vegetarian",
+        namePizza: "Vegetarian",
         description: "Fresh vegetables and herbs",
         price: { 22: 11, 28: 15, 33: 19 },
         image: "vegetarian-pizza",
@@ -88,10 +88,10 @@ function getPizzaData (){
       },
       {
         id: 11,
-        name: "Mediterranean",
+        namePizza: "Mediterranean",
         description: "Sun-dried tomatoes, olives and feta cheese",
         price: { 22: 12, 28: 16, 33: 20 },
-        image: "mediterranean-pizza",
+        image: "meat-pizza",
         ingredients: ["sun-dried tomatoes", "olives", "feta cheese", "spinach", "mozzarella"]
       }
     ],
@@ -99,7 +99,7 @@ function getPizzaData (){
     mushroom: [
       {
         id: 12,
-        name: "Gribnaya",
+        namePizza: "Gribnaya",
         description: "Assorted mushrooms with creamy sauce",
         price: { 22: 10, 28: 14, 33: 18 },
         image: "mushroom-pizza",
@@ -107,15 +107,15 @@ function getPizzaData (){
       },
       {
         id: 13,
-        name: "Forest Mushroom",
+        namePizza: "Forest Mushroom",
         description: "Wild forest mushrooms with herbs",
         price: { 22: 11, 28: 15, 33: 19 },
-        image: "forest-mushroom-pizza",
+        image: "argentina-pizza",
         ingredients: ["wild mushrooms", "herbs", "garlic", "mozzarella", "cream sauce"]
       },
       {
         id: 14,
-        name: "Truffle Mushroom",
+        namePizza: "Truffle Mushroom",
         description: "Mushrooms with truffle oil",
         price: { 22: 13, 28: 17, 33: 21 },
         image: "truffle-pizza",
@@ -126,26 +126,26 @@ function getPizzaData (){
     sea_products: [
       {
         id: 15,
-        name: "Seafood Mix",
+        namePizza: "Seafood Mix",
         description: "Shrimps, squid and mussels",
         price: { 22: 14, 28: 18, 33: 22 },
-        image: "seafood-pizza",
+        image: "argentina-pizza",
         ingredients: ["shrimps", "squid", "mussels", "garlic", "mozzarella", "white sauce"]
       },
       {
         id: 16,
-        name: "Tuna & Corn",
+        namePizza: "Tuna & Corn",
         description: "Tuna with sweet corn and onions",
         price: { 22: 12, 28: 16, 33: 20 },
-        image: "tuna-pizza",
+        image: "venecia-pizza",
         ingredients: ["tuna", "sweet corn", "red onions", "mozzarella", "tomato sauce"]
       },
       {
         id: 17,
-        name: "Salmon Supreme",
+        namePizza: "Salmon Supreme",
         description: "Smoked salmon with cream cheese",
         price: { 22: 15, 28: 19, 33: 23 },
-        image: "salmon-pizza",
+        image: "cheese-pizza",
         ingredients: ["smoked salmon", "cream cheese", "capers", "red onions", "dill"]
       }
     ]

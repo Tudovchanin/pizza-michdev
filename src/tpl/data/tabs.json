@@ -3,27 +3,36 @@
     {
       "value": "Show All",
       "categories":"all",
-      "classes": "btn btn--dark btn--accent"
+      "classes": "btn btn--dark btn--accent",
+      "active": true
     },
     {
       "value": "Meat",
       "categories":"meat",
-      "classes": "btn btn--dark"
+      "classes": "btn btn--dark",
+      "active": false
+
     },
     {
       "value": "Vegetarian",
       "categories":"vegetarian",
-      "classes": "btn btn--dark"
+      "classes": "btn btn--dark",
+      "active": false
+
     },
     {
       "value": "Mushroom",
       "categories":"mushroom",
-      "classes": "btn btn--dark"
+      "classes": "btn btn--dark",
+      "active": false
+
     },
     {
       "value": "Sea products",
       "categories":"sea_products",
-      "classes": "btn btn--dark"
+      "classes": "btn btn--dark",
+      "active": false
+
     }
   ]
 }
