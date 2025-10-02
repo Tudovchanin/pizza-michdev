@@ -3,7 +3,7 @@
     {
       "value": "Show All",
       "categories":"all",
-      "classes": "btn btn--accent"
+      "classes": "btn btn--dark btn--accent"
     },
     {
       "value": "Meat",

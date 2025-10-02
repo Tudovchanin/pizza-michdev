@@ -33,6 +33,30 @@ const $cartBtn = document.getElementById('cartBtn');
 
 
 
+//  tabs 
+
+const $tabs = document.getElementById('tabs');
+
+const $allTab = document.querySelectorAll('.menu__tab-btn button');
+
+$tabs.addEventListener('click', (e)=> {
+
+  const button = e.target.closest('button');
+  if(!button) return;
+
+  const category = button.getAttribute('data-category');
+  console.log(category);
+  console.log($allTab);
+  $allTab.forEach(tab => tab.classList.remove('btn--accent'));
+  button.classList.add('btn--accent');
+
+
+console.log(button);
+})
+
+console.log($tabs);
+
+
 // cart
 const savedCart = localStorage.getItem('cart');
 const cart = savedCart ? JSON.parse(savedCart) : {};
