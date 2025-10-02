@@ -1,29 +1,29 @@
 {
-  "tabs": [
+  "data": [
     {
       "value": "Show All",
       "categories":"all",
-      "class": "btn btn--accent"
+      "classes": "btn btn--accent"
     },
     {
-      "value": "Show All",
+      "value": "Meat",
       "categories":"meat",
-      "class": "btn btn--dark"
+      "classes": "btn btn--dark"
     },
     {
-      "value": "Show All",
+      "value": "Vegetarian",
       "categories":"vegetarian",
-      "class": "btn btn--dark"
+      "classes": "btn btn--dark"
     },
     {
-      "value": "Show All",
-      "categories":"sea",
-      "class": "btn btn--dark"
+      "value": "Mushroom",
+      "categories":"mushroom",
+      "classes": "btn btn--dark"
     },
     {
-      "value": "Show All",
-      "categories":"all",
-      "class": "btn btn--dark"
+      "value": "Sea products",
+      "categories":"sea_products",
+      "classes": "btn btn--dark"
     }
   ]
 }

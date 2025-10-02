@@ -627,6 +627,16 @@ h1, h2, h3, h4, h5, h6, p {
     left: -4px;
 }
 
+.menu__tabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__tab-btn {
+    max-width: 229px;
+    width: 100%;
+}
+
 .menu__card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -1,6 +1,15 @@
 
 
 .menu {
+
+  &__tabs {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__tab-btn {
+    max-width: 229px;
+    width: 100%;
+  }
   &__card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -11,6 +20,5 @@
   &__promo {
   grid-column: 1 /-1;
   padding-bottom: 50px;
-   
   }
 }
