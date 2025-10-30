@@ -171,7 +171,7 @@ function renderUtils() {
             ).toFixed(2)} $<p>
             <figure class="ingredient-card">
               <div class="ingredient-card__wrapper-img">
-                <img src="/assets/img/ingredients/${
+                <img src="./assets/img/ingredients/${
                   ingredient.nameImg
                 }.png" alt="image ingredient ${
           ingredient.name
