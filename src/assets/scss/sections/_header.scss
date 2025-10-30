@@ -1,15 +1,34 @@
-@use '../utils/helpers';
+@use '../utils/helperMixins';
 @use '../utils/mediaMixins' as *;
 @use '../lists/list';
 
 
 .header {
-  padding-top: 57px;
+  position: fixed;
+  width: 100%;
+  z-index: 500;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  
+  &::before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    z-index: -1;
+    background: var(--bg-gradient);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &--active::before {
+    opacity: 1;
+  }
+
+
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    outline: solid;
   }
 
   &__nav {
@@ -17,24 +36,33 @@
     font-size: 18px;
   }
 
-  &__cart {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: var(--elem-gradient);
-    & img {
-      width: 28px;
-      height: 28px;
-    }
+  &__cart {}
+}
 
-    &:active {
-      transform: scale(0.97);
-    }
-    @include helpers.hover-and-pointer {
-      &:hover {
-       opacity: 0.8;
-      }
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--elem-gradient);
+  cursor: pointer;
+  & img {
+    width: 70%;
+    height: 70%;
+    transform: translateY(-1px)
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @include helperMixins.hover-and-pointer {
+    &:hover {
+      opacity: 0.8;
     }
   }
 }

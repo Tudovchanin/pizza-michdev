@@ -1,9 +1,8 @@
-@use './helpers';
+@use './helperMixins';
 
 .container {
-  max-width: 1292px;
+  max-width: 1300px;
   margin: 0 auto;
-
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -20,14 +19,19 @@
   border: 0;
 }
 
+.d-none {
+  display: none;
+}
+
 .text-ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+
 .text-gradient {
-  @include helpers.text-gradient(var(--elem-gradient));
+  @include helperMixins.text-gradient(var(--elem-gradient));
 }
 
 .ps-rel-idx-100 {
@@ -35,3 +39,6 @@
   z-index: 100;
 }
 
+.fw-500 {
+  font-weight: 500;
+}

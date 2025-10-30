@@ -7,15 +7,14 @@
       "active": true
     },
     {
-      "value": "Meat",
-      "categories":"meat",
-      "classes": "btn btn--dark",
-      "active": false
-
-    },
-    {
       "value": "Vegetarian",
       "categories":"vegetarian",
+      "classes": "btn btn--dark",
+      "active": false
+    },
+    {
+      "value": "Meat",
+      "categories":"meat",
       "classes": "btn btn--dark",
       "active": false
 

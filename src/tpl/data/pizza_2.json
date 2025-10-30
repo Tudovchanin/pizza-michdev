@@ -1,115 +1,246 @@
+
 {
-    "meat": [
-      {
-        "id": 5,
-        "namePizza": "BBQ Chicken",
-        "description": "Grilled chicken with BBQ sauce",
-        "price": { "22": 12, "28": 16, "33": 20 },
-        "image": "italian-pizza",
-        "ingredients": ["chicken", "BBQ sauce", "red onions", "mozzarella", "corn"]
+  "meat": [
+       {
+          "id": 5,
+          "namePizza": "BBQ Chicken",
+          "description": "Grilled chicken with BBQ sauce",
+          "price": {
+              "22": "12.00",
+              "28": "16.00",
+              "33": "20.00"
+          },
+          "image": "meat-pizza",
+          "ingredients": [
+              "chicken",
+              "BBQ sauce",
+              "red onions",
+              "mozzarella",
+              "sweet corn"
+          ]
       }
-    ],
-    "vegetarian": [
+  ],
+  "vegetarian": [
       {
-        "id": 6,
-        "namePizza": "Cheese",
-        "description": "Mozzarella, gorgonzola, parmesan and ricotta",
-        "price": { "22": 10, "28": 14, "33": 18 },
-        "image": "cheese-pizza",
-        "ingredients": ["mozzarella", "gorgonzola", "parmesan", "ricotta", "tomato sauce"]
+          "id": 6,
+          "namePizza": "Cheese",
+          "description": "Mozzarella, gorgonzola, parmesan and ricotta",
+          "price": {
+              "22": "10.00",
+              "28": "14.00",
+              "33": "18.00"
+          },
+          "image": "cheese-pizza",
+          "ingredients": [
+              "mozzarella",
+              "gorgonzola",
+              "parmesan",
+              "ricotta",
+              "tomato sauce"
+          ]
       },
       {
-        "id": 7,
-        "namePizza": "Tomato",
-        "description": "Classic with fresh tomatoes and basil",
-        "price": { "22": 9, "28": 13, "33": 17 },
-        "image": "tomato-pizza",
-        "ingredients": ["fresh tomatoes", "basil", "mozzarella", "tomato sauce"]
+          "id": 7,
+          "namePizza": "Tomato",
+          "description": "Classic with fresh tomatoes and basil",
+          "price": {
+              "22": "9.00",
+              "28": "13.00",
+              "33": "17.00"
+          },
+          "image": "tomato-pizza",
+          "ingredients": [
+              "fresh tomatoes",
+              "basil",
+              "mozzarella",
+              "tomato sauce"
+          ]
       },
       {
-        "id": 8,
-        "namePizza": "Italian",
-        "description": "Traditional Italian recipe",
-        "price": { "22": 8.35, "28": 15.33, "33": 19.60 },
-        "image": "italian-pizza",
-        "ingredients": ["prosciutto", "arugula", "parmesan", "mozzarella", "tomato sauce"]
+          "id": 8,
+          "namePizza": "Italian",
+          "description": "Traditional Italian recipe",
+          "price": {
+              "22": "8.35",
+              "28": "15.33",
+              "33": "19.60"
+          },
+          "image": "italian-pizza",
+          "ingredients": [
+              "prosciutto",
+              "bell peppers",
+              "parmesan",
+              "mozzarella",
+              "tomato sauce"
+          ]
       },
       {
-        "id": 9,
-        "namePizza": "Italian x2",
-        "description": "Double portion of Italian ingredients",
-        "price": { "22": 13, "28": 17, "33": 21 },
-        "image": "italian-x2-pizza",
-        "ingredients": ["prosciutto", "salami", "olives", "mozzarella", "tomato sauce"]
+          "id": 9,
+          "namePizza": "Italian x2",
+          "description": "Double portion of Italian ingredients",
+          "price": {
+              "22": "13.00",
+              "28": "17.00",
+              "33": "21.00"
+          },
+          "image": "italian-x2-pizza",
+          "ingredients": [
+              "prosciutto",
+              "salami",
+              "olives",
+              "mozzarella",
+              "tomato sauce"
+          ]
       },
       {
-        "id": 10,
-        "namePizza": "Vegetarian",
-        "description": "Fresh vegetables and herbs",
-        "price": { "22": 11, "28": 15, "33": 19 },
-        "image": "tomato-pizza",
-        "ingredients": ["bell peppers", "tomatoes", "onions", "olives", "mushrooms", "mozzarella"]
+          "id": 10,
+          "namePizza": "Vegetarian",
+          "description": "Fresh vegetables and herbs",
+          "price": {
+              "22": "11.00",
+              "28": "15.00",
+              "33": "19.00"
+          },
+          "image": "tomato-pizza",
+          "ingredients": [
+              "bell peppers",
+              "fresh tomatoes",
+              "onions",
+              "olives",
+              "mushrooms",
+              "mozzarella"
+          ]
       },
       {
-        "id": 11,
-        "namePizza": "Mediterranean",
-        "description": "Sun-dried tomatoes, olives and feta cheese",
-        "price": { "22": 12, "28": 16, "33": 20 },
-        "image": "cheese-pizza",
-        "ingredients": ["sun-dried tomatoes", "olives", "feta cheese", "spinach", "mozzarella"]
+          "id": 11,
+          "namePizza": "Mediterranean",
+          "description": "Sun-dried tomatoes, olives and feta cheese",
+          "price": {
+              "22": "12.00",
+              "28": "16.00",
+              "33": "20.00"
+          },
+          "image": "meat-pizza",
+          "ingredients": [
+              "sun-dried tomatoes",
+              "olives",
+              "gorgonzola",
+              "spinach",
+              "mozzarella"
+          ]
       }
-    ],
-    "mushroom": [
+  ],
+  "mushroom": [
       {
-        "id": 12,
-        "namePizza": "Gribnaya",
-        "description": "Assorted mushrooms with creamy sauce",
-        "price": { "22": 10, "28": 14, "33": 18 },
-        "image": "mushroom-pizza",
-        "ingredients": ["champignons", "porcini mushrooms", "creamy sauce", "mozzarella", "thyme"]
+          "id": 12,
+          "namePizza": "Gribnaya",
+          "description": "Assorted mushrooms with creamy sauce",
+          "price": {
+              "22": "10.00",
+              "28": "14.00",
+              "33": "18.00"
+          },
+          "image": "mushroom-pizza",
+          "ingredients": [
+              "prosciutto",
+              "shrimps",
+              "squid",
+              "mozzarella",
+              "mussels"
+          ]
       },
       {
-        "id": 13,
-        "namePizza": "Forest Mushroom",
-        "description": "Wild forest mushrooms with herbs",
-        "price": { "22": 11, "28": 15, "33": 19 },
-        "image": "tomato-pizza",
-        "ingredients": ["wild mushrooms", "herbs", "garlic", "mozzarella", "cream sauce"]
+          "id": 13,
+          "namePizza": "Forest Mushroom",
+          "description": "Wild forest mushrooms with herbs",
+          "price": {
+              "22": "11.00",
+              "28": "15.00",
+              "33": "19.00"
+          },
+          "image": "argentina-pizza",
+          "ingredients": [
+              "smoked salmon",
+              "thyme",
+              "garlic",
+              "mozzarella",
+              "sweet corn"
+          ]
       },
       {
-        "id": 14,
-        "namePizza": "Truffle Mushroom",
-        "description": "Mushrooms with truffle oil",
-        "price": { "22": 13, "28": 17, "33": 21 },
-        "image": "mushroom-pizza",
-        "ingredients": ["mushrooms", "truffle oil", "parmesan", "mozzarella", "cream sauce"]
+          "id": 14,
+          "namePizza": "Truffle Mushroom",
+          "description": "Mushrooms with truffle oil",
+          "price": {
+              "22": "13.00",
+              "28": "17.00",
+              "33": "21.00"
+          },
+          "image": "mushroom-pizza",
+          "ingredients": [
+              "mushrooms",
+              "capers",
+              "parmesan",
+              "mozzarella",
+              "sweet corn"
+          ]
       }
-    ],
-    "sea_products": [
+  ],
+  "sea_products": [
       {
-        "id": 15,
-        "namePizza": "Seafood Mix",
-        "description": "Shrimps, squid and mussels",
-        "price": { "22": 14, "28": 18, "33": 22 },
-        "image": "venecia-pizza",
-        "ingredients": ["shrimps", "squid", "mussels", "garlic", "mozzarella", "white sauce"]
+          "id": 15,
+          "namePizza": "Seafood Mix",
+          "description": "Shrimps, squid and mussels",
+          "price": {
+              "22": "14.00",
+              "28": "18.00",
+              "33": "22.00"
+          },
+          "image": "argentina-pizza",
+          "ingredients": [
+              "shrimps",
+              "squid",
+              "mussels",
+              "garlic",
+              "mozzarella",
+              "white sauce"
+          ]
       },
       {
-        "id": 16,
-        "namePizza": "Tuna & Corn",
-        "description": "Tuna with sweet corn and onions",
-        "price": { "22": 12, "28": 16, "33": 20 },
-        "image": "italian-x2-pizza",
-        "ingredients": ["tuna", "sweet corn", "red onions", "mozzarella", "tomato sauce"]
+          "id": 16,
+          "namePizza": "Tuna & Corn",
+          "description": "Tuna with sweet corn and onions",
+          "price": {
+              "22": "12.00",
+              "28": "16.00",
+              "33": "20.00"
+          },
+          "image": "venecia-pizza",
+          "ingredients": [
+              "tuna",
+              "sweet corn",
+              "red onions",
+              "mozzarella",
+              "tomato sauce"
+          ]
       },
       {
-        "id": 17,
-        "namePizza": "Salmon Supreme",
-        "description": "Smoked salmon with cream cheese",
-        "price": { "22": 15, "28": 19, "33": 23 },
-        "image": "italian-pizza",
-        "ingredients": ["smoked salmon", "cream cheese", "capers", "red onions", "dill"]
+          "id": 17,
+          "namePizza": "Salmon Supreme",
+          "description": "Smoked salmon with cream cheese",
+          "price": {
+              "22": "15.00",
+              "28": "19.00",
+              "33": "23.00"
+          },
+          "image": "cheese-pizza",
+          "ingredients": [
+              "smoked salmon",
+              "ricotta",
+              "capers",
+              "red onions",
+              "dill"
+          ]
       }
-    ]
-  }
-  
+  ]
+}

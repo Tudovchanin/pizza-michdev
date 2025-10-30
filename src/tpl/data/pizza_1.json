@@ -4,35 +4,76 @@
       "id": 1,
       "namePizza": "Meat",
       "description": "Assortment of beef, ham, pepperoni and bacon",
-      "price": { "22": 12, "28": 16, "33": 20 },
+      "price": {
+          "22": "12.00",
+          "28": "16.00",
+          "33": "20.00"
+      },
       "image": "meat-pizza",
-      "ingredients": ["beef", "ham", "pepperoni", "bacon", "mozzarella", "tomato sauce"]
-    },
-    {
+      "ingredients": [
+          "beef",
+          "ham",
+          "pepperoni",
+          "bacon",
+          "mozzarella",
+          "tomato sauce"
+      ]
+  },
+  {
       "id": 2,
       "namePizza": "Argentina",
       "description": "Juicy Argentinian beef with herbs",
-      "price": { "22": 13, "28": 17, "33": 21 },
+      "price": {
+          "22": "13.00",
+          "28": "17.00",
+          "33": "21.00"
+      },
       "image": "argentina-pizza",
-      "ingredients": ["beef", "herbs", "onions", "bell peppers", "mozzarella", "tomato sauce"]
-    },
-    {
+      "ingredients": [
+          "beef",
+          "thyme",
+          "onions",
+          "bell peppers",
+          "mozzarella",
+          "tomato sauce"
+      ]
+  },
+  {
       "id": 3,
       "namePizza": "Venecia",
       "description": "Venetian style with Italian sausages",
-      "price": { "22": 12, "28": 16, "33": 20 },
+      "price": {
+          "22": "12.00",
+          "28": "16.00",
+          "33": "20.00"
+      },
       "image": "venecia-pizza",
-      "ingredients": ["Italian sausages", "olives", "onions", "bell peppers", "mozzarella"]
-    },
-    {
+      "ingredients": [
+          "Italian sausages",
+          "olives",
+          "onions",
+          "bell peppers",
+          "mozzarella"
+      ]
+  },
+  {
       "id": 4,
       "namePizza": "Pepperoni Classic",
       "description": "Double pepperoni with extra cheese",
-      "price": { "22": 11, "28": 15, "33": 19 },
-      "image": "cheese-pizza",
-      "ingredients": ["pepperoni", "mozzarella", "tomato sauce", "oregano"]
-    }
-   
+      "price": {
+          "22": "11.00",
+          "28": "15.00",
+          "33": "19.00"
+      },
+      "image": "meat-pizza",
+      "ingredients": [
+          "pepperoni",
+          "mozzarella",
+          "tomato sauce",
+          "oregano"
+      ]
+  }
   ]
- 
 }
+
+

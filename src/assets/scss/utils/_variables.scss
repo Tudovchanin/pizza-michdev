@@ -8,12 +8,16 @@
 
 
 	--bg-gradient: linear-gradient(245.71deg, hsl(26, 100%, 5%) 4.96%, hsl(15, 100%, 5%) 33.7%, hsl(27, 100%, 4%) 68.41%, hsl(26, 100%, 5%) 96.42%);
+
 	--elem-gradient: linear-gradient(261.69deg, hsl(15, 100%, 57%) 12.12%, hsl(34, 100%, 58%) 86.72%);
 
+
+	--elem-gradient-reverse: linear-gradient(-261.69deg, hsl(15, 100%, 57%) 12.12%, hsl(34, 100%, 58%) 86.72%);
 
 	--color-text-primary: var(--color-1);
 	--color-text-secondary: var(--color-2);
 
+	--size-sub-title:clamp(1.25rem, 1.1266rem + 0.4613vw, 1.5625rem);
 
 	// elements
 	--card-pizza: var(--color-5);
@@ -24,6 +28,10 @@
 	
 	--switch-color:var(--bg-gradient);
 	--switch-border: var(--elem-gradient);
+
+
+
+
 }
 
 @media (max-width:1024px) {
@@ -31,8 +39,8 @@
 }
 
 
-@media (max-width:575px) {
+@media (max-width:330px) {
 	:root {
-		--size-cube: 50vw;
+		--size-sub-title:5vw;
 	}
 }

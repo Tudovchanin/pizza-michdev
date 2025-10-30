@@ -1,9 +1,9 @@
 <section id="menuPizza" class="menu">
-  <h2 class="menu__title">Menu</h2>
+  <h2 class="menu__title main-title">Menu</h2>
   <ul id="tabs" class="menu__tabs">
     {{#each tabs.data}}
     <li class="menu__tab-btn {{#if active}}menu__tab-btn--active{{/if}}">
-      <button class="{{classes}}" data-category="{{categories}}">
+      <button id="{{categories}}" class="{{classes}}" data-category="{{categories}}">
         {{value}}
       </button>
     </li>
@@ -12,27 +12,35 @@
 
   <div class="menu__card">
 
-    <div id="top-cards" class="menu__card-top">
-      {{#each pizza_1}}
-      {{#each this}}
+    <div id="top-cards" class="menu__card-top d-none"></div>
+    <div id="top-static-cards" class="menu__card-top">
+      {{#each pizza_1.meat}}
       {{> pizza this}}
-      {{/each}}
       {{/each}}
     </div>
 
-
+    <div id="overlay-menu" class="menu__overlay">
+      <div class="menu__panel">
+        <section id="panel-info-pizza" class="menu__panel-pizza panel-pizza"></section>
+        <section id="panel-ingredients" class="menu__panel-ingredients panel-ingredients"></section>
+        <button  class="menu__panel-btn btn btn--dark">Order Now</button>
+      </div>
+    </div>
 
     <div class="menu__promo">
 
-      <article class="video-content">
-        <div class="promo">
-          <h3 class="promo__title">Видео или картинка</h3>
-        </div>
+      <article class="promo">
+        <h3 class="promo__title promo__title--hidden">
+          <span>The</span> <span>Fastest</span> <span>Pizza</span></h3>
+        <video id="video-promo" class="promo__video" muted playsinline preload="metadata">
+          <source src="./assets/video/promo-video.mp4" type="video/mp4">
+          <!-- <img src="/pizza-fallback.jpg" alt="Процесс готовки пиццы"> -->
+        </video>
       </article>
-
     </div>
+    <div id="bottom-cards" class="menu__card-bottom d-none"></div>
 
-    <div id="bottom-cards" class="menu__card-bottom">
+    <div id="bottom-static-cards" class="menu__card-bottom">
       {{#each pizza_2}}
       {{#each this}}
       {{> pizza this}}

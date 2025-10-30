@@ -1,0 +1,46 @@
+@use '../utils/mediaMixins' as *;
+@use '../utils/helperMixins' as *;
+
+.events {
+  margin-right: -20px;
+  text-align: center;
+
+  @include max_767 {
+    margin-right: -10px;
+  }
+
+  &__info {
+    float: right;
+    max-width: 443px;
+    padding-top: 100px;
+    padding-left: 16px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+    @include max_767 {
+      padding-top: 50px;
+      padding-left: 0;
+    }
+  }
+
+  &__title {
+    text-align: right;
+  }
+
+  &__paragraph {
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  & .event {
+    margin-right: 20px;
+    margin-bottom: 26px;
+    text-align: left;
+
+    @include max_767 {
+      margin-right: 10px;
+      margin-bottom: 12px;
+    }
+  }
+
+}

@@ -1,0 +1,64 @@
+
+
+.btn-play {
+  position: relative;
+  width: 81px;
+  height: 81px;
+  border-radius: 50%;
+  border: none;
+  background: var(--elem-gradient);
+  overflow: hidden;
+
+
+  @media (hover:hover) {
+  &:hover::before {
+    animation-play-state: running;
+  }
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 50%;
+    background: var(--bg-gradient);
+    animation: move 5s linear infinite alternate;
+    animation-play-state: paused;
+  }
+
+  
+  &__img {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@keyframes move {
+
+  0%{
+    transform: translate(0,0);
+  }
+
+  20%{
+    transform: translate(10%, 0%);
+  }
+
+  40% {
+    transform: translate(10%, -15%);
+  }
+
+  60% {
+    transform: translate(0%, -10%);
+  }
+
+  80% {
+    transform: translate(-10%, 0%);
+
+  }
+  100% {
+    transform: translateX(-20%, -20%);
+  }
+  
+}

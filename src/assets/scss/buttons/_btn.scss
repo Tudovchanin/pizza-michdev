@@ -7,14 +7,14 @@
 }
 
 .btn {
-  max-width: 232px;
+  // max-width: 232px;
   width: 100%;
-  min-height: 62px;
+  padding: 0.8em;
   border: none;
   border-radius: 100px;
   font-size: inherit;
   font-weight: inherit;
-  line-height: 1.24;
+  line-height: 1;
   &:active {
     transform: scale(0.98);
   }
@@ -42,8 +42,7 @@
   }
 
   &--small {
-    min-height: 44px;
+    padding: 0.65em;
     border-radius: 84px;
   }
-
 }

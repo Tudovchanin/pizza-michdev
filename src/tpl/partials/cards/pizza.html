@@ -5,7 +5,7 @@
     <figure class="pizza-card__figure">
       <img class="pizza-card__img" src="./assets/img/pizza/{{image}}.png" alt="{{namePizza}}" />
     </figure>
-    <h3 class="pizza-card__title">{{namePizza}}</h3>
+    <h3 class="pizza-card__title text-ellipsis">{{namePizza}}</h3>
   </header>
   <div class="pizza-card__ingredients">
     <p class="pizza-card__first-line text-ellipsis">
@@ -38,13 +38,13 @@
         {{#each price}} {{#if @first}}{{this}}{{/if}} {{/each}} </span><span class="pizza-card__currency">$</span>
     </p>
     <div class="pizza-card__quantity-controls">
-      <button disabled class="pizza-card__quantity-btn decrement-pizza">
+      <button disabled class="pizza-card__quantity-btn decrement-quantity">
         <svg width="8" height="2" viewBox="0 0 12 2">
           <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
         </svg>
       </button>
-      <p class="pizza-card__quantity">1</p>
-      <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-pizza">
+      <p class="pizza-card__quantity quantity">1</p>
+      <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
         <svg width="8" height="8" viewBox="0 0 12 12">
           <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
         </svg>

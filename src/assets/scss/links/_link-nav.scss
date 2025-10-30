@@ -1,15 +1,15 @@
 
-@use './utils/helpers';
+@use './utils/helperMixins';
 
 .link-nav {
 
   &:hover {
 
-    @include helpers.text-gradient(var(--elem-gradient));
+    @include helperMixins.text-gradient(var(--elem-gradient));
   }
 
   &--active {
-    @include helpers.text-gradient(var(--elem-gradient));
+    @include helperMixins.text-gradient(var(--elem-gradient));
     position: relative;
 
     &:before {

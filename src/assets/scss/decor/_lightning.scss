@@ -1,0 +1,17 @@
+.lightning {
+  position: relative;
+  width: 56px;
+  height: 50px;
+  display: inline-block;
+
+  &__wrapper {
+    position: absolute;
+    inset: -0.32em;
+  }
+  &__svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+

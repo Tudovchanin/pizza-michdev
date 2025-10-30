@@ -1,0 +1,57 @@
+{
+  "items": [
+    {
+      "img": "event-cooking",
+      "link": "#",
+      "title": "How We Cooking",
+      "alt": "Cooking process overview",
+      "className": ""
+    },
+    {
+      "img": "event-blog",
+      "link": "#",
+      "title": "Our Blog",
+      "alt": "Link to our blog",
+      "className": ""
+    },
+    {
+      "img": "event-price",
+      "link": "#",
+      "title": "Two Pizza for 1 Price",
+      "alt": "Special offer: two pizzas for price of one",
+      "className": "event__img--w-120"
+    },
+    {
+      "img": "event-kitchen",
+      "link": "#",
+      "title": "Kitchen Tour",
+      "alt": "Tour of our kitchen",
+      "className": ""
+
+    },
+    {
+      "img": "event-free",
+      "link": "#",
+      "title": "Free Coffee for 3 Pizza",
+      "alt": "Free coffee promotion when ordering three pizzas",
+      "className": ""
+
+    },
+    {
+      "img": "event-instagram",
+      "link": "#",
+      "title": "Our Instagram, promotion when ordering three pizzas",
+      "alt": "Visit our Instagram page",
+      "className": ""
+
+    },
+    {
+      "img": "event-choose",
+      "link": "#",
+      "title": "Where Are You Choose Us?",
+      "alt": "Reasons to choose our pizzeria",
+      "className": ""
+
+    }
+  ]
+}

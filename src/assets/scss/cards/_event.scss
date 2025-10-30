@@ -1,0 +1,102 @@
+@use '../utils/mediaMixins' as *;
+@use '../utils/helperMixins' as *;
+
+.event {
+  position: relative;
+  display: inline-flex;
+  max-width: 614px;
+  max-height: 260px;
+  border-radius: 30px;
+  overflow: hidden;
+
+
+  &__img {
+    max-width: initial;
+    width: 100%;
+    min-height: 150px;
+    height: 100%;
+    object-fit: cover;
+
+
+    &--w-120 {
+      width: 120%;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    top: 31%;
+    left: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 205px;
+    min-height: 54%;
+  }
+
+  &__title {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: var(--size-sub-title);
+    text-transform: uppercase;
+  }
+
+  &__link {
+    position: relative;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    overflow: hidden;
+
+
+
+    @include hover-and-pointer {
+      &:hover {
+        transform: scaleX(0.99);
+      }
+
+      &:hover::before {
+        animation-play-state: running;
+      }
+    }
+
+    &:active {
+      transform: scaleX(0.98);
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: var(--elem-gradient-reverse);
+      border-radius: inherit;
+      animation: shake 2.5s infinite linear;
+      animation-play-state: paused;
+      // filter: blur(3px);
+    }
+
+    @include max_380 {
+      font-size: 4vw;
+      width: 80%;
+    }
+  }
+}
+
+@keyframes shake {
+
+  0% {
+    transform: translate(-100%, 0%);
+  }
+
+  100% {
+    transform: translate(100%, 0%);
+  }
+}
