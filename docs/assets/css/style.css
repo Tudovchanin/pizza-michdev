@@ -865,7 +865,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .header {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     z-index: 500;
     padding-top: 50px;
     padding-bottom: 25px;
