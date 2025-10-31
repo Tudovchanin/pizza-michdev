@@ -12,6 +12,9 @@
 @use './decor/lightning';
 @use './buttons/btn-play';
 @use './texts/paragraph';
+@use './lists/list';
+@use './buttons/cart';
+
 
 
 // molecules
@@ -57,9 +60,10 @@ body {
   }
 }
 
-#menuPizza, #events {
+#menuPizza, #events, #meat {
   scroll-margin-top: 150px;
 }
+
 
 /* Для Chrome, Safari, Edge */
 ::-webkit-scrollbar {

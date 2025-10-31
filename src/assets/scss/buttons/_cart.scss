@@ -1,0 +1,52 @@
+
+@use '../utils/helperMixins';
+@use '../utils/mediaMixins' as *;
+
+.cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--elem-gradient);
+  cursor: pointer;
+  & img {
+    width: 70%;
+    height: 70%;
+    transform: translateY(-1px)
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &__count {
+    position: absolute;
+    left:  -10px;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: var(--color-1);
+    color: var(--color-5);
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s;
+    &--active {
+      opacity: 0.8;
+    }
+  }
+
+  @include helperMixins.hover-and-pointer {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

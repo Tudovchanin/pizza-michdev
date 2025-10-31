@@ -274,6 +274,62 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 18px;
 }
 
+.list {
+    display: flex;
+    gap: 80px;
+}
+
+.cart {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--elem-gradient);
+    cursor: pointer;
+}
+
+.cart img {
+    width: 70%;
+    height: 70%;
+    transform: translateY(-1px);
+}
+
+.cart:active {
+    transform: scale(0.97);
+}
+
+.cart__count {
+    position: absolute;
+    left: -10px;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: var(--color-1);
+    color: var(--color-5);
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cart__count--active {
+    opacity: 0.8;
+}
+
+@media (any-hover: hover) and (any-pointer: fine) {
+    .cart:hover {
+        opacity: 0.8;
+    }
+}
+
 .pizza-card {
     position: relative;
     display: flex;
@@ -504,15 +560,15 @@ h1, h2, h3, h4, h5, h6, p {
 .pizza-card__customize-btn::before {
     z-index: 1;
     inset: 0;
-    border-radius: 84px;
+    border-radius: 5.25em;
     background-color: var(--card-pizza);
     transition: opacity 0.3s;
 }
 
 .pizza-card__customize-btn::after {
     z-index: 0;
-    inset: -1px;
-    border-radius: 84px;
+    inset: -0.07em;
+    border-radius: 5.25em;
     background: var(--elem-gradient);
 }
 
@@ -858,11 +914,6 @@ h1, h2, h3, h4, h5, h6, p {
     object-fit: contain;
 }
 
-.list {
-    display: flex;
-    gap: 80px;
-}
-
 .header {
     position: fixed;
     width: 100vw;
@@ -894,34 +945,6 @@ h1, h2, h3, h4, h5, h6, p {
 .header__nav {
     color: rgb(163, 163, 163);
     font-size: 18px;
-}
-
-.cart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: var(--elem-gradient);
-    cursor: pointer;
-}
-
-.cart img {
-    width: 70%;
-    height: 70%;
-    transform: translateY(-1px);
-}
-
-.cart:active {
-    transform: scale(0.97);
-}
-
-@media (any-hover: hover) and (any-pointer: fine) {
-    .cart:hover {
-        opacity: 0.8;
-    }
 }
 
 .hero {
@@ -1811,7 +1834,7 @@ body {
     }
 }
 
-#menuPizza, #events {
+#menuPizza, #events, #meat {
     scroll-margin-top: 150px;
 }
 

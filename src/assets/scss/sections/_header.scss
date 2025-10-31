@@ -1,6 +1,5 @@
 @use '../utils/helperMixins';
 @use '../utils/mediaMixins' as *;
-@use '../lists/list';
 
 
 .header {
@@ -39,30 +38,3 @@
   &__cart {}
 }
 
-
-.cart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: var(--elem-gradient);
-  cursor: pointer;
-  & img {
-    width: 70%;
-    height: 70%;
-    transform: translateY(-1px)
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
-
-  @include helperMixins.hover-and-pointer {
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-}

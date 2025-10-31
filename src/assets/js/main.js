@@ -14,6 +14,7 @@ const utilsDOM = domUtils();
 const utilsRender = renderUtils();
 const utilsData = dataUtils();
 const utilsPizza = pizzaUtils();
+const utilsCart = cartUtils();
 
 // DATA
 const ingredients = getIngredients();
@@ -39,6 +40,7 @@ const KEY = {
 // DOM
 const $videoMenu = document.getElementById("video-promo");
 const $cartBtn = document.getElementById("cartBtn");
+const $countCart = document.querySelector('.cart__count');
 const $menuPizza = document.getElementById("menuPizza");
 const $tabsContainer = document.getElementById("tabs");
 const $tabsButtons = document.querySelectorAll(".menu__tab-btn button");
@@ -346,6 +348,12 @@ $menuOverlay.addEventListener("click", (e) => {
       pizzaQuantity: 1,
       callbackFormat: utilsFormat.formatPrice,
     });
+    
+  utilsCart.updateCartItemCount({
+    targetElement:$countCart,
+    quantity:utilsCart.getQuantity({cart, propertyQuantity: 'pizzaQuantity'}),
+    activeClass: 'cart__count--active',
+  });
   }
 });
 
@@ -471,6 +479,13 @@ $menuPizza.addEventListener("click", (e) => {
 
   console.log(cart, "CART");
 
+  
+  utilsCart.updateCartItemCount({
+    targetElement:$countCart,
+    quantity:utilsCart.getQuantity({cart, propertyQuantity: 'pizzaQuantity'}),
+    activeClass: 'cart__count--active',
+  });
+
   utilsPizza.resetPizzaCard({
     pizzaCardElem: $pizzaCard,
     sizeValue: 22,
@@ -573,7 +588,6 @@ $menuPizza.addEventListener("change", (e) => {
 
 // ------------------------------------------------------------
 
-// FOOTER
 
 // cards event hide text
 
@@ -581,6 +595,10 @@ const $eventText = document.querySelectorAll(".event__text");
 const $eventTitle = document.querySelectorAll(".event__title");
 
 utilsDOM.hiddenText($eventTitle[5], 25);
+
+
+
+// FOOTER
 
 // link scroll to menu
 const $linkMeat = document.getElementById("link-meat");
@@ -602,3 +620,5 @@ window.addEventListener('scroll', (e)=> {
     $header.classList.remove('header--active');
   }
 },{ passive: true });
+
+

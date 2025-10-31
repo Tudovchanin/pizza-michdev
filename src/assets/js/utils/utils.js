@@ -389,3 +389,30 @@ function pizzaUtils() {
     },
   };
 }
+
+function cartUtils() {
+  return {
+    updateCartItemCount({targetElement, quantity, activeClass}) {
+      console.log(quantity, 'updateCartItemCount');
+      if(quantity < 1) {
+        targetElement.classList.remove(activeClass);
+        targetElement.textContent = 0;
+      } else {
+        targetElement.classList.add(activeClass);
+        targetElement.textContent = quantity;
+      }
+    },
+
+    getQuantity({cart, propertyQuantity}) {
+      console.log(cart, propertyQuantity);
+     const pizzaOrder =  Object.values(cart);
+      const totalQuantity = pizzaOrder.reduce((sum, order) => {
+      sum += order[propertyQuantity];
+      return sum
+     },0);
+
+     return totalQuantity;
+
+    }
+  }
+}

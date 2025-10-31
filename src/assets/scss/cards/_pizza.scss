@@ -203,15 +203,15 @@
     &::before {
       z-index: 1;
       inset: 0;
-      border-radius: 84px;
+      border-radius: 5.25em;
       background-color: var(--card-pizza);
       transition: opacity 0.3s;
     }
 
     &::after {
       z-index: 0;
-      inset: -1px;
-      border-radius: 84px;
+      inset: -0.07em;
+      border-radius: 5.25em;
       background: var(--elem-gradient);
     }
   }
@@ -310,6 +310,7 @@
       width: 20px;
       font-size: 16px;
     }
+
     @media (max-width: 380px) {
       font-size: 20px;
       line-height: 1;
@@ -347,6 +348,7 @@
         transform: scaleX(1);
       }
     }
+
     @include max_767 {
       font-size: 16px;
     }
