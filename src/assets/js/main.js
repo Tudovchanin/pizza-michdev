@@ -38,10 +38,15 @@ const KEY = {
 };
 
 // DOM
+
+const $menuPizza = document.getElementById("menuPizza");
+const $heroPizza = document.getElementById("hero");
+const $eventsPizza = document.getElementById("events");
+
+
 const $videoMenu = document.getElementById("video-promo");
 const $cartBtn = document.getElementById("cartBtn");
 const $countCart = document.querySelector('.cart__count');
-const $menuPizza = document.getElementById("menuPizza");
 const $tabsContainer = document.getElementById("tabs");
 const $tabsButtons = document.querySelectorAll(".menu__tab-btn button");
 const $topContainerCards = document.getElementById("top-cards");
@@ -64,7 +69,7 @@ let popUpPizzaData = {};
 let addedIngredients = [];
 
 // header list decor
-initHeaderListUi();
+initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza]);
 
 // hero switch
 initSwitchHero($menuPizza);

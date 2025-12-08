@@ -810,16 +810,12 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .event__img {
+    position: relative;
     max-width: initial;
     width: 100%;
     min-height: 150px;
-    height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-}
-
-.event__img--w-120 {
-    width: 120%;
 }
 
 .event__text {
@@ -1832,10 +1828,6 @@ body {
     .main {
         padding-top: 40px;
     }
-}
-
-#menuPizza, #events, #meat {
-    scroll-margin-top: 150px;
 }
 
 /* Для Chrome, Safari, Edge */

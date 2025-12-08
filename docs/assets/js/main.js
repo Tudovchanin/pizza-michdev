@@ -639,15 +639,46 @@ function getPizzaData() {
 
 
 
-function initHeaderListUi() {
+function initHeaderListUi(targetElements) {
   const $headerList = document.querySelectorAll('.header .link-nav');
 
   $headerList.forEach(link => {
     link.addEventListener('click', (e) => {
-      $headerList.forEach(link => link.classList.remove('link-nav--active'))
-      e.target.classList.add('link-nav--active');
+      linkUiActive(e.target);
     })
-  })
+  });
+
+
+
+const options = {
+  threshold: 0,
+  rootMargin: '0px 0px -200px 0px',
+
+};
+const onEntry = (entries) => {
+  entries.forEach(entry => {
+    const { isIntersecting, target } = entry;
+    if (isIntersecting) {
+     console.log('появился', target.getAttribute('data-index'));
+     const indexSection = +target.getAttribute('data-index');
+    //  linkUiActive($headerList[indexSection]);
+    console.log(indexSection);
+    } 
+  });
+};
+const observer = new IntersectionObserver(onEntry, options);
+
+targetElements.forEach(section => {
+  observer.observe(section);
+});
+
+
+function  linkUiActive(target) {
+  $headerList.forEach(link => link.classList.remove('link-nav--active'));
+  target.classList.add('link-nav--active');
+
+}
+
 }
 function initSwitchHero(triggerElement) {
   
@@ -758,10 +789,15 @@ const KEY = {
 };
 
 // DOM
+
+const $menuPizza = document.getElementById("menuPizza");
+const $heroPizza = document.getElementById("hero");
+const $eventsPizza = document.getElementById("events");
+
+
 const $videoMenu = document.getElementById("video-promo");
 const $cartBtn = document.getElementById("cartBtn");
 const $countCart = document.querySelector('.cart__count');
-const $menuPizza = document.getElementById("menuPizza");
 const $tabsContainer = document.getElementById("tabs");
 const $tabsButtons = document.querySelectorAll(".menu__tab-btn button");
 const $topContainerCards = document.getElementById("top-cards");
@@ -784,7 +820,7 @@ let popUpPizzaData = {};
 let addedIngredients = [];
 
 // header list decor
-initHeaderListUi();
+initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza]);
 
 // hero switch
 initSwitchHero($menuPizza);
