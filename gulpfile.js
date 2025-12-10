@@ -42,7 +42,8 @@ const distPath = "docs/";// Путь к выходным файлам
 // Определение путей для различных типов файлов
 const path = {
     build: {
-        html: distPath, 
+        html: distPath,
+        php: distPath, 
         css: distPath + "assets/css/",
         js: distPath + "assets/js/",
         images: distPath + "assets/img/",
@@ -53,6 +54,7 @@ const path = {
     },
     src: {
         html: srcPath + "*.html",
+        php: srcPath + "*.php", 
         cssVariables: srcPath + "assets/css/*.css",
         css: srcPath + "assets/scss/*.scss",
         js: srcPath + "assets/js/*.js",
@@ -67,6 +69,7 @@ const path = {
     }, 
     watch: {
         html: srcPath + "**/*.html",
+        php: srcPath + "**/*.php",
         js: srcPath + "assets/js/**/*.js",
         css: srcPath + "assets/scss/**/*.scss",
         images: srcPath + "assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
@@ -104,6 +107,17 @@ function html() {
         .pipe(dest(path.build.html))  // Сохраняет собранные HTML файлы в выходную папку
         .pipe(browserSync.reload({ stream: true }));  // Обновляет страницу в браузере при изменении HTML файла
 }
+
+function php() {
+    return src(path.src.php, { base: srcPath }) // Читает php файлы из исходной папки
+        .pipe(plumber()) // Обрабатывает ошибки в потоке Gulp
+        .pipe(dest(path.build.php))  // Сохраняет собранные php файлы в выходную папку
+        .pipe(browserSync.reload({ stream: true }));  // Обновляет страницу в браузере при изменении HTML файла
+}
+
+
+
+
 
 // Функция для обработки SCSS файлов и их компиляции в CSS
 function css() {
@@ -235,6 +249,7 @@ function clean() {
 // Функция для наблюдения за изменениями файлов и автоматического запуска соответствующих задач Gulp 
 function watchFiles() {
     gulp.watch([path.watch.html], html); // Наблюдает за изменениями HTML файлов и запускает задачу html()
+    gulp.watch([path.watch.php], php); // Наблюдает за изменениями php файлов и запускает задачу php()
     gulp.watch([path.watch.css], css); // Наблюдает за изменениями SCSS файлов и запускает задачу css()
     gulp.watch([path.watch.js], js); // Наблюдает за изменениями JS файлов и запускает задачу js()
     gulp.watch(path.watch.images, gulp.parallel(imagesNotPng, optimizePng, webpImages));
@@ -247,7 +262,7 @@ function watchFiles() {
 
 
 // Определение последовательности задач сборки проекта (clean -> html, css, js, images)
-const build = gulp.series(clean, gulp.parallel(html, css, js, optimizePng, imagesNotPng, webpImages, fonts, audio, video, db));
+const build = gulp.series(clean, gulp.parallel(html,php, css, js, optimizePng, imagesNotPng, webpImages, fonts, audio, video, db));
 
 // Определение задачи watch (сборка проекта -> наблюдение за файлами -> запуск сервера)
 const watch = gulp.parallel(build, watchFiles, serve);
@@ -256,6 +271,7 @@ const watch = gulp.parallel(build, watchFiles, serve);
 
 // Экспортируем задачи Gulp так чтобы их можно было вызывать из командной строки или других скриптов.
 exports.html = html;
+exports.php = php;
 exports.css = css;
 exports.js = js;
 exports.imagesNotPng = imagesNotPng;
