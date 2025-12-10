@@ -10,13 +10,14 @@
   overflow: hidden;
 
 
-
+  // object-position
   &__img {
     position: relative;
     max-width: initial;
     width: 100%;
     min-height: 150px;
     object-fit: cover;
+    object-position: top;
   }
 
   &__text {

@@ -516,7 +516,6 @@ h1, h2, h3, h4, h5, h6, p {
     padding-top: 0.6em;
     padding-bottom: 0.6em;
     margin-bottom: 24px;
-    border-radius: 5.25em;
     border: none;
     background-color: transparent;
     font-size: 16px;
@@ -559,7 +558,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .pizza-card__customize-btn::before {
     z-index: 1;
-    inset: 0;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 5.25em;
     background-color: var(--card-pizza);
     transition: opacity 0.3s;
@@ -567,7 +570,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .pizza-card__customize-btn::after {
     z-index: 0;
-    inset: -0.07em;
+    height: calc(100% + 2px);
+    width: calc(100% + 2px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 5.25em;
     background: var(--elem-gradient);
 }
@@ -816,6 +823,8 @@ h1, h2, h3, h4, h5, h6, p {
     min-height: 150px;
     -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
 }
 
 .event__text {
