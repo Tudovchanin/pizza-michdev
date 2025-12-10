@@ -1723,6 +1723,18 @@ h1, h2, h3, h4, h5, h6, p {
     }
 }
 
+section:nth-child(1) {
+    background-color: red;
+}
+
+section:nth-child(2) {
+    background-color: aqua;
+}
+
+section:nth-child(3) {
+    background-color: rgb(162, 255, 0);
+}
+
 .events {
     margin-right: -20px;
     text-align: center;
