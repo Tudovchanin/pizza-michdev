@@ -1,0 +1,25 @@
+@use '../utils/helperMixins';
+@use '../utils/mediaMixins' as *;
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  @include max_380 {
+    width: 25px;
+    height: 25px;
+  }
+
+  @include helperMixins.hover-and-pointer {
+    cursor: pointer;
+    &:hover {
+      box-shadow:  0 0 6px 3px red;
+    }
+  }
+
+
+}

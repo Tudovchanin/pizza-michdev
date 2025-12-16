@@ -10,10 +10,10 @@
     {{/each}}
   </ul>
 
-  <div class="menu__card">
+  <div class="menu__cards">
 
-    <div id="top-cards" class="menu__card-top d-none"></div>
-    <div id="top-static-cards" class="menu__card-top">
+    <div id="top-cards" class="menu__cards-top d-none"></div>
+    <div id="top-static-cards" class="menu__cards-top">
       {{#each pizza_1.meat}}
       {{> pizza this}}
       {{/each}}
@@ -38,9 +38,9 @@
         </video>
       </article>
     </div>
-    <div id="bottom-cards" class="menu__card-bottom d-none"></div>
+    <div id="bottom-cards" class="menu__cards-bottom d-none"></div>
 
-    <div id="bottom-static-cards" class="menu__card-bottom">
+    <div id="bottom-static-cards" class="menu__cards-bottom">
       {{#each pizza_2}}
       {{#each this}}
       {{> pizza this}}

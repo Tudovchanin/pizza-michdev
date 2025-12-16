@@ -1,0 +1,38 @@
+@use '../utils/helperMixins';
+@use '../utils/mediaMixins' as *;
+
+
+.about-us {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 140px;
+
+
+  @include max_767 {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 100px;
+  }
+  &__title {
+    margin-bottom: 8px;
+  }
+  &__paragraph {
+    max-width: 500px;
+    width: 100%;
+    line-height: 1.6;
+  }
+
+  &__info-img {
+    transform: translateX(-20px);
+
+  }
+  &__decor-img {
+    flex-shrink: 0;
+
+    @include max_1024 {
+      flex-shrink: 1;
+    }
+  }
+}

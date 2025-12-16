@@ -4,16 +4,26 @@ title: Pizzashop
 ---
 
 
+<!-- header and footer in the layout -->
 <main class="main container">
+  <div id="overlay-main" class="main__overlay" aria-hidden="true">
 
-{{>hero}}
-{{>menu}}
+    <div style="color: antiquewhite;">
+      <h1>Overlay</h1>
+      <div id="cart-panel" class="main__cart-panel cart-panel">
+        <h1>Cart</h1>
+      </div>
+    </div>
+  </div>
 
 
-{{>events}} 
+  {{> hero}}
+  {{> menu}}
+  {{> events}}
+  {{> about-us}}
 </main>
-
+<!-- 
 
 <footer style="background-color: white; height: 200px;" id="footer">
  <a id="link-meat" href="#meat">Meat</a>
-</footer>
+</footer> -->

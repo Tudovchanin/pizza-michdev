@@ -7,21 +7,25 @@
 // atoms
 @use './logos/logo';
 @use './buttons/btn';
-@use './links/link-nav';
 @use './texts/main-title';
 @use './decor/lightning';
 @use './buttons/btn-play';
 @use './texts/paragraph';
 @use './lists/list';
-@use './buttons/cart';
+@use './buttons/cart-btn';
+@use './icons/social-icon';
+@use './texts/text-gradient';
 
 
 
 // molecules
+@use './links/link-nav';
+
 @use './cards/pizza';
 @use './cards/promo';
 @use './cards/event';
 @use './cards/ingredients';
+@use './icons/icons-social';
 
 
 
@@ -30,6 +34,8 @@
 @use './sections/hero';
 @use './sections/menu';
 @use './sections/events';
+@use './sections/about-us';
+@use './sections/footer';
 
 
 // pages
@@ -39,29 +45,50 @@
 @use './utils/global';
 
 
+
 html,
 body {
-  overflow-x: hidden;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
+
+//  если элемент с позицией absolute уходит за нижний край самого нижнего элемента , то scroll  будет у body и html 
 body {
   min-height: 100vh;
   font-family: 'Muller', sans-serif;
-  background: var(--bg-gradient);
+  background-image: var(--bg-gradient);
 }
 
 
 .main {
   padding-top: 197px;
 
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgb(79, 19, 19);
+    transform: translateX(100%);
+  }
+
   @include max_767 {
     padding-top: 40px;
   }
 }
 
-#menuPizza, #events, #meat {
-  // scroll-margin-top: 150px;
+
+.cart-panel {
+
+}
+
+
+
+#menuPizza,
+#events,
+#meat,
+#about {
+  scroll-margin-top: 150px;
 }
 
 

@@ -7,7 +7,7 @@
   max-width: 614px;
   max-height: 260px;
   border-radius: 30px;
-  overflow: hidden;
+  // overflow: hidden;
 
 
   // object-position
@@ -38,6 +38,8 @@
     font-weight: 500;
     font-size: var(--size-sub-title);
     text-transform: uppercase;
+    max-height: 78px;
+    overflow: hidden;
   }
 
   &__link {

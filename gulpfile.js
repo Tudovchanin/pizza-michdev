@@ -92,6 +92,9 @@ function serve() {
     });
 }
 
+
+//  {{!-- {{>events}} --}}    способ закомментить в panini
+
 // Функция для обработки HTML файлов с использованием Panini
 function html() {
     panini.refresh(); // Обновляет шаблоны Panini при необходимости

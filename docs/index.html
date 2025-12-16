@@ -31,1497 +31,1712 @@
           <img src="./assets/img/pizzashop.png" alt="pizza shop">
         </a>
         <nav class="header__nav">
-          <ul class="list">
+          <ul class="list header__list">
             <li class="list__item"><a class="link-nav link-nav--active" href="#">Home</a></li>
             <li class="list__item"><a class="link-nav" href="#menuPizza">Menu</a></li>
             <li class="list__item"><a class="link-nav" href="#events">Events</a></li>
-            <li class="list__item"><a class="link-nav" href="#">About us</a></li>
+            <li class="list__item"><a class="link-nav" href="#about">About us</a></li>
           </ul>
         </nav>
-        <button class="header__cart cart">
-          <img src="./assets/img/icons/icon-cart.png" alt="cart">
-          <span class="cart__count"></span>
+        <button id="cartBtn" class="header__cart cart-btn">
+          <img src="./assets/img/icons/icon-cart.png" alt="cart button">
+          <span class="cart-btn__count"></span>
         </button>
-    
       </div>
     </header>    
     
     
+    <!-- header and footer in the layout -->
     <main class="main container">
+      <div id="overlay-main" class="main__overlay" aria-hidden="true">
     
-    <section data-index="0" class="hero" id="hero">
+        <div style="color: antiquewhite;">
+          <h1>Overlay</h1>
+          <div id="cart-panel" class="main__cart-panel cart-panel">
+            <h1>Cart</h1>
+          </div>
+        </div>
+      </div>
     
-      <div class="hero__info">
-        <h1 class="hero__title main-title">
-          The Fastest<br> Pizza
-          <span class="lightning hero__lightning">
-            <span class="lightning__wrapper">
-              <svg class="lightning__svg" viewBox="0 0 84.7872 97.6974" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" width="84.787170" height="97.697388" fill="none"
-                customFrame="#000000">
-                <defs>
-                  <linearGradient id="paint_linear_0" x1="41.9135742" x2="0.588630676" y1="-3.05175781e-05" y2="3.4691391"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="rgb(255,100.175,50.4098)" offset="0" stop-opacity="1" />
-                    <stop stop-color="rgb(255,161.992,39.7848)" offset="1" stop-opacity="1" />
-                  </linearGradient>
-                </defs>
-                <path id="Lightning 2"
-                  d="M37.9826 0.294721L9.33155 1.08465C6.83827 1.15339 4.76551 3.02571 4.44443 5.49918L0.742707 34.0158C0.348973 37.049 2.71091 39.7373 5.76952 39.7373L9.87518 39.7373C12.235 39.7373 14.2827 41.3658 14.814 43.665L20.0937 66.5127C21.2575 71.549 28.3292 71.817 29.8709 66.8832L40.7849 31.9542C41.6315 29.2447 39.6073 26.4915 36.7687 26.4915C33.2733 26.4915 31.3019 22.4766 33.4393 19.7109L42.1332 8.46145C44.7478 5.07821 42.2568 0.176879 37.9826 0.294721Z"
-                  fill="url(#paint_linear_0)" fill-rule="nonzero"
-                  transform="matrix(0.863152,0.504944,-0.504944,0.863152,42.7755,0)" />
-              </svg>
+    
+      <section data-index="0" class="hero" id="hero">
+      
+        <div class="hero__info">
+          <h1 class="hero__title main-title">
+            The Fastest<br> Pizza
+            <span class="lightning hero__lightning">
+              <span class="lightning__wrapper">
+                <svg class="lightning__svg" viewBox="0 0 84.7872 97.6974" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" width="84.787170" height="97.697388" fill="none"
+                  customFrame="#000000">
+                  <defs>
+                    <linearGradient id="paint_linear_0" x1="41.9135742" x2="0.588630676" y1="-3.05175781e-05" y2="3.4691391"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="rgb(255,100.175,50.4098)" offset="0" stop-opacity="1" />
+                      <stop stop-color="rgb(255,161.992,39.7848)" offset="1" stop-opacity="1" />
+                    </linearGradient>
+                  </defs>
+                  <path id="Lightning 2"
+                    d="M37.9826 0.294721L9.33155 1.08465C6.83827 1.15339 4.76551 3.02571 4.44443 5.49918L0.742707 34.0158C0.348973 37.049 2.71091 39.7373 5.76952 39.7373L9.87518 39.7373C12.235 39.7373 14.2827 41.3658 14.814 43.665L20.0937 66.5127C21.2575 71.549 28.3292 71.817 29.8709 66.8832L40.7849 31.9542C41.6315 29.2447 39.6073 26.4915 36.7687 26.4915C33.2733 26.4915 31.3019 22.4766 33.4393 19.7109L42.1332 8.46145C44.7478 5.07821 42.2568 0.176879 37.9826 0.294721Z"
+                    fill="url(#paint_linear_0)" fill-rule="nonzero"
+                    transform="matrix(0.863152,0.504944,-0.504944,0.863152,42.7755,0)" />
+                </svg>
+              </span>
             </span>
-          </span>
-          Delivery
-        </h1>
-    
-        <p class="hero__paragraph paragraph">
-          We will deliver juicy pizza for your family in 30 minutes, if the courier
-          is late - <strong style="font-weight: bold;" class="accent-text">pizza is free!</strong>
-        </p>
-    
-        <figure class="hero__figure">
-          <figcaption class="hero__figcaption paragraph">Cooking process:</figcaption>
-          <div class="hero__player player">
-            <video width="272" height="193" class="player__video" muted poster="poster.jpg">
-              <source src="cooking.mp4" type="video/mp4">
-            </video>
-            <button class="player__btn btn-play" aria-label="Play video">
-              <svg class="btn-play__img" viewBox="0 0 26.1503 26.0498" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" width="26.150330" height="26.049835" fill="none"
-                customFrame="#000000">
-                <defs>
-                  <linearGradient id="paint_linear_4" x1="19.9291706" x2="3.52283287" y1="-7.62939453e-06" y2="23.1428452"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="rgb(255,100.175,50.4098)" offset="0" stop-opacity="1" />
-                    <stop stop-color="rgb(255,161.992,39.7848)" offset="1" stop-opacity="1" />
-                  </linearGradient>
-                </defs>
-                <path id="Polygon 1"
-                  d="M-0.571044 19.4785C0.0147428 20.0642 0.72185 20.3571 1.55028 20.3571L21.5926 20.3571C21.8559 20.3571 22.1147 20.3231 22.369 20.2549C22.6234 20.1868 22.8646 20.0869 23.0926 19.9552C23.81 19.541 24.2759 18.9338 24.4904 18.1336C24.7048 17.3334 24.6049 16.5746 24.1907 15.8571L14.1695 -1.5C14.0379 -1.72803 13.8789 -1.93513 13.6928 -2.12132C13.5066 -2.3075 13.2995 -2.46642 13.0714 -2.59808C12.354 -3.01229 11.5952 -3.11219 10.795 -2.89778C9.99477 -2.68336 9.38757 -2.21744 8.97335 -1.5L-1.0478 15.8571C-1.17945 16.0852 -1.27935 16.3263 -1.3475 16.5807C-1.41565 16.835 -1.44972 17.0938 -1.44972 17.3571C-1.44972 18.1856 -1.15683 18.8927 -0.571044 19.4785ZM21.5926 17.3571L18.1285 17.3571L5.01438 17.3571L1.55028 17.3571L3.28233 14.3571L11.5714 0L13.3035 3L19.8605 14.3571L21.5926 17.3571Z"
-                  fill="url(#paint_linear_4)" fill-rule="evenodd"
-                  transform="matrix(2.5327e-16,1,-1,2.5327e-16,23.1429,1.44974)" />
-              </svg>
-            </button>
-          </div>
-        </figure>
-    
-        <a href="#menuPizza" id="switch" class="hero__switch switch switch--toggle-left">
-          <span class="switch__left text-gradient">To order</span>
-          <span class="switch__toggle"></span>
-          <span class="switch__right text-gradient">Pizza-Menu</span>
-        </a>
-      </div>
-    
-      <div class="hero__img">
-        <div class="pizza-scene">
-          <picture>
-            <source srcset="./assets/img/decor/hero-pizza-mobile.png" media="(max-width: 480px)">
-            <source srcset="./assets/img/decor/hero-pizza.png">
-            <img src="./assets/img/decor/hero-pizza.png" alt="pizza on the table">
-          </picture>
+            Delivery
+          </h1>
+      
+          <p class="hero__paragraph paragraph">
+            We will deliver juicy pizza for your family in 30 minutes, if the courier
+            is late - <strong style="font-weight: bold;" class="accent-text">pizza is free!</strong>
+          </p>
+      
+          <figure class="hero__figure">
+            <figcaption class="hero__figcaption paragraph">Cooking process:</figcaption>
+            <div class="hero__player player">
+              <video width="272" height="193" class="player__video" muted >
+                <source src="cooking.mp4" type="video/mp4">
+              </video>
+              <button class="player__btn btn-play" aria-label="Play video">
+                <svg class="btn-play__img" viewBox="0 0 26.1503 26.0498" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" width="26.150330" height="26.049835" fill="none"
+                  customFrame="#000000">
+                  <defs>
+                    <linearGradient id="paint_linear_4" x1="19.9291706" x2="3.52283287" y1="-7.62939453e-06" y2="23.1428452"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="rgb(255,100.175,50.4098)" offset="0" stop-opacity="1" />
+                      <stop stop-color="rgb(255,161.992,39.7848)" offset="1" stop-opacity="1" />
+                    </linearGradient>
+                  </defs>
+                  <path id="Polygon 1"
+                    d="M-0.571044 19.4785C0.0147428 20.0642 0.72185 20.3571 1.55028 20.3571L21.5926 20.3571C21.8559 20.3571 22.1147 20.3231 22.369 20.2549C22.6234 20.1868 22.8646 20.0869 23.0926 19.9552C23.81 19.541 24.2759 18.9338 24.4904 18.1336C24.7048 17.3334 24.6049 16.5746 24.1907 15.8571L14.1695 -1.5C14.0379 -1.72803 13.8789 -1.93513 13.6928 -2.12132C13.5066 -2.3075 13.2995 -2.46642 13.0714 -2.59808C12.354 -3.01229 11.5952 -3.11219 10.795 -2.89778C9.99477 -2.68336 9.38757 -2.21744 8.97335 -1.5L-1.0478 15.8571C-1.17945 16.0852 -1.27935 16.3263 -1.3475 16.5807C-1.41565 16.835 -1.44972 17.0938 -1.44972 17.3571C-1.44972 18.1856 -1.15683 18.8927 -0.571044 19.4785ZM21.5926 17.3571L18.1285 17.3571L5.01438 17.3571L1.55028 17.3571L3.28233 14.3571L11.5714 0L13.3035 3L19.8605 14.3571L21.5926 17.3571Z"
+                    fill="url(#paint_linear_4)" fill-rule="evenodd"
+                    transform="matrix(2.5327e-16,1,-1,2.5327e-16,23.1429,1.44974)" />
+                </svg>
+              </button>
+            </div>
+          </figure>
+      
+          <a href="#menuPizza" id="switch" class="hero__switch switch switch--toggle-left">
+            <span class="switch__left text-gradient">To order</span>
+            <span class="switch__toggle"></span>
+            <span class="switch__right text-gradient">Pizza-Menu</span>
+          </a>
         </div>
-      </div>
-    
-    </section>
-    <section id="menuPizza" data-index="1" class="menu">
-      <h2 class="menu__title main-title">Menu</h2>
-      <ul id="tabs" class="menu__tabs">
-        <li class="menu__tab-btn menu__tab-btn--active">
-          <button id="all" class="btn btn--dark btn--accent" data-category="all">
-            Show All
-          </button>
-        </li>
-        <li class="menu__tab-btn ">
-          <button id="vegetarian" class="btn btn--dark" data-category="vegetarian">
-            Vegetarian
-          </button>
-        </li>
-        <li class="menu__tab-btn ">
-          <button id="meat" class="btn btn--dark" data-category="meat">
-            Meat
-          </button>
-        </li>
-        <li class="menu__tab-btn ">
-          <button id="mushroom" class="btn btn--dark" data-category="mushroom">
-            Mushroom
-          </button>
-        </li>
-        <li class="menu__tab-btn ">
-          <button id="sea_products" class="btn btn--dark" data-category="sea_products">
-            Sea products
-          </button>
-        </li>
-      </ul>
-    
-      <div class="menu__card">
-    
-        <div id="top-cards" class="menu__card-top d-none"></div>
-        <div id="top-static-cards" class="menu__card-top">
-          
-          
-          <article data-id="1" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="Meat" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Meat</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  beef,
-           ham,
-           pepperoni,
-           
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        bacon,
-                    mozzarella,
-                    tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   12.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="2" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.png" alt="Argentina" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Argentina</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  beef,
-           thyme,
-           onions,
-           
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        bell peppers,
-                    mozzarella,
-                    tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="21.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   13.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="3" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/venecia-pizza.png" alt="Venecia" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Venecia</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  Italian sausages,
-           olives,
-           onions,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        bell peppers,
-                    mozzarella  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   12.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="4" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="Pepperoni Classic" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Pepperoni Classic</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  pepperoni,
-           mozzarella,
-           tomato sauce,
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        oregano  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="11.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   11.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-        </div>
-    
-        <div id="overlay-menu" class="menu__overlay">
-          <div class="menu__panel">
-            <section id="panel-info-pizza" class="menu__panel-pizza panel-pizza"></section>
-            <section id="panel-ingredients" class="menu__panel-ingredients panel-ingredients"></section>
-            <button  class="menu__panel-btn btn btn--dark">Order Now</button>
+      
+        <div class="hero__img">
+          <div class="pizza-scene">
+            <picture>
+              <source srcset="./assets/img/decor/hero-pizza-mobile.png" media="(max-width: 480px)">
+              <source srcset="./assets/img/decor/hero-pizza.png">
+              <img src="./assets/img/decor/hero-pizza.png" alt="pizza on the table">
+            </picture>
           </div>
         </div>
-    
-        <div class="menu__promo">
-    
-          <article class="promo">
-            <h3 class="promo__title promo__title--hidden">
-              <span>The</span> <span>Fastest</span> <span>Pizza</span></h3>
-            <video id="video-promo" class="promo__video" muted playsinline preload="metadata">
-              <source src="./assets/video/promo-video.mp4" type="video/mp4">
-              <!-- <img src="/pizza-fallback.jpg" alt="Процесс готовки пиццы"> -->
-            </video>
-          </article>
+      
+      </section>
+      <section id="menuPizza" data-index="1" class="menu">
+        <h2 class="menu__title main-title">Menu</h2>
+        <ul id="tabs" class="menu__tabs">
+          <li class="menu__tab-btn menu__tab-btn--active">
+            <button id="all" class="btn btn--dark btn--accent" data-category="all">
+              Show All
+            </button>
+          </li>
+          <li class="menu__tab-btn ">
+            <button id="vegetarian" class="btn btn--dark" data-category="vegetarian">
+              Vegetarian
+            </button>
+          </li>
+          <li class="menu__tab-btn ">
+            <button id="meat" class="btn btn--dark" data-category="meat">
+              Meat
+            </button>
+          </li>
+          <li class="menu__tab-btn ">
+            <button id="mushroom" class="btn btn--dark" data-category="mushroom">
+              Mushroom
+            </button>
+          </li>
+          <li class="menu__tab-btn ">
+            <button id="sea_products" class="btn btn--dark" data-category="sea_products">
+              Sea products
+            </button>
+          </li>
+        </ul>
+      
+        <div class="menu__cards">
+      
+          <div id="top-cards" class="menu__cards-top d-none"></div>
+          <div id="top-static-cards" class="menu__cards-top">
+            
+            
+            <article data-id="1" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="Meat" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Meat</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  beef,
+             ham,
+             pepperoni,
+             
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          bacon,
+                      mozzarella,
+                      tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     12.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="2" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.png" alt="Argentina" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Argentina</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  beef,
+             thyme,
+             onions,
+             
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          bell peppers,
+                      mozzarella,
+                      tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="21.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     13.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="3" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/venecia-pizza.png" alt="Venecia" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Venecia</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  Italian sausages,
+             olives,
+             onions,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          bell peppers,
+                      mozzarella  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     12.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="4" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="Pepperoni Classic" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Pepperoni Classic</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  pepperoni,
+             mozzarella,
+             tomato sauce,
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          oregano  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="11.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     11.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+          </div>
+      
+          <div id="overlay-menu" class="menu__overlay">
+            <div class="menu__panel">
+              <section id="panel-info-pizza" class="menu__panel-pizza panel-pizza"></section>
+              <section id="panel-ingredients" class="menu__panel-ingredients panel-ingredients"></section>
+              <button  class="menu__panel-btn btn btn--dark">Order Now</button>
+            </div>
+          </div>
+      
+          <div class="menu__promo">
+      
+            <article class="promo">
+              <h3 class="promo__title promo__title--hidden">
+                <span>The</span> <span>Fastest</span> <span>Pizza</span></h3>
+              <video id="video-promo" class="promo__video" muted playsinline preload="metadata">
+                <source src="./assets/video/promo-video.mp4" type="video/mp4">
+                <!-- <img src="/pizza-fallback.jpg" alt="Процесс готовки пиццы"> -->
+              </video>
+            </article>
+          </div>
+          <div id="bottom-cards" class="menu__cards-bottom d-none"></div>
+      
+          <div id="bottom-static-cards" class="menu__cards-bottom">
+            
+            
+            <article data-id="5" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="BBQ Chicken" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">BBQ Chicken</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  chicken,
+             BBQ sauce,
+             red onions,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      sweet corn  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     12.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="6" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/cheese-pizza.png" alt="Cheese" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Cheese</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  mozzarella,
+             gorgonzola,
+             parmesan,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          ricotta,
+                      tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="10.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="14.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="18.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     10.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="7" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/tomato-pizza.png" alt="Tomato" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Tomato</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  fresh tomatoes,
+             basil,
+             mozzarella,
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="9.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     9.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="8" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/italian-pizza.png" alt="Italian" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Italian</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  prosciutto,
+             bell peppers,
+             parmesan,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="8.35" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="15.33" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="19.60" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     8.35      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="9" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/italian-x2-pizza.png" alt="Italian x2" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Italian x2</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  prosciutto,
+             salami,
+             olives,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="21.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     13.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="10" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/tomato-pizza.png" alt="Vegetarian" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Vegetarian</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  bell peppers,
+             fresh tomatoes,
+             onions,
+             
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          olives,
+                      mushrooms,
+                      mozzarella  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="11.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     11.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="11" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="Mediterranean" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Mediterranean</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  sun-dried tomatoes,
+             olives,
+             gorgonzola,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          spinach,
+                      mozzarella  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     12.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="12" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/mushroom-pizza.png" alt="Gribnaya" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Gribnaya</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  prosciutto,
+             shrimps,
+             squid,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      mussels  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="10.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="14.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="18.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     10.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="13" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.png" alt="Forest Mushroom" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Forest Mushroom</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  smoked salmon,
+             thyme,
+             garlic,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      sweet corn  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="11.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     11.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="14" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/mushroom-pizza.png" alt="Truffle Mushroom" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Truffle Mushroom</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  mushrooms,
+             capers,
+             parmesan,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      sweet corn  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="21.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     13.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="15" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.png" alt="Seafood Mix" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Seafood Mix</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  shrimps,
+             squid,
+             mussels,
+             
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          garlic,
+                      mozzarella,
+                      white sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="14.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="18.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="22.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     14.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="16" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/venecia-pizza.png" alt="Tuna &amp; Corn" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Tuna &amp; Corn</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  tuna,
+             sweet corn,
+             red onions,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          mozzarella,
+                      tomato sauce  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     12.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+            
+            
+            <article data-id="17" class="pizza-card">
+              <header class="pizza-card__header">
+                <figure class="pizza-card__figure">
+                  <img class="pizza-card__img" src="./assets/img/pizza/cheese-pizza.png" alt="Salmon Supreme" />
+                </figure>
+                <h3 class="pizza-card__title text-ellipsis">Salmon Supreme</h3>
+              </header>
+              <div class="pizza-card__ingredients">
+                <p class="pizza-card__first-line text-ellipsis">
+                  Filling:  smoked salmon,
+             ricotta,
+             capers,
+             
+             
+                </p>
+                <p class="pizza-card__second-line text-ellipsis">
+                          red onions,
+                      dill  
+                </p>
+              </div>
+            
+              <form class="pizza-card__form">
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
+                    value="22" checked />
+                  <span class="pizza-card__size-text">22</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
+                    value="28"  />
+                  <span class="pizza-card__size-text">28</span>
+                </label>
+            
+                <label class="pizza-card__size-label">
+                  <input class="pizza-card__size-radio visually-hidden" data-price="23.00" type="radio" name="size"
+                    value="33"  />
+                  <span class="pizza-card__size-text">33</span>
+                </label>
+              </form>
+            
+              <button class="pizza-card__customize-btn">
+                <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
+              </button>
+              <div class="pizza-card__order-controls">
+                <p class="pizza-card__price text-ellipsis">
+                  <span class="total-price">
+                     15.00      </span><span class="pizza-card__currency">$</span>
+                </p>
+                <div class="pizza-card__quantity-controls">
+                  <button disabled class="pizza-card__quantity-btn decrement-quantity">
+                    <svg width="8" height="2" viewBox="0 0 12 2">
+                      <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                  <p class="pizza-card__quantity quantity">1</p>
+                  <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+                    <svg width="8" height="8" viewBox="0 0 12 12">
+                      <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="pizza-card__order btn btn--accent btn--small">
+                Order Now
+              </button>
+            </article>
+            
+            
+            
+          </div>
         </div>
-        <div id="bottom-cards" class="menu__card-bottom d-none"></div>
-    
-        <div id="bottom-static-cards" class="menu__card-bottom">
-          
-          
-          <article data-id="5" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="BBQ Chicken" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">BBQ Chicken</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  chicken,
-           BBQ sauce,
-           red onions,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    sweet corn  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   12.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="6" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/cheese-pizza.png" alt="Cheese" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Cheese</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  mozzarella,
-           gorgonzola,
-           parmesan,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        ricotta,
-                    tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="10.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="14.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="18.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   10.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="7" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/tomato-pizza.png" alt="Tomato" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Tomato</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  fresh tomatoes,
-           basil,
-           mozzarella,
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="9.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   9.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="8" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/italian-pizza.png" alt="Italian" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Italian</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  prosciutto,
-           bell peppers,
-           parmesan,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="8.35" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="15.33" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="19.60" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   8.35      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="9" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/italian-x2-pizza.png" alt="Italian x2" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Italian x2</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  prosciutto,
-           salami,
-           olives,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="21.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   13.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="10" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/tomato-pizza.png" alt="Vegetarian" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Vegetarian</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  bell peppers,
-           fresh tomatoes,
-           onions,
-           
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        olives,
-                    mushrooms,
-                    mozzarella  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="11.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   11.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="11" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/meat-pizza.png" alt="Mediterranean" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Mediterranean</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  sun-dried tomatoes,
-           olives,
-           gorgonzola,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        spinach,
-                    mozzarella  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   12.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="12" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/mushroom-pizza.png" alt="Gribnaya" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Gribnaya</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  prosciutto,
-           shrimps,
-           squid,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    mussels  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="10.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="14.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="18.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   10.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="13" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.png" alt="Forest Mushroom" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Forest Mushroom</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  smoked salmon,
-           thyme,
-           garlic,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    sweet corn  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="11.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   11.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="14" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/mushroom-pizza.png" alt="Truffle Mushroom" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Truffle Mushroom</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  mushrooms,
-           capers,
-           parmesan,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    sweet corn  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="13.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="17.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="21.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   13.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="15" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/argentina-pizza.png" alt="Seafood Mix" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Seafood Mix</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  shrimps,
-           squid,
-           mussels,
-           
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        garlic,
-                    mozzarella,
-                    white sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="14.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="18.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="22.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   14.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="16" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/venecia-pizza.png" alt="Tuna &amp; Corn" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Tuna &amp; Corn</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  tuna,
-           sweet corn,
-           red onions,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        mozzarella,
-                    tomato sauce  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="12.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="16.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="20.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   12.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
-          
-          
-          <article data-id="17" class="pizza-card">
-            <header class="pizza-card__header">
-              <figure class="pizza-card__figure">
-                <img class="pizza-card__img" src="./assets/img/pizza/cheese-pizza.png" alt="Salmon Supreme" />
-              </figure>
-              <h3 class="pizza-card__title text-ellipsis">Salmon Supreme</h3>
-            </header>
-            <div class="pizza-card__ingredients">
-              <p class="pizza-card__first-line text-ellipsis">
-                Filling:  smoked salmon,
-           ricotta,
-           capers,
-           
-           
-              </p>
-              <p class="pizza-card__second-line text-ellipsis">
-                        red onions,
-                    dill  
-              </p>
-            </div>
-          
-            <form class="pizza-card__form">
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="15.00" type="radio" name="size"
-                  value="22" checked />
-                <span class="pizza-card__size-text">22</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="19.00" type="radio" name="size"
-                  value="28"  />
-                <span class="pizza-card__size-text">28</span>
-              </label>
-          
-              <label class="pizza-card__size-label">
-                <input class="pizza-card__size-radio visually-hidden" data-price="23.00" type="radio" name="size"
-                  value="33"  />
-                <span class="pizza-card__size-text">33</span>
-              </label>
-            </form>
-          
-            <button class="pizza-card__customize-btn">
-              <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
-            </button>
-            <div class="pizza-card__order-controls">
-              <p class="pizza-card__price text-ellipsis">
-                <span class="total-price">
-                   15.00      </span><span class="pizza-card__currency">$</span>
-              </p>
-              <div class="pizza-card__quantity-controls">
-                <button disabled class="pizza-card__quantity-btn decrement-quantity">
-                  <svg width="8" height="2" viewBox="0 0 12 2">
-                    <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-                <p class="pizza-card__quantity quantity">1</p>
-                <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
-                  <svg width="8" height="8" viewBox="0 0 12 12">
-                    <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <button class="pizza-card__order btn btn--accent btn--small">
-              Order Now
-            </button>
-          </article>
-          
-          
-          
+      </section>
+      
+      <!-- узнать про рекламный ролик -->  <section id="events" data-index="2" class="events">
+        <div class="events__info">
+          <h2 class="events__title main-title">Events</h2>
+          <p class="events__paragraph paragraph">There are regular events in our pizzeria that will allow you to eat delicious food for a lower price!</p>
         </div>
-      </div>
-    </section>
-    
-    <!-- узнать про рекламный ролик -->
-    
-    <section id="events" data-index="2" class="events">
-      <div class="events__info">
-        <h2 class="events__title main-title">Events</h2>
-        <p class="events__paragraph paragraph">There are regular events in our pizzeria that will allow you to eat delicious food for a lower price!</p>
-      </div>
+        
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-cooking.webp" alt="Cooking process overview">
+            <div class="event__text">
+              <h3 class="event__title">How We Cooking</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article>  
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-blog.webp" alt="Link to our blog">
+            <div class="event__text">
+              <h3 class="event__title">Our Blog</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article>  
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-price.webp" alt="Special offer: two pizzas for price of one">
+            <div class="event__text">
+              <h3 class="event__title">Two Pizza for 1 Price</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article>  
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-kitchen.webp" alt="Tour of our kitchen">
+            <div class="event__text">
+              <h3 class="event__title">Kitchen Tour</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article>  
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-free.webp" alt="Free coffee promotion when ordering three pizzas">
+            <div class="event__text">
+              <h3 class="event__title">Free Coffee for 3 Pizza</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article>  
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-instagram.webp" alt="Visit our Instagram page">
+            <div class="event__text">
+              <h3 class="event__title">Our Instagram</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article>  
+        
+        
+        <article class="event">
+        
+            <img class="event__img" src="./assets/img/cards/event-choose.webp" alt="Reasons to choose our pizzeria">
+            <div class="event__text">
+              <h3 class="event__title">Where Are You Choose Us?</h3>
+              <a class="event__link btn btn--accent" href="#">More</a>
+            </div>
+           
+        </article></section>  <section id="about" data-index="3" class="about-us">
       
-      
-      
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-cooking.webp" alt="Cooking process overview">
-          <div class="event__text">
-            <h3 class="event__title">How We Cooking</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
+        <div class="about-us__info">
+          <h2 class="about-us__title main-title">About us</h2>
+          <p class="about-us__paragraph paragraph">In just a couple of years, we have opened 6 outlets in different cities:
+            Kazan, Chelyabinsk, Ufa, Samara, Izhevsk, and in the future we plan to develop the network in other major cities
+            of Russia.</p>
+          <div class="about-us__info-img">
+            <picture>
+              <!-- <source srcset="./assets/img/decor/pizza-about-us-mobile.webp" media="(max-width: 480px)"> -->
+              <source srcset="./assets/img/decor/pizza-about-us.webp">
+              <img src="./assets/img/decor/pizza-about-us.png" alt="pizza on the table">
+            </picture>
           </div>
-         
-      </article>  
       
+          <p class="about-us__paragraph paragraph">The kitchen of each point is at least: 400-500 sq. m. meters, hundreds of
+            employees, smoothly performing work in order to receive / prepare / form / deliver customer orders on time.</p>
+        </div>
       
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-blog.webp" alt="Link to our blog">
-          <div class="event__text">
-            <h3 class="event__title">Our Blog</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
+        <div class="about-us__decor-img">
+          <div class="pizza-scene pizza-scene--v2">
+            <picture>
+              <source srcset="./assets/img/decor/pizza-about-us-decor-mobile.webp" media="(max-width: 480px)">
+              <source srcset="./assets/img/decor/pizza-about-us-decor.webp">
+              <img src="/assets/img/decor/pizza-about-decor-us.png" alt="pizza on the table">
+            </picture>
           </div>
-         
-      </article>  
-      
-      
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-price.webp" alt="Special offer: two pizzas for price of one">
-          <div class="event__text">
-            <h3 class="event__title">Two Pizza for 1 Price</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
-          </div>
-         
-      </article>  
-      
-      
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-kitchen.webp" alt="Tour of our kitchen">
-          <div class="event__text">
-            <h3 class="event__title">Kitchen Tour</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
-          </div>
-         
-      </article>  
-      
-      
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-free.webp" alt="Free coffee promotion when ordering three pizzas">
-          <div class="event__text">
-            <h3 class="event__title">Free Coffee for 3 Pizza</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
-          </div>
-         
-      </article>  
-      
-      
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-instagram.webp" alt="Visit our Instagram page">
-          <div class="event__text">
-            <h3 class="event__title">Our Instagram, promotion when ordering three pizzas</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
-          </div>
-         
-      </article>  
-      
-      
-      <article class="event">
-      
-          <img class="event__img" src="./assets/img/cards/event-choose.webp" alt="Reasons to choose our pizzeria">
-          <div class="event__text">
-            <h3 class="event__title">Where Are You Choose Us?</h3>
-            <a class="event__link btn btn--accent" href="#">More</a>
-          </div>
-         
-      </article>
-    </section></main>
-    
+        </div>
+      </section></main>
+    <!-- 
     
     <footer style="background-color: white; height: 200px;" id="footer">
      <a id="link-meat" href="#meat">Meat</a>
+    </footer> -->
+    <footer id="footer" data-index="4" class="footer">
+      <div class="footer__top container">
+        <a class="footer__logo logo logo--min" href="/">
+          <img src="./assets/img/pizzashop.png" alt="pizza shop" />
+        </a>
+    
+        <!-- <h2 class="hidden">Footer info</h2> -->
+    
+        <div class="footer__lists">
+          <section class="footer-list">
+            <h3 class="footer-list__title paragraph">Home</h3>
+            <ul class="footer-list__list">
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="#hero">To Order</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="#about">About us</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="#events">Events</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="#menuPizza">Menu</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-list">
+            <h3 class="footer-list__title paragraph">Events</h3>
+            <ul class="footer-list__list">
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="">3 Pizza 1 Free Coffee</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="">2 Pizza for 1 Price</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="">Kitchen Tour</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-list">
+            <h3 class="footer-list__title paragraph">Menu</h3>
+            <ul class="footer-list__list">
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a id="footer-link-all" href="#menuPizza">Show All</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a id="footer-link-sea" href="#menuPizza">Sea products</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a id="footer-link-vegan" href="#menuPizza">Vegan</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a id="footer-link-meat" href="#menuPizza">Meat</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a id="footer-link-mushrooms" href="#menuPizza">Mushrooms</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-list">
+            <h3 class="footer-list__title paragraph">About Us</h3>
+            <ul class="footer-list__list">
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="">Our History</a>
+              </li>
+              <li class="paragraph paragraph--small txt-no-wrap">
+                <a href="">Why We?</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    
+      <div class="footer__bottom container">
+        <a href="tel:+71234567890" class="text-gradient paragraph"
+          >+7(123) 456-78-90</a
+        >
+    
+        <div class="icons-social">
+          <a target="_blank" rel="noopener" class="social-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+            >
+              <!-- Градиент для stroke -->
+              <defs>
+                <linearGradient
+                  id="iconGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#FF612E" />
+                  <stop offset="50%" stop-color="#FFA32B" />
+                </linearGradient>
+              </defs>
+    
+              <path
+                fill="none"
+                stroke="url(#iconGradient)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16 0.5c-8.563 0-15.5 6.938-15.5 15.5s6.938 15.5 15.5 15.5c8.563 0 15.5-6.938 15.5-15.5s-6.938-15.5-15.5-15.5zM23.613 11.119l-2.544 11.988c-0.188 0.85-0.694 1.056-1.4 0.656l-3.875-2.856-1.869 1.8c-0.206 0.206-0.381 0.381-0.781 0.381l0.275-3.944 7.181-6.488c0.313-0.275-0.069-0.431-0.482-0.156l-8.875 5.587-3.825-1.194c-0.831-0.262-0.85-0.831 0.175-1.231l14.944-5.763c0.694-0.25 1.3 0.169 1.075 1.219z"
+              />
+            </svg>
+          </a>
+          <a target="_blank" rel="noopener" class="social-icon">
+            <svg
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              enable-background="new 0 0 32 32"
+              xml:space="preserve"
+            >
+              <defs>
+                <linearGradient
+                  id="iconGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#FF612E" />
+                  <stop offset="50%" stop-color="#FFA32B" />
+                </linearGradient>
+              </defs>
+    
+              <g id="icon">
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="15.5"
+                  fill="none"
+                  stroke="url(#iconGradient)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-miterlimit="1"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7,10c0.3,3.1,4.1,12,9,12c0,-3.1,0,-12,0,-12"
+                  fill="none"
+                  stroke="url(#iconGradient)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M25,10c-0.5,3,-3.5,7.5,-9,7.5"
+                  fill="none"
+                  stroke="url(#iconGradient)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M25,22c-0.5,-1.8,-3.5,-4.5,-9,-4.5"
+                  fill="none"
+                  stroke="url(#iconGradient)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
     </footer>
     <script src="./assets/js/main.js"></script>
 </body>

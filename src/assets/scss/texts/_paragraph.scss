@@ -3,4 +3,9 @@
 .paragraph {
   color: var(--color-text-secondary);
   font-size: 18px;
+
+  &--small {
+    font-size: 16px;
+    opacity: 0.6;
+  }
 }

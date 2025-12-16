@@ -642,9 +642,15 @@ function getPizzaData() {
 function initHeaderListUi(targetElements) {
   const $headerList = document.querySelectorAll('.header .link-nav');
 
+  let clickLinkHeader = false;
+
   $headerList.forEach(link => {
     link.addEventListener('click', (e) => {
+      clickLinkHeader = true;
       linkUiActive(e.target);
+      setTimeout(() => {
+        clickLinkHeader = false;
+      }, 1000);
     })
   });
 
@@ -656,18 +662,17 @@ function initHeaderListUi(targetElements) {
 
   const onEntry = (entries) => {
     entries.forEach(entry => {
+      if(clickLinkHeader) return;
       const { isIntersecting, target} = entry;
 
-      if (isIntersecting) {
-        console.log('появился', target.getAttribute('data-index'));
-        const indexSection = +target.getAttribute('data-index');
 
+      if (isIntersecting) {
+        const indexSection = +target.getAttribute('data-index');
           linkUiActive($headerList[indexSection]);
-          console.log(indexSection);
-        
       }
     });
   };
+
   const observer = new IntersectionObserver(onEntry, options);
 
   targetElements.forEach(section => {
@@ -676,9 +681,10 @@ function initHeaderListUi(targetElements) {
 
 
   function linkUiActive(target) {
+
+    if(!target) return;
     $headerList.forEach(link => link.classList.remove('link-nav--active'));
     target.classList.add('link-nav--active');
-
   }
 
 }
@@ -760,6 +766,39 @@ function initVideoPromo(triggerElement, videoElement) {
   observer.observe(triggerElement);
 }
 
+
+function initFooter(footer) {
+
+
+// link scroll to menu
+const $footerLinkAll = document.getElementById("footer-link-all");
+const $footerLinkMeat = document.getElementById("footer-link-meat");
+const $footerLinkSea = document.getElementById("footer-link-sea");
+const $footerLinkVegan = document.getElementById("footer-link-vegan");
+const $footerLinkMushrooms = document.getElementById("footer-link-mushrooms");
+const $btnTabAll = document.getElementById("all");
+const $btnTabMeat = document.getElementById("meat");
+const $btnTabVegan = document.getElementById("vegetarian");
+const $btnTabSea = document.getElementById("sea_products");
+const $btnTabMushroom = document.getElementById("mushroom");
+
+const mapLinkFooter = new Map();
+mapLinkFooter.set($footerLinkAll, $btnTabAll);
+mapLinkFooter.set($footerLinkMeat, $btnTabMeat);
+mapLinkFooter.set($footerLinkSea, $btnTabSea);
+mapLinkFooter.set($footerLinkVegan, $btnTabVegan);
+mapLinkFooter.set($footerLinkMushrooms, $btnTabMushroom);
+
+
+footer.addEventListener("click", (event) => {
+
+  if(!mapLinkFooter.get(event.target)) return;
+
+  mapLinkFooter.get(event.target).click();
+
+});
+}
+
 //Utils
 const utilsFormat = formatUtils();
 const utilsStorage = storageUtils();
@@ -792,14 +831,17 @@ const KEY = {
 
 // DOM
 
+// sections page
 const $menuPizza = document.getElementById("menuPizza");
 const $heroPizza = document.getElementById("hero");
 const $eventsPizza = document.getElementById("events");
+const $aboutPizza = document.getElementById("about");
+const $footer = document.getElementById("footer");
 
-
+// elements
 const $videoMenu = document.getElementById("video-promo");
 const $cartBtn = document.getElementById("cartBtn");
-const $countCart = document.querySelector('.cart__count');
+const $countCart = document.querySelector('.cart-btn__count');
 const $tabsContainer = document.getElementById("tabs");
 const $tabsButtons = document.querySelectorAll(".menu__tab-btn button");
 const $topContainerCards = document.getElementById("top-cards");
@@ -822,13 +864,16 @@ let popUpPizzaData = {};
 let addedIngredients = [];
 
 // header list decor
-initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza]);
+initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza, $aboutPizza, $footer]);
 
 // hero switch
 initSwitchHero($menuPizza);
 
 // video menu
 initVideoPromo($videoMenu, $videoMenu);
+
+// footer
+initFooter($footer);
 
 //  tabs ----------------------------------------------------------------------
 $tabsContainer.addEventListener("click", (e) => {
@@ -1355,16 +1400,6 @@ const $eventTitle = document.querySelectorAll(".event__title");
 utilsDOM.hiddenText($eventTitle[5], 25);
 
 
-
-// FOOTER
-
-// link scroll to menu
-const $linkMeat = document.getElementById("link-meat");
-const $btnTabMeat = document.getElementById("meat");
-
-$linkMeat.addEventListener("click", (event) => {
-  $btnTabMeat.click();
-});
 
 
 

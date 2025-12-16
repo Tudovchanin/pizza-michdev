@@ -157,6 +157,10 @@
 
 .pizza-scene {
   position: relative;
+  max-width: 462px;
+  width: 100%;
+  border-radius: 30px;
+
 
   &::before {
     position: absolute;
@@ -169,7 +173,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-
   }
 
   &::after {
@@ -183,6 +186,17 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+  
+  }
+
+  &--v2 {
+    max-width: 566px;
+    &::before {
+      top: -26.5%;
+      right: -25.5%;
+      width: 52.5%;
+    
+    }
   }
 }
 

@@ -2,6 +2,7 @@
 
 .container {
   max-width: 1300px;
+  width: 100%;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -30,8 +31,9 @@
 }
 
 
-.text-gradient {
-  @include helperMixins.text-gradient(var(--elem-gradient));
+
+.txt-no-wrap {
+  text-wrap: nowrap;
 }
 
 .ps-rel-idx-100 {

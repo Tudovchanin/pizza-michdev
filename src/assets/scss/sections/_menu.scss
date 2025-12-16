@@ -1,9 +1,6 @@
 @use '../utils/helperMixins';
 @use '../utils/mediaMixins' as *;
 
-
-
-
 .panel-ingredients {
   position: relative;
   font-size: 20px;
@@ -124,6 +121,7 @@
     left: 5%;
     font-size: 12px;
   }
+
 }
 
 .panel-pizza {
@@ -208,6 +206,19 @@
     padding: 10px 20px;
     background-color: transparent;
     border: solid 1px;
+
+    @include helperMixins.hover-and-pointer {
+      transition: filter 0.3s;
+      &:hover:not(:disabled) {
+        filter: blur(1px);
+      }
+    }
+    &:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+    &:disabled {
+      cursor: initial;
+    }
   }
 
   &__quantity {
@@ -219,8 +230,6 @@
 
 
 }
-
-
 
 .menu {
 
@@ -309,8 +318,8 @@
     }
   }
 
-  &__card-top,
-  &__card-bottom {
+  &__cards-top,
+  &__cards-bottom {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 22px;
@@ -329,7 +338,6 @@
       justify-items: center;
       padding-top: 70px;
       padding-bottom: 25px;
-
     }
 
     @include max_430 {
@@ -337,7 +345,7 @@
     }
   }
 
-  &__card-top {
+  &__cards-top {
     position: relative;
 
     &::before {
@@ -376,32 +384,30 @@
     }
   }
 
-  &__card-bottom {
+  &__cards-bottom {
     position: relative;
 
     & .pizza-card:nth-child(1) {
 
+      // относительно карточки текст, если карточки нет текста не будет
       &::before {
         position: absolute;
         content: '';
         z-index: -1;
         left: -70%;
         top: -25%;
-        width: 467px;
         width: 150%;
         height: 320px;
         background-image: url('../img/decor/menu.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: top center;
-
-
         @include max_1024 {}
       }
     }
   }
 
-  &__card .pizza-card {
+  &__cards .pizza-card {
     animation: rotate 0.3s linear;
   }
 
@@ -458,6 +464,22 @@
     overflow: hidden;
   }
 
+
+  &__panel-btn {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin-left: auto;
+    @include helperMixins.hover-and-pointer {
+      transition: filter 0.3s;
+      &:hover {
+        filter: brightness(1.5);
+      }
+    }
+    &::before {
+      display: none;
+    }
+  }
 }
 
 
@@ -476,15 +498,15 @@
 
 
 
-section:nth-child(1) { 
-  background-color: red;
-}
+// section:nth-child(1) { 
+//   background-color: red;
+// }
 
-section:nth-child(2) {
-  background-color: aqua;
-}
+// section:nth-child(2) {
+//   background-color: aqua;
+// }
 
 
-section:nth-child(3) {
-  background-color: rgb(162, 255, 0);
-}
+// section:nth-child(3) {
+//   background-color: rgb(162, 255, 0);
+// }

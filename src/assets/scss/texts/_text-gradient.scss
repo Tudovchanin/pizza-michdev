@@ -1,0 +1,7 @@
+
+@use '../utils/helperMixins';
+
+
+.text-gradient {
+  @include helperMixins.text-gradient(var(--elem-gradient));
+}

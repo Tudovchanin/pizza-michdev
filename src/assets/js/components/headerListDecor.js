@@ -4,9 +4,15 @@
 function initHeaderListUi(targetElements) {
   const $headerList = document.querySelectorAll('.header .link-nav');
 
+  let clickLinkHeader = false;
+
   $headerList.forEach(link => {
     link.addEventListener('click', (e) => {
+      clickLinkHeader = true;
       linkUiActive(e.target);
+      setTimeout(() => {
+        clickLinkHeader = false;
+      }, 1000);
     })
   });
 
@@ -18,18 +24,17 @@ function initHeaderListUi(targetElements) {
 
   const onEntry = (entries) => {
     entries.forEach(entry => {
+      if(clickLinkHeader) return;
       const { isIntersecting, target} = entry;
 
-      if (isIntersecting) {
-        console.log('появился', target.getAttribute('data-index'));
-        const indexSection = +target.getAttribute('data-index');
 
+      if (isIntersecting) {
+        const indexSection = +target.getAttribute('data-index');
           linkUiActive($headerList[indexSection]);
-          console.log(indexSection);
-        
       }
     });
   };
+
   const observer = new IntersectionObserver(onEntry, options);
 
   targetElements.forEach(section => {
@@ -38,9 +43,10 @@ function initHeaderListUi(targetElements) {
 
 
   function linkUiActive(target) {
+
+    if(!target) return;
     $headerList.forEach(link => link.classList.remove('link-nav--active'));
     target.classList.add('link-nav--active');
-
   }
 
 }

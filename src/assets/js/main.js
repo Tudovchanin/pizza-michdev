@@ -6,6 +6,7 @@
 //= components/headerListDecor.js
 //= components/switchHero.js
 //= components/promoVideo.js
+//= components/footer.js
 
 //Utils
 const utilsFormat = formatUtils();
@@ -39,14 +40,17 @@ const KEY = {
 
 // DOM
 
+// sections page
 const $menuPizza = document.getElementById("menuPizza");
 const $heroPizza = document.getElementById("hero");
 const $eventsPizza = document.getElementById("events");
+const $aboutPizza = document.getElementById("about");
+const $footer = document.getElementById("footer");
 
-
+// elements
 const $videoMenu = document.getElementById("video-promo");
 const $cartBtn = document.getElementById("cartBtn");
-const $countCart = document.querySelector('.cart__count');
+const $countCart = document.querySelector('.cart-btn__count');
 const $tabsContainer = document.getElementById("tabs");
 const $tabsButtons = document.querySelectorAll(".menu__tab-btn button");
 const $topContainerCards = document.getElementById("top-cards");
@@ -69,13 +73,16 @@ let popUpPizzaData = {};
 let addedIngredients = [];
 
 // header list decor
-initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza]);
+initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza, $aboutPizza, $footer]);
 
 // hero switch
 initSwitchHero($menuPizza);
 
 // video menu
 initVideoPromo($videoMenu, $videoMenu);
+
+// footer
+initFooter($footer);
 
 //  tabs ----------------------------------------------------------------------
 $tabsContainer.addEventListener("click", (e) => {
@@ -602,16 +609,6 @@ const $eventTitle = document.querySelectorAll(".event__title");
 utilsDOM.hiddenText($eventTitle[5], 25);
 
 
-
-// FOOTER
-
-// link scroll to menu
-const $linkMeat = document.getElementById("link-meat");
-const $btnTabMeat = document.getElementById("meat");
-
-$linkMeat.addEventListener("click", (event) => {
-  $btnTabMeat.click();
-});
 
 
 
