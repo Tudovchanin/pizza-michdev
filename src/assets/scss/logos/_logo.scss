@@ -16,6 +16,11 @@
   &--min {
     width: 144px;
     height: 32px;
+
+  @include max_767 {
+    width: 98px;
+    height: 21px;
+  }
   }
 
   & img {

@@ -1,5 +1,5 @@
 
-@use './utils/helperMixins';
+@use './utils/helperMixins' as *;
 @use '../utils/mediaMixins' as *;
 
 
@@ -7,13 +7,25 @@
   color: var(--color-2);
   font-size: 18px;
 
-  &:hover {
 
-    @include helperMixins.text-gradient(var(--elem-gradient));
+  @include hover-and-pointer {
+    &:hover {
+      @include text-gradient(var(--elem-gradient));
+    }
+  }
+  
+
+
+  @include max_1024{
+    font-size: 16px;
+  }
+
+  @include max_380 {
+    font-size: 14px
   }
 
   &--active {
-    @include helperMixins.text-gradient(var(--elem-gradient));
+    @include text-gradient(var(--elem-gradient));
     position: relative;
 
     &:before {
@@ -26,10 +38,12 @@
       border-radius: 50%;
       transform: translateX(-50%);
       background: var(--elem-gradient);
+      @include max_1024{
+        bottom: -10px;
+      }
     }
+
   }
 
-  @include max_1024{
-    font-size: 16px;
-  }
+
 }

@@ -1,11 +1,20 @@
-
+@use '../utils/mediaMixins' as *;
 
 .paragraph {
   color: var(--color-text-secondary);
   font-size: 18px;
 
+  @include max_767 {
+    font-size: 16px;
+  }
+
+
   &--small {
     font-size: 16px;
     opacity: 0.6;
+
+    @include max_767 {
+      font-size: 14px;
+    }
   }
 }

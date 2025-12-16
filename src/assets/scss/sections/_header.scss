@@ -35,9 +35,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include max_575 {
+      display: grid;
+      grid-template-columns:  1fr 1fr;
+      justify-content: initial;
+      align-items: initial;
+      gap: 16px;
+    }
   }
 
-  &__nav {}
+  &__logo {
+    flex-shrink: 0;
+    @include max_575 {
+      order: 1;
+    }
+  }
+
+  &__nav {
+    // background-color: red;
+    @include max_575 {
+      order: 3;
+      grid-column: 1/-1;
+    }
+  }
 
 
   &__list {
@@ -46,6 +67,10 @@
 
   &__cart-btn {
     flex-shrink: 0;
+    @include max_575 {
+      order: 2;
+      justify-self: end;
+    }
   }
 
 }

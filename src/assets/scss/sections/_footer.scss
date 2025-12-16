@@ -59,6 +59,7 @@
     @include max_1199 {
       gap: 40px;
       justify-content: space-between;
+
       & .footer-list:nth-child(2),
       & .footer-list:nth-child(3),
       & .footer-list:nth-child(4) {
@@ -67,10 +68,11 @@
     }
 
     @include max_575 {
-     display: grid;
-     grid-template-columns: repeat(2, auto);
-     justify-content: initial;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      justify-content: initial;
     }
+
     @include max_380 {
       display: flex;
       flex-wrap: wrap;
@@ -89,7 +91,7 @@
     gap: 16px;
 
     @include helperMixins.hover-and-pointer {
-  
+
       & li:hover {
         text-shadow: 0 0 2px white;
         opacity: 1;

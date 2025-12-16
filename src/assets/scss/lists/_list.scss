@@ -9,4 +9,16 @@
     gap: 60px;
     font-size: 16px;
   }
+
+  @include max_767 {
+    gap: 5vw;
+  }
+
+  @include max_575 {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  @include max_380  {
+    gap: 20px;
+  }
 }

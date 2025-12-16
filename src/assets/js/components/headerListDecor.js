@@ -12,7 +12,7 @@ function initHeaderListUi(targetElements) {
       linkUiActive(e.target);
       setTimeout(() => {
         clickLinkHeader = false;
-      }, 1000);
+      }, 500);
     })
   });
 
@@ -26,7 +26,6 @@ function initHeaderListUi(targetElements) {
     entries.forEach(entry => {
       if(clickLinkHeader) return;
       const { isIntersecting, target} = entry;
-
 
       if (isIntersecting) {
         const indexSection = +target.getAttribute('data-index');
