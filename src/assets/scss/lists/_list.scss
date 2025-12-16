@@ -1,7 +1,12 @@
 
+@use '../utils/mediaMixins' as *;
 
 .list {
   display: flex;
   gap: 80px;
   text-wrap: nowrap;
+  @include max_1024 {
+    gap: 60px;
+    font-size: 16px;
+  }
 }

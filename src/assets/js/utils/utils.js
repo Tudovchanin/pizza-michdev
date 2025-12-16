@@ -329,6 +329,8 @@ function pizzaUtils() {
     }) {
       const $quantityPizza = pizzaCardElem.querySelector(".quantity");
       $quantityPizza.textContent = pizzaQuantity;
+      const btnIncrement = pizzaCardElem.querySelector('.increment-quantity');
+      const btnDecrement = pizzaCardElem.querySelector('.decrement-quantity');
 
       const $radioBtnSize = pizzaCardElem.querySelector(
         `input[name="size"][value="${sizeValue}"]`
@@ -342,8 +344,10 @@ function pizzaUtils() {
       } else {
         $totalPricePizza.textContent = pizzaQuantity * pricePerPizza;
       }
-
       $radioBtnSize.checked = true;
+      btnIncrement.disabled = false;
+      btnDecrement.disabled = true;
+
     },
 
     getPizzaSize(form) {
@@ -393,13 +397,13 @@ function pizzaUtils() {
 function cartUtils() {
   return {
     updateCartItemCount({targetElement, quantity, activeClass}) {
-      console.log(quantity, 'updateCartItemCount');
       if(quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
       } else {
+        const displayQuantity = quantity > 99 ? '99+' : quantity;
         targetElement.classList.add(activeClass);
-        targetElement.textContent = quantity;
+        targetElement.textContent = displayQuantity;
       }
     },
 

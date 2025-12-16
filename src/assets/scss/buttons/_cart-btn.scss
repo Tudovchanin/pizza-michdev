@@ -13,6 +13,12 @@
   border: none;
   background: var(--elem-gradient);
   cursor: pointer;
+
+  @include max_767  {
+    width: 30px;
+    height: 30px;
+  }
+
   & img {
     width: 70%;
     height: 70%;
@@ -30,14 +36,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 60%;
+    width: 65%;
+    height: 65%;
+  
     border-radius: 50%;
+    border: solid var(--color-3) 2px;
     background-color: var(--color-1);
     color: var(--color-5);
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     opacity: 0;
+
     transition: opacity 0.3s;
     &--active {
       opacity: 0.8;

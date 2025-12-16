@@ -1,5 +1,7 @@
 
 @use './utils/helperMixins';
+@use '../utils/mediaMixins' as *;
+
 
 .link-nav {
   color: var(--color-2);
@@ -25,5 +27,9 @@
       transform: translateX(-50%);
       background: var(--elem-gradient);
     }
+  }
+
+  @include max_1024{
+    font-size: 16px;
   }
 }

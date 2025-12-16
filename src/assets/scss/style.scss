@@ -64,6 +64,14 @@ body {
 .main {
   padding-top: 197px;
 
+  @include max_1024 {
+    padding-top: 200px;
+  }
+  
+  @include max_767 {
+    padding-top: 150px;
+  }
+
   &__overlay {
     position: fixed;
     inset: 0;
@@ -72,9 +80,6 @@ body {
     transform: translateX(100%);
   }
 
-  @include max_767 {
-    padding-top: 40px;
-  }
 }
 
 

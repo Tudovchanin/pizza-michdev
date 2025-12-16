@@ -331,6 +331,8 @@ function pizzaUtils() {
     }) {
       const $quantityPizza = pizzaCardElem.querySelector(".quantity");
       $quantityPizza.textContent = pizzaQuantity;
+      const btnIncrement = pizzaCardElem.querySelector('.increment-quantity');
+      const btnDecrement = pizzaCardElem.querySelector('.decrement-quantity');
 
       const $radioBtnSize = pizzaCardElem.querySelector(
         `input[name="size"][value="${sizeValue}"]`
@@ -344,8 +346,10 @@ function pizzaUtils() {
       } else {
         $totalPricePizza.textContent = pizzaQuantity * pricePerPizza;
       }
-
       $radioBtnSize.checked = true;
+      btnIncrement.disabled = false;
+      btnDecrement.disabled = true;
+
     },
 
     getPizzaSize(form) {
@@ -395,13 +399,13 @@ function pizzaUtils() {
 function cartUtils() {
   return {
     updateCartItemCount({targetElement, quantity, activeClass}) {
-      console.log(quantity, 'updateCartItemCount');
       if(quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
       } else {
+        const displayQuantity = quantity > 99 ? '99+' : quantity;
         targetElement.classList.add(activeClass);
-        targetElement.textContent = quantity;
+        targetElement.textContent = displayQuantity;
       }
     },
 
@@ -1052,7 +1056,7 @@ $menuOverlay.addEventListener("click", (e) => {
     );
     const nameIngredient = ingredient.name;
     const priceIngredient = ingredient.price * INGR_PRICE_COEFF[sizePizza];
-   
+
     btnIngredient.classList.toggle("panel-ingredients__value--add");
     const ingredientIsSelected = btnIngredient.classList.contains(
       "panel-ingredients__value--add"
@@ -1151,14 +1155,23 @@ $menuOverlay.addEventListener("click", (e) => {
       pizzaQuantity: 1,
       callbackFormat: utilsFormat.formatPrice,
     });
-    
-  utilsCart.updateCartItemCount({
-    targetElement:$countCart,
-    quantity:utilsCart.getQuantity({cart, propertyQuantity: 'pizzaQuantity'}),
-    activeClass: 'cart__count--active',
-  });
+
+    utilsCart.updateCartItemCount({
+      targetElement: $countCart,
+      quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+      activeClass: 'cart-btn__count--active',
+    });
   }
 });
+
+
+// проверка count-btn__cart
+
+// utilsCart.updateCartItemCount({
+//   targetElement: $countCart,
+//   quantity: 222,
+//   activeClass: 'cart-btn__count--active',
+// });
 
 function handleClosePopUpPizza({
   pizzaCardElem,
@@ -1253,6 +1266,10 @@ $menuPizza.addEventListener("click", (e) => {
   utilsDOM.lockScroll();
 });
 
+
+
+
+
 // HANDLE CLICK ORDER NOW IN THE CARD
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__order")) return;
@@ -1276,17 +1293,17 @@ $menuPizza.addEventListener("click", (e) => {
     pizzaQuantity,
     pricePerPizza,
     namePizza,
-    image:pizzaData.image,
+    image: pizzaData.image,
     separator: KEY.SEPARATOR
   });
 
   console.log(cart, "CART");
 
-  
+
   utilsCart.updateCartItemCount({
-    targetElement:$countCart,
-    quantity:utilsCart.getQuantity({cart, propertyQuantity: 'pizzaQuantity'}),
-    activeClass: 'cart__count--active',
+    targetElement: $countCart,
+    quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+    activeClass: 'cart-btn__count--active',
   });
 
   utilsPizza.resetPizzaCard({
@@ -1299,6 +1316,11 @@ $menuPizza.addEventListener("click", (e) => {
   alert("PIZZA ADD TO THE CART");
 });
 
+
+
+
+
+
 function addToCart({
   cart,
   idPizza,
@@ -1309,7 +1331,7 @@ function addToCart({
   namePizza,
   image = '',
   addedIngredients = [],
-  separator= '_',
+  separator = '_',
 }) {
 
   if (cart[idPizza + separator + sizePizza + separator + keyIngredients]) {
@@ -1406,10 +1428,10 @@ utilsDOM.hiddenText($eventTitle[5], 25);
 // HEADER STYLE SCROLL
 const $header = document.querySelector('.header');
 
-window.addEventListener('scroll', (e)=> {
-  if(window.scrollY > 60) {
+window.addEventListener('scroll', (e) => {
+  if (window.scrollY > 60) {
     $header.classList.add('header--active');
   } else {
     $header.classList.remove('header--active');
   }
-},{ passive: true });
+}, { passive: true });

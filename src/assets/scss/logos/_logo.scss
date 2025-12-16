@@ -1,9 +1,17 @@
 
+@use '../utils/mediaMixins' as *;
+@use '../utils/helperMixins' as *;
+
 
 .logo {
   display: block;
   width: 162px;
   height: 37px;
+
+  @include max_767 {
+    width: 113px;
+    height: 26px;
+  }
 
   &--min {
     width: 144px;
