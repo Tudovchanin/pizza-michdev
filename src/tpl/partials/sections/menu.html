@@ -21,9 +21,16 @@
 
     <div id="overlay-menu" class="menu__overlay">
       <div class="menu__panel">
+        <button id="custom-panel-close" class="menu__panel-close close-btn">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z"
+              fill="#000"></path>
+          </svg>
+        </button>
         <section id="panel-info-pizza" class="menu__panel-pizza panel-pizza"></section>
         <section id="panel-ingredients" class="menu__panel-ingredients panel-ingredients"></section>
-        <button  class="menu__panel-btn btn btn--dark">Order Now</button>
+        <button class="menu__panel-btn btn btn--accent">Order Now</button>
       </div>
     </div>
 
@@ -31,7 +38,8 @@
 
       <article class="promo">
         <h3 class="promo__title promo__title--hidden">
-          <span>The</span> <span>Fastest</span> <span>Pizza</span></h3>
+          <span>The</span> <span>Fastest</span> <span>Pizza</span>
+        </h3>
         <video id="video-promo" class="promo__video" muted playsinline preload="metadata">
           <source src="./assets/video/promo-video.mp4" type="video/mp4">
           <!-- <img src="/pizza-fallback.jpg" alt="Процесс готовки пиццы"> -->

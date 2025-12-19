@@ -33,8 +33,7 @@
     position: absolute;
     left:  -10px;
     bottom: -10px;
-    display: flex;
-    justify-content: center;
+    display: grid;
     align-items: center;
     width: 65%;
     height: 65%;
@@ -45,9 +44,15 @@
     color: var(--color-5);
     font-size: 12px;
     font-weight: 600;
+    line-height: 1;
     opacity: 0;
-
     transition: opacity 0.3s;
+    // для выравнивания текста по вертикали(оптическая иллюзия)
+    transform: translateY(0.5px);
+    @include max_767 {
+      width: 70%;
+      height: 70%;
+    }
     &--active {
       opacity: 0.8;
     }

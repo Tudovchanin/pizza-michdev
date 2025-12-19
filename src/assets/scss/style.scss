@@ -1,50 +1,50 @@
-@use './utils/variables';
-@use './utils/mediaMixins' as *;
-@use './utils/reset';
-@use './utils/fonts';
-@use './utils/helperMixins';
+@use "./utils/variables";
+@use "./utils/mediaMixins" as *;
+@use "./utils/reset";
+@use "./utils/fonts";
+@use "./utils/helperMixins";
 
 // atoms
-@use './logos/logo';
-@use './buttons/btn';
-@use './texts/main-title';
-@use './decor/lightning';
-@use './buttons/btn-play';
-@use './texts/paragraph';
-@use './lists/list';
-@use './buttons/cart-btn';
-@use './icons/social-icon';
-@use './texts/text-gradient';
-
-
+@use "./logos/logo";
+@use "./buttons/btn";
+@use "./texts/main-title";
+@use "./decor/lightning";
+@use "./buttons/btn-play";
+@use "./texts/paragraph";
+@use "./lists/list";
+@use "./buttons/cart-btn";
+@use "./icons/social-icon";
+@use "./texts/text-gradient";
+@use "./buttons/close-btn";
 
 // molecules
-@use './links/link-nav';
+@use "./links/link-nav";
+@use "./cards/pizza";
+@use "./cards/promo";
+@use "./cards/event";
+@use "./cards/ingredients";
+@use "./icons/icons-social";
+@use "./cards/cart-item.scss";
+@use "./panels/order-submit";
+@use "./forms/form-order";
 
-@use './cards/pizza';
-@use './cards/promo';
-@use './cards/event';
-@use './cards/ingredients';
-@use './icons/icons-social';
-
-
+// organism
+@use "./panels/cart";
 
 // sections
-@use './sections/header';
-@use './sections/hero';
-@use './sections/menu';
-@use './sections/events';
-@use './sections/about-us';
-@use './sections/footer';
-
+@use "./sections/header";
+@use "./sections/hero";
+@use "./sections/menu";
+@use "./sections/events";
+@use "./sections/about-us";
+@use "./sections/footer";
+@use "./sections/aside";
 
 // pages
-@use './pages/home';
+@use "./pages/home";
 
 // global
-@use './utils/global';
-
-
+@use "./utils/global";
 
 html,
 body {
@@ -52,14 +52,12 @@ body {
   overflow-x: hidden;
 }
 
-
-//  если элемент с позицией absolute уходит за нижний край самого нижнего элемента , то scroll  будет у body и html 
+//  если элемент с позицией absolute уходит за нижний край самого нижнего элемента , то scroll  будет у body и html
 body {
   min-height: 100vh;
-  font-family: 'Muller', sans-serif;
+  font-family: "Muller", sans-serif;
   background-image: var(--bg-gradient);
 }
-
 
 .main {
   padding-top: 197px;
@@ -67,24 +65,10 @@ body {
   @include max_1024 {
     padding-top: 200px;
   }
-  
+
   @include max_767 {
     padding-top: 150px;
   }
-
-  &__overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background-color: rgb(79, 19, 19);
-    transform: translateX(100%);
-  }
-
-}
-
-
-.cart-panel {
-
 }
 
 
@@ -95,7 +79,6 @@ body {
 #about {
   scroll-margin-top: 150px;
 }
-
 
 /* Для Chrome, Safari, Edge */
 ::-webkit-scrollbar {
@@ -121,7 +104,11 @@ body {
   /* при наведении более светлый */
 }
 
-
 .no-scroll {
   overflow: hidden;
+}
+
+
+.hidden {
+  display: none !important;
 }

@@ -7,8 +7,11 @@
   max-width: 614px;
   max-height: 260px;
   border-radius: 30px;
-  // overflow: hidden;
+  overflow: hidden;
 
+  @include max_767 {
+    border-radius: 20px;
+  }
 
   // object-position
   &__img {

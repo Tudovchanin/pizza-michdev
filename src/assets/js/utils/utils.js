@@ -1,3 +1,6 @@
+
+console.log(MAX_PIZZA, 'MAX PIZZA');
+
 function formatUtils() {
   return {
     formatPrice(price, locale = "en-US", min = 2, max = 2) {
@@ -166,9 +169,9 @@ function renderUtils() {
       ingredients.forEach((ingredient) => {
         cardsIngredients += `
           <li class="panel-ingredients__value" data-id="${ingredient.id}">
-            <p class="panel-ingredients__price" area-label="price pizza">${(
-              ingredient.price * coefficient
-            ).toFixed(2)} $<p>
+          <p class="panel-ingredients__price" area-label="price pizza">${(
+            ingredient.price * coefficient
+          ).toFixed(2)} $</p>
             <figure class="ingredient-card">
               <div class="ingredient-card__wrapper-img">
                 <img src="./assets/img/ingredients/${
@@ -243,7 +246,7 @@ function renderUtils() {
          </div>
         <div class="panel-pizza__info">
           <p class="panel-pizza__description">${pizzaData.description}</p>
-          <p class="panel-pizza__price-custom">Price for one pizza custom <span class="custom-price-one"> ${pricePizza}</span> $</p>
+          <p class="panel-pizza__price-custom">Your pizza: <span class="custom-price-one"> ${pricePizza}</span> $</p>
           <p class="panel-pizza__price-standard">Standard price: ${pricePizza} $</p>
         </div>
       </div>
@@ -369,7 +372,8 @@ function pizzaUtils() {
       return +$quantityPizza.textContent;
     },
 
-    setPizzaQuantity({ parentElement, quantity, selector, min = 1, max = 10 }) {
+  
+    setPizzaQuantity({ parentElement, quantity, selector, min = 1, max = MAX_PIZZA }) {
       const $quantityPizza = parentElement.querySelector(selector);
       if (quantity > max) {
         quantity = max;
@@ -384,7 +388,7 @@ function pizzaUtils() {
       $totalPricePizza.textContent = price;
     },
 
-    updateBtn({ parentElement, pizzaQuantity, min = 1, max = 10 }) {
+    updateBtn({ parentElement, pizzaQuantity, min = 1, max = MAX_PIZZA }) {
       console.log("update btn function");
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
@@ -397,6 +401,8 @@ function pizzaUtils() {
 function cartUtils() {
   return {
     updateCartItemCount({targetElement, quantity, activeClass}) {
+
+      console.log(quantity,'count cart pizza');
       if(quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
@@ -408,7 +414,7 @@ function cartUtils() {
     },
 
     getQuantity({cart, propertyQuantity}) {
-      console.log(cart, propertyQuantity);
+      // console.log(cart, propertyQuantity);
      const pizzaOrder =  Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
       sum += order[propertyQuantity];

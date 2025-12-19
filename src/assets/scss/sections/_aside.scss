@@ -1,0 +1,40 @@
+@use "../utils/helperMixins";
+@use "../utils/mediaMixins" as *;
+.aside {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  background-color: rgba(79, 19, 19, 0.027);
+  transform: translateX(100%);
+  transition:
+    transform 0.3s,
+    backdrop-filter 1s 0s;
+  backdrop-filter: blur(0px);
+  overflow: auto;
+
+  &--active {
+    transform: translateX(0);
+    backdrop-filter: blur(2px);
+  }
+
+  &__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 900px;
+    width: 100%;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    background-color: var(--color-1);
+    height: 100vh;
+    overflow-y: auto;
+    @include max_767 {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+    
+  }
+}

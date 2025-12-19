@@ -1,5 +1,11 @@
 "use strict";
 
+
+
+const MAX_PIZZA = 10;
+
+console.log(MAX_PIZZA, 'MAX PIZZA');
+
 function formatUtils() {
   return {
     formatPrice(price, locale = "en-US", min = 2, max = 2) {
@@ -168,9 +174,9 @@ function renderUtils() {
       ingredients.forEach((ingredient) => {
         cardsIngredients += `
           <li class="panel-ingredients__value" data-id="${ingredient.id}">
-            <p class="panel-ingredients__price" area-label="price pizza">${(
-              ingredient.price * coefficient
-            ).toFixed(2)} $<p>
+          <p class="panel-ingredients__price" area-label="price pizza">${(
+            ingredient.price * coefficient
+          ).toFixed(2)} $</p>
             <figure class="ingredient-card">
               <div class="ingredient-card__wrapper-img">
                 <img src="./assets/img/ingredients/${
@@ -245,7 +251,7 @@ function renderUtils() {
          </div>
         <div class="panel-pizza__info">
           <p class="panel-pizza__description">${pizzaData.description}</p>
-          <p class="panel-pizza__price-custom">Price for one pizza custom <span class="custom-price-one"> ${pricePizza}</span> $</p>
+          <p class="panel-pizza__price-custom">Your pizza: <span class="custom-price-one"> ${pricePizza}</span> $</p>
           <p class="panel-pizza__price-standard">Standard price: ${pricePizza} $</p>
         </div>
       </div>
@@ -371,7 +377,8 @@ function pizzaUtils() {
       return +$quantityPizza.textContent;
     },
 
-    setPizzaQuantity({ parentElement, quantity, selector, min = 1, max = 10 }) {
+  
+    setPizzaQuantity({ parentElement, quantity, selector, min = 1, max = MAX_PIZZA }) {
       const $quantityPizza = parentElement.querySelector(selector);
       if (quantity > max) {
         quantity = max;
@@ -386,7 +393,7 @@ function pizzaUtils() {
       $totalPricePizza.textContent = price;
     },
 
-    updateBtn({ parentElement, pizzaQuantity, min = 1, max = 10 }) {
+    updateBtn({ parentElement, pizzaQuantity, min = 1, max = MAX_PIZZA }) {
       console.log("update btn function");
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
@@ -399,6 +406,8 @@ function pizzaUtils() {
 function cartUtils() {
   return {
     updateCartItemCount({targetElement, quantity, activeClass}) {
+
+      console.log(quantity,'count cart pizza');
       if(quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
@@ -410,7 +419,7 @@ function cartUtils() {
     },
 
     getQuantity({cart, propertyQuantity}) {
-      console.log(cart, propertyQuantity);
+      // console.log(cart, propertyQuantity);
      const pizzaOrder =  Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
       sum += order[propertyQuantity];
@@ -802,6 +811,7 @@ footer.addEventListener("click", (event) => {
 });
 }
 
+
 //Utils
 const utilsFormat = formatUtils();
 const utilsStorage = storageUtils();
@@ -826,7 +836,6 @@ const INGR_PRICE_COEFF = {
   33: 1.5,
 };
 
-const MAX_PIZZA = 10;
 const KEY = {
   NO_INGREDIENTS: 'no-custom-ingredients',
   SEPARATOR: '_'
@@ -842,6 +851,7 @@ const $aboutPizza = document.getElementById("about");
 const $footer = document.getElementById("footer");
 
 // elements
+const $btnCloseCustomPanel = document.getElementById('custom-panel-close');
 const $videoMenu = document.getElementById("video-promo");
 const $cartBtn = document.getElementById("cartBtn");
 const $countCart = document.querySelector('.cart-btn__count');
@@ -865,6 +875,14 @@ const savedCart = localStorage.getItem("cart");
 let cart = savedCart ? JSON.parse(savedCart) : {};
 let popUpPizzaData = {};
 let addedIngredients = [];
+
+
+// logic cart icon count 
+utilsCart.updateCartItemCount({
+  targetElement: $countCart,
+  quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+  activeClass: 'cart-btn__count--active',
+});
 
 // header list decor
 initHeaderListUi([$menuPizza, $heroPizza, $eventsPizza, $aboutPizza, $footer]);
@@ -963,11 +981,12 @@ $tabsContainer.addEventListener("click", (e) => {
 
 // -----------------------------------------------------------------------------
 
+
 // handle pop up panel custom pizza
 $menuOverlay.addEventListener("click", (e) => {
-  // logic close pop up
 
-  if (!e.target.closest(".menu__panel")) {
+  // logic close pop up
+  if (!e.target.closest(".menu__panel") || e.target.closest("#custom-panel-close")) {
     handleClosePopUpPizza({
       pizzaCardElem: popUpPizzaData.cardElement,
       sizeValue: popUpPizzaData.pizzaData.size,
@@ -975,6 +994,7 @@ $menuOverlay.addEventListener("click", (e) => {
       callbackFormat: utilsFormat.formatPrice,
     });
     popUpPizzaData = {};
+
     return;
   }
 
@@ -1144,6 +1164,8 @@ $menuOverlay.addEventListener("click", (e) => {
       separator: KEY.SEPARATOR,
       addedIngredients
     });
+    utilsStorage.saveCart(cart);
+
 
 
     console.log(cart);
@@ -1168,7 +1190,7 @@ $menuOverlay.addEventListener("click", (e) => {
 
 // utilsCart.updateCartItemCount({
 //   targetElement: $countCart,
-//   quantity: 222,
+//   quantity: 5,
 //   activeClass: 'cart-btn__count--active',
 // });
 
@@ -1182,6 +1204,7 @@ function handleClosePopUpPizza({
   utilsDOM.unlockScroll();
   utilsDOM.clearContainer($pizzaInfoPanel);
   utilsDOM.clearContainer($ingredientsPanel);
+  addedIngredients = [];
 
   // initial prev state card pizza
   utilsPizza.resetPizzaCard({
@@ -1211,18 +1234,22 @@ function handleClosePopUpPizza({
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__customize-btn")) return;
 
+  // get dom elements
   const $pizzaCard = e.target.closest(".pizza-card");
   const $form = $pizzaCard.querySelector(".pizza-card__form");
+
   if (!$pizzaCard || !$form) return;
 
+  // get state data
   const idPizza = utilsPizza.getPizzaId($pizzaCard);
   const sizePizza = utilsPizza.getPizzaSize($form);
   const pizzaQuantity = utilsPizza.getPizzaQuantity($pizzaCard);
   const pizza = flatPizzaProducts.find((pizza) => pizza.id === idPizza);
 
+  // clone data
   const clonePizza = utilsData.deepClone(pizza);
 
-  // data pop up
+  // set data for panel customs ingredients
   popUpPizzaData = {
     pizzaData: {
       defaultPizza: pizza,
@@ -1234,6 +1261,7 @@ $menuPizza.addEventListener("click", (e) => {
     cardElement: $pizzaCard,
   };
 
+  // set elements ingredients in the obj
   const ingredientsHTML = {};
   ingredientsHTML.meats = utilsRender.renderCardsIngredients(
     ingredients.meats,
@@ -1247,8 +1275,9 @@ $menuPizza.addEventListener("click", (e) => {
     ingredients.seafood,
     INGR_PRICE_COEFF[sizePizza]
   );
-  utilsRender.renderPanelAddIngredients(ingredientsHTML, $ingredientsPanel);
 
+  // render elements for the customs ingredients
+  utilsRender.renderPanelAddIngredients(ingredientsHTML, $ingredientsPanel);
   utilsRender.renderPanelInfoPizza({
     pizzaData: pizza,
     sizePizza,
@@ -1256,10 +1285,12 @@ $menuPizza.addEventListener("click", (e) => {
     container: $pizzaInfoPanel,
     callbackFormat: utilsFormat.formatPrice,
   });
+  // set style btn for the customs ingredients (on/off)
   utilsPizza.updateBtn({
     parentElement: $pizzaInfoPanel,
     pizzaQuantity: popUpPizzaData.pizzaData.customQuantity,
   });
+
 
   $menuOverlay.classList.add("menu__overlay--active");
   utilsDOM.lockScroll();
@@ -1267,6 +1298,7 @@ $menuPizza.addEventListener("click", (e) => {
 
 
 
+console.log(cart, "CART");
 
 
 // HANDLE CLICK ORDER NOW IN THE CARD
@@ -1313,43 +1345,8 @@ $menuPizza.addEventListener("click", (e) => {
   });
 
   alert("PIZZA ADD TO THE CART");
+  utilsStorage.saveCart(cart);
 });
-
-
-
-
-
-
-function addToCart({
-  cart,
-  idPizza,
-  sizePizza,
-  keyIngredients,
-  pizzaQuantity,
-  pricePerPizza,
-  namePizza,
-  image = '',
-  addedIngredients = [],
-  separator = '_',
-}) {
-
-  if (cart[idPizza + separator + sizePizza + separator + keyIngredients]) {
-    console.log("уже есть пицца-карточка");
-    cart[idPizza + separator + sizePizza + separator + keyIngredients].pizzaQuantity += pizzaQuantity;
-    cart[idPizza + separator + sizePizza + separator + keyIngredients].totalPrice =
-      cart[idPizza + separator + sizePizza + separator + keyIngredients].pizzaQuantity * pricePerPizza;
-  } else {
-    console.log("новая пицца карточка");
-    cart[idPizza + separator + sizePizza + separator + keyIngredients] = {
-      namePizza: namePizza,
-      image,
-      pizzaQuantity,
-      sizePizza,
-      totalPrice: pizzaQuantity * pricePerPizza,
-      addedIngredients
-    };
-  }
-}
 
 // HANDLE CHANGE QUANTITY BTN PIZZA IN THE CARD
 $menuPizza.addEventListener("click", (e) => {
@@ -1410,17 +1407,51 @@ $menuPizza.addEventListener("change", (e) => {
   });
 });
 
+
+function addToCart({
+  cart,
+  idPizza,
+  sizePizza,
+  keyIngredients,
+  pizzaQuantity,
+  pricePerPizza,
+  namePizza,
+  image = '',
+  addedIngredients = [],
+  separator = '_',
+}) {
+
+  if (cart[idPizza + separator + sizePizza + separator + keyIngredients]) {
+    console.log("уже есть пицца-карточка");
+    cart[idPizza + separator + sizePizza + separator + keyIngredients].pizzaQuantity += pizzaQuantity;
+    cart[idPizza + separator + sizePizza + separator + keyIngredients].totalPrice =
+      cart[idPizza + separator + sizePizza + separator + keyIngredients].pizzaQuantity * pricePerPizza;
+  } else {
+    console.log("новая пицца карточка");
+    cart[idPizza + separator + sizePizza + separator + keyIngredients] = {
+      namePizza: namePizza,
+      image,
+      pizzaQuantity,
+      sizePizza,
+      totalPrice: pizzaQuantity * pricePerPizza,
+      addedIngredients
+    };
+  }
+}
+
+
+
+
 // ------------------------------------------------------------
 
 
 // cards event hide text
 
-const $eventText = document.querySelectorAll(".event__text");
-const $eventTitle = document.querySelectorAll(".event__title");
-
-utilsDOM.hiddenText($eventTitle[5], 25);
+const $eventsTexts = document.querySelectorAll(".event__text");
+const $eventsTitles = document.querySelectorAll(".event__title");
 
 
+utilsDOM.hiddenText($eventsTitles[5], 25);
 
 
 
@@ -1434,3 +1465,25 @@ window.addEventListener('scroll', (e) => {
     $header.classList.remove('header--active');
   }
 }, { passive: true });
+
+
+
+// CART PANEL
+
+
+const $aside = document.getElementById('modal-aside');
+
+$cartBtn.addEventListener('click', (e) => {
+  console.log('click cart btn');
+  $aside.classList.add('aside--active');
+  utilsDOM.lockScroll();
+
+});
+
+$aside.addEventListener('click', (e) => {
+  if( !e.target.closest(".aside__panel") || e.target.closest("#aside-close")) {
+    $aside.classList.remove('aside--active');
+    utilsDOM.unlockScroll();
+  }
+  
+});

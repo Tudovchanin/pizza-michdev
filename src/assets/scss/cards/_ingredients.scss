@@ -9,8 +9,16 @@
   gap: 10px;
   text-align: center;
 
+  @include max_767 {
+   gap: 5px;
+  }
+
   &__wrapper-img {
     height: 70px;
+
+    @include max_767 {
+      height: 50px;
+    }
   }
 
   &__img {

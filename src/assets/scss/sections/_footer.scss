@@ -73,10 +73,10 @@
       justify-content: initial;
     }
 
-    @include max_380 {
+    @include max_330 {
+      gap: 20px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between
     }
   }
 }

@@ -1,0 +1,84 @@
+
+@use "../utils/helperMixins";
+@use "../utils/mediaMixins" as *;
+
+.cart {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -100%;
+      z-index: -1;
+      width: 90%;
+      height: 50px;
+      background-color: var(--color-1);
+      filter: blur(5px);
+    }
+  }
+
+  &__items {
+    max-height: 70vh;
+    flex-grow: 1;
+    padding-bottom: 50px;
+    overflow: auto;
+
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 7px;
+      background-color: var(--color-2);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border: none;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 50px;
+  }
+
+  &__total-price {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  &__btn {
+    max-width: 200px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    @include helperMixins.hover-and-pointer {
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: brightness(1.3);
+      }
+    }
+  }
+}

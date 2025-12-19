@@ -3,27 +3,282 @@ layout: default
 title: Pizzashop
 ---
 
-
 <!-- header and footer in the layout -->
 <main class="main container">
-  <div id="overlay-main" class="main__overlay" aria-hidden="true">
-
-    <div style="color: antiquewhite;">
-      <h1>Overlay</h1>
-      <div id="cart-panel" class="main__cart-panel cart-panel">
-        <h1>Cart</h1>
-      </div>
-    </div>
-  </div>
-
-
-  {{> hero}}
-  {{> menu}}
-  {{> events}}
-  {{> about-us}}
+  {{> hero}} {{> menu}} {{> events}} {{> about-us}}
 </main>
-<!-- 
 
-<footer style="background-color: white; height: 200px;" id="footer">
- <a id="link-meat" href="#meat">Meat</a>
-</footer> -->
+<!-- Корзина ВНЕ main -->
+<aside id="modal-aside" class="aside">
+  <div class="aside__panel cart">
+    <header class="cart__header">
+      <h2 id="aside-title" class="cart__title">Order details</h2>
+      <button id="aside-close" class="aside__close-btn close-btn">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z"
+            fill="currentColor"></path>
+        </svg>
+      </button>
+    </header>
+    <div id="items-cart" class="cart__items">
+      <article class="cart-item">
+        <img src="./assets/img/pizza/argentina-pizza.webp" alt="Пицца Маргарита 30см" class="cart-item__img" />
+
+        <div class="cart-item__info">
+          <h3 class="cart-item__name">Pepperoni Classic</h3>
+          <p class="cart-item__size">X 30</p>
+          <p class="cart-item__price">
+            <span class="cart-item-price">300</span> $
+          </p>
+          <section class="cart-item__custom-ingredients">
+            <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+            <p class="cart-item__addons">
+              <!-- допы -->
+              <span>mushrooms </span>
+              <span>meat</span>
+
+            </p>
+          </section>
+        </div>
+
+        <div class="cart-item__controls">
+          <button class="cart-item__btn cart-item__btn--minus" aria-label="Уменьшить количество">
+            −
+          </button>
+          <span class="cart-item__quantity" aria-live="polite">2</span>
+          <button class="cart-item__btn cart-item__btn--plus" aria-label="Увеличить количество">
+            +
+          </button>
+        </div>
+
+        <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу Маргарита"></button>
+      </article>
+      <article class="cart-item">
+        <img src="./assets/img/pizza/argentina-pizza.webp" alt="Пицца Маргарита 30см" class="cart-item__img" />
+
+        <div class="cart-item__info">
+          <h3 class="cart-item__name">Pepperoni Classic</h3>
+          <p class="cart-item__size">X 30</p>
+          <p class="cart-item__price">
+            <span class="cart-item-price">300</span> $
+          </p>
+          <section class="cart-item__custom-ingredients">
+            <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+            <p class="cart-item__addons">
+              <!-- допы -->
+              <span>mushrooms </span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span> <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span>
+
+            </p>
+          </section>
+        </div>
+
+        <div class="cart-item__controls">
+          <button class="cart-item__btn cart-item__btn--minus" aria-label="Уменьшить количество">
+            −
+          </button>
+          <span class="cart-item__quantity" aria-live="polite">2</span>
+          <button class="cart-item__btn cart-item__btn--plus" aria-label="Увеличить количество">
+            +
+          </button>
+        </div>
+
+        <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу Маргарита"></button>
+      </article>
+      <article class="cart-item">
+        <img src="./assets/img/pizza/argentina-pizza.webp" alt="Пицца Маргарита 30см" class="cart-item__img" />
+
+        <div class="cart-item__info">
+          <h3 class="cart-item__name">Pepperoni Classic</h3>
+          <p class="cart-item__size">X 30</p>
+          <p class="cart-item__price">
+            <span class="cart-item-price">300</span> $
+          </p>
+          <section class="cart-item__custom-ingredients">
+            <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+            <p class="cart-item__addons">
+              <!-- допы -->
+              <span>mushrooms </span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span> <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+            </p>
+          </section>
+        </div>
+
+        <div class="cart-item__controls">
+          <button class="cart-item__btn cart-item__btn--minus" aria-label="Уменьшить количество">
+            −
+          </button>
+          <span class="cart-item__quantity text-ellipsis" aria-live="polite">200000</span>
+          <button class="cart-item__btn cart-item__btn--plus" aria-label="Увеличить количество">
+            +
+          </button>
+        </div>
+
+        <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу Маргарита"></button>
+      </article>
+      <article class="cart-item">
+        <img src="./assets/img/pizza/argentina-pizza.webp" alt="Пицца Маргарита 30см" class="cart-item__img" />
+
+        <div class="cart-item__info">
+          <h3 class="cart-item__name">Pepperoni Classic</h3>
+          <p class="cart-item__size">X 30</p>
+          <p class="cart-item__price">
+            <span class="cart-item-price">300</span> $
+          </p>
+          <section class="cart-item__custom-ingredients">
+            <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+            <p class="cart-item__addons">
+              <!-- допы -->
+              <span>mushrooms </span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span> <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+            </p>
+          </section>
+        </div>
+
+        <div class="cart-item__controls">
+          <button class="cart-item__btn cart-item__btn--minus" aria-label="Уменьшить количество">
+            −
+          </button>
+          <span class="cart-item__quantity text-ellipsis" aria-live="polite">200000</span>
+          <button class="cart-item__btn cart-item__btn--plus" aria-label="Увеличить количество">
+            +
+          </button>
+        </div>
+
+        <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу Маргарита"></button>
+      </article>
+      <article class="cart-item">
+        <img src="./assets/img/pizza/argentina-pizza.webp" alt="Пицца Маргарита 30см" class="cart-item__img" />
+
+        <div class="cart-item__info">
+          <h3 class="cart-item__name">Pepperoni Classic</h3>
+          <p class="cart-item__size">X 30</p>
+          <p class="cart-item__price">
+            <span class="cart-item-price">300</span> $
+          </p>
+          <section class="cart-item__custom-ingredients">
+            <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+            <p class="cart-item__addons">
+              <!-- допы -->
+              <span>mushrooms </span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span> <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+            </p>
+          </section>
+        </div>
+
+        <div class="cart-item__controls">
+          <button class="cart-item__btn cart-item__btn--minus" aria-label="Уменьшить количество">
+            −
+          </button>
+          <span class="cart-item__quantity text-ellipsis" aria-live="polite">200000</span>
+          <button class="cart-item__btn cart-item__btn--plus" aria-label="Увеличить количество">
+            +
+          </button>
+        </div>
+
+        <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу Маргарита"></button>
+      </article>
+      <article class="cart-item">
+        <img src="./assets/img/pizza/argentina-pizza.webp" alt="Пицца Маргарита 30см" class="cart-item__img" />
+
+        <div class="cart-item__info">
+          <h3 class="cart-item__name">Pepperoni Classic</h3>
+          <p class="cart-item__size">X 30</p>
+          <p class="cart-item__price">
+            <span class="cart-item-price">300</span> $
+          </p>
+          <section class="cart-item__custom-ingredients">
+            <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+            <p class="cart-item__addons">
+              <!-- допы -->
+              <span>mushrooms </span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span> <span>mushrooms</span>
+              <span>meat</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+              <span>parmesan</span>
+            </p>
+          </section>
+        </div>
+
+        <div class="cart-item__controls">
+          <button class="cart-item__btn cart-item__btn--minus" aria-label="Уменьшить количество">
+            −
+          </button>
+          <span class="cart-item__quantity text-ellipsis" aria-live="polite">200000</span>
+          <button class="cart-item__btn cart-item__btn--plus" aria-label="Увеличить количество">
+            +
+          </button>
+        </div>
+
+        <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу Маргарита"></button>
+      </article>
+    </div>
+
+    <div class="order-submit">
+      <p class="order-submit__info">Enter details. Call within 10 min: +7(123)456-78-90</p>
+      <form class="order-submit__form form-order">
+     
+        <div class="form-order__field">
+          <label class="form-order__label" for="tel">Your phone</label>
+          <input class="form-order__input" title="your phone" type="tel" name="user_tel" id="tel" placeholder="+1 (555) 123-4567" required>
+        </div>
+       
+      </form>
+    </div>
+
+
+    <footer id="aside-footer" class="cart__footer">
+      <div class="cart__total-price">
+        Total price: <span id="cart-total-price">700 $</span>
+      </div>
+      <button id="btn-footer-cart" class="cart__btn btn btn--accent">
+        Request a call
+      </button>
+    </footer>
+  </div>
+</aside>
+
+
+<!-- Order details  при отправке формы заголовок панели -->
+
+<!--  Request a call  кнопка при финальном сценарии заказа-->
