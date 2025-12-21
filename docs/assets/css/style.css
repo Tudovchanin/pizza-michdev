@@ -2439,6 +2439,7 @@ h1, h2, h3, h4, h5, h6, p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    pointer-events: none;
 }
 
 @media (max-width: 1680px) {
@@ -2491,6 +2492,7 @@ h1, h2, h3, h4, h5, h6, p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    pointer-events: none;
 }
 
 @media (max-width: 1680px) {
@@ -2542,6 +2544,7 @@ h1, h2, h3, h4, h5, h6, p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    pointer-events: none;
 }
 
 @media (max-width: 1300px) {

@@ -2,28 +2,28 @@
   "items": [
     {
       "img": "event-cooking",
-      "link": "#",
+      "link": "https://itshabashka.ru/",
       "title": "How We Cooking",
       "alt": "Cooking process overview",
       "className": ""
     },
     {
       "img": "event-blog",
-      "link": "#",
+      "link": "https://itshabashka.ru/",
       "title": "Our Blog",
       "alt": "Link to our blog",
       "className": ""
     },
     {
       "img": "event-price",
-      "link": "#",
+      "link": "https://itshabashka.ru/",
       "title": "Two Pizza for 1 Price",
       "alt": "Special offer: two pizzas for price of one",
       "className": ""
     },
     {
       "img": "event-kitchen",
-      "link": "#",
+      "link": "https://itshabashka.ru/",
       "title": "Kitchen Tour",
       "alt": "Tour of our kitchen",
       "className": ""
@@ -31,7 +31,7 @@
     },
     {
       "img": "event-free",
-      "link": "#",
+      "link": "https://itshabashka.ru/",
       "title": "Free Coffee for 3 Pizza",
       "alt": "Free coffee promotion when ordering three pizzas",
       "className": ""
@@ -39,7 +39,7 @@
     },
     {
       "img": "event-instagram",
-      "link": "#",
+      "link": "https://kirillzemzyulin.ru/",
       "title": "Our Instagram promotion when ordering three pizzas",
       "alt": "Visit our Instagram page",
       "className": ""
@@ -47,7 +47,7 @@
     },
     {
       "img": "event-choose",
-      "link": "#",
+      "link": "https://kirillzemzyulin.ru/",
       "title": "Where Are You Choose Us?",
       "alt": "Reasons to choose our pizzeria",
       "className": ""

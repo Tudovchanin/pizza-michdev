@@ -27,6 +27,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    pointer-events: none;
 
 
     @include max_1680 {
@@ -72,6 +73,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    pointer-events: none;
+
 
 
     @include max_1680 {
@@ -115,6 +118,8 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
+      pointer-events: none;
+
 
 
       @include max_1300 {
