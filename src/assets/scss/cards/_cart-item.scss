@@ -6,6 +6,7 @@
   grid-template-columns: 150px auto 150px 50px;
   gap: 10px;
   padding-top: 20px;
+  color: var(--color-text-dark);
 
   @include max_767 {
     grid-template-columns: 120px auto 50px 50px;
@@ -59,7 +60,7 @@
         transition: filter 0.3s;
 
         &:hover:not(:disabled) {
-          filter: blur(1px);
+          filter: brightness(1.2);
         }
       }
 
@@ -79,7 +80,6 @@
   }
 
   &__controls {
-    background-color: red;
     align-self: center;
        @include max_767 {
         display: flex;
@@ -87,17 +87,18 @@
         align-items: center;
         gap: 10px;
       }
-
   }
 
   &__remove {
     align-self: center;
     width: 22px;
     height: 22px;
+    background-color: var(--color-danger);
     background-image: url("../img/icons/cross.svg");
     background-repeat: no-repeat;
     background-size: 60% 60%;
     background-position: center;
+    border: solid 1px var(--color-5);
     @include max_767 {
       justify-self: end;
       margin-right: 10px;

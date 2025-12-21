@@ -1,5 +1,4 @@
-
-console.log(MAX_PIZZA, 'MAX PIZZA');
+console.log(MAX_PIZZA, "MAX PIZZA");
 
 function formatUtils() {
   return {
@@ -190,7 +189,7 @@ function renderUtils() {
       return cardsIngredients;
     },
 
-    renderTextIngredients(ingredients, initialVal = '') {
+    renderTextIngredients(ingredients, initialVal = "") {
       if (!ingredients.length) {
         return `<span>${initialVal}</span>`;
       }
@@ -262,13 +261,66 @@ function renderUtils() {
             <span class="panel-pizza__quantity quantity">${pizzaQuantity}</span>
             <button class="panel-pizza__btn-quantity  increment-quantity">+</button>
           </div>
-          <p class="panel-pizza__price-total">Total <span class="total-price">${
-            totalPrice
-          }</span> $</p>
+          <p class="panel-pizza__price-total">Total <span class="total-price">${totalPrice}</span> $</p>
         </div>
       `;
 
       container.innerHTML = panelInfo;
+    },
+
+    // {"4_22_no-custom-ingredients":{"namePizza":"Pepperoni Classic","image":"meat-pizza","pizzaQuantity":1,"sizePizza":22,"totalPrice":11,"addedIngredients":[]}}
+    renderCartItem(data) {
+      const isMinusDisabled = data[1].pizzaQuantity <= 1 ? "disabled" : "";
+      // const isPlusDisabled =
+      //   data[1].pizzaQuantity >= MAX_PIZZA ? "disabled" : "";
+
+      let addedIngredients = [];
+
+      if (data[1].addedIngredients.length) {
+        addedIngredients = data[1].addedIngredients.map(
+          (objIngr) => objIngr.name
+        );
+      }
+
+      const cartItem = `
+      <article class="cart-item" data-id="${data[0]}">
+      <img src="./assets/img/pizza/${data[1].image}.webp" alt="${
+        data[1].namePizza
+      } size ${data[1].sizePizza}" class="cart-item__img" />
+      <div class="cart-item__info">
+        <h3 class="cart-item__name">${data[1].namePizza}</h3>
+        <p class="cart-item__size">X ${data[1].sizePizza}</p>
+        <p class="cart-item__price">
+          <span class="cart-item-price">${
+            (data[1].totalPrice).toFixed(2)}</span> $
+        </p>
+        <section class="cart-item__custom-ingredients">
+          <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+          <p class="cart-item__addons">
+          ${this.renderTextIngredients(
+            addedIngredients,
+            "no additional ingredients"
+          )}
+          </p>
+        </section>
+      </div>
+      <div class="cart-item__controls">
+        <button class="cart-item__btn cart-item__btn--minus decrement-quantity" aria-label="Reduce quantity" ${isMinusDisabled}>
+          −
+        </button>
+        <span class="cart-item__quantity" aria-live="polite">${
+          data[1].pizzaQuantity
+        }</span>
+        <button class="cart-item__btn cart-item__btn--plus increment-quantity" aria-label="Increase quantity">
+          +
+        </button>
+      </div>
+      <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу ${
+        data[1].namePizza
+      }"></button>
+    </article>
+      `;
+      return cartItem;
     },
   };
 }
@@ -332,8 +384,8 @@ function pizzaUtils() {
     }) {
       const $quantityPizza = pizzaCardElem.querySelector(".quantity");
       $quantityPizza.textContent = pizzaQuantity;
-      const btnIncrement = pizzaCardElem.querySelector('.increment-quantity');
-      const btnDecrement = pizzaCardElem.querySelector('.decrement-quantity');
+      const btnIncrement = pizzaCardElem.querySelector(".increment-quantity");
+      const btnDecrement = pizzaCardElem.querySelector(".decrement-quantity");
 
       const $radioBtnSize = pizzaCardElem.querySelector(
         `input[name="size"][value="${sizeValue}"]`
@@ -350,7 +402,6 @@ function pizzaUtils() {
       $radioBtnSize.checked = true;
       btnIncrement.disabled = false;
       btnDecrement.disabled = true;
-
     },
 
     getPizzaSize(form) {
@@ -372,8 +423,13 @@ function pizzaUtils() {
       return +$quantityPizza.textContent;
     },
 
-  
-    setPizzaQuantity({ parentElement, quantity, selector, min = 1, max = MAX_PIZZA }) {
+    setPizzaQuantity({
+      parentElement,
+      quantity,
+      selector,
+      min = 1,
+      max = MAX_PIZZA,
+    }) {
       const $quantityPizza = parentElement.querySelector(selector);
       if (quantity > max) {
         quantity = max;
@@ -392,6 +448,7 @@ function pizzaUtils() {
       console.log("update btn function");
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
+
       $btnDecrement.disabled = pizzaQuantity <= min;
       $btnIncrement.disabled = pizzaQuantity >= max;
     },
@@ -400,29 +457,41 @@ function pizzaUtils() {
 
 function cartUtils() {
   return {
-    updateCartItemCount({targetElement, quantity, activeClass}) {
-
-      console.log(quantity,'count cart pizza');
-      if(quantity < 1) {
+    updateCartItemCount({ targetElement, quantity, activeClass }) {
+      console.log(quantity, "count cart pizza");
+      if (quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
       } else {
-        const displayQuantity = quantity > 99 ? '99+' : quantity;
+        const displayQuantity = quantity > 99 ? "99+" : quantity;
         targetElement.classList.add(activeClass);
         targetElement.textContent = displayQuantity;
       }
     },
 
-    getQuantity({cart, propertyQuantity}) {
+    getQuantity({ cart, propertyQuantity }) {
       // console.log(cart, propertyQuantity);
-     const pizzaOrder =  Object.values(cart);
+      const pizzaOrder = Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
-      sum += order[propertyQuantity];
-      return sum
-     },0);
+        sum += order[propertyQuantity];
+        return sum;
+      }, 0);
 
-     return totalQuantity;
+      return totalQuantity;
+    },
 
+    calculateItemTotalPrice({cart, idCartItem}) {
+      cart[idCartItem].totalPrice = (cart[idCartItem].pricePerPizza *  cart[idCartItem].pizzaQuantity);
+    },
+
+
+    sumCartItemsPrice({cart}) {
+      const sumItemsPrice = Object.values(cart).reduce((sum, item)=> {
+        return sum + item.totalPrice;
+       
+      },0)
+
+      return sumItemsPrice;
     }
-  }
+  };
 }

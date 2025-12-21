@@ -6,12 +6,14 @@
     --color-3: hsl(34, 100%, 58%);
     --color-4: hsl(15, 100%, 60%);
     --color-5: hsl(17, 94%, 7%);
+    --color-danger: rgb(248, 10, 10);
     --bg-gradient: linear-gradient(245.71deg, hsl(26, 100%, 5%) 4.96%, hsl(15, 100%, 5%) 33.7%, hsl(27, 100%, 4%) 68.41%, hsl(26, 100%, 5%) 96.42%);
-    --footer-gradient: linear-gradient(223.15deg, rgba(22.95, 9.64, 0, 1),rgba(22.95, 5.51, 0, 1) 31%,rgba(15.3, 6.52, 0.16, 1) 69%,rgba(22.95, 9.83, 0.33, 1) 100%);
+    --footer-gradient: linear-gradient(223.15deg, rgba(22.95, 9.64, 0, 1), rgba(22.95, 5.51, 0, 1) 31%, rgba(15.3, 6.52, 0.16, 1) 69%, rgba(22.95, 9.83, 0.33, 1) 100%);
     --elem-gradient: linear-gradient(261.69deg, hsl(15, 100%, 57%) 12.12%, hsl(34, 100%, 58%) 86.72%);
     --elem-gradient-reverse: linear-gradient(-261.69deg, hsl(15, 100%, 57%) 12.12%, hsl(34, 100%, 58%) 86.72%);
     --color-text-primary: var(--color-1);
     --color-text-secondary: var(--color-2);
+    --color-text-dark: var(--color-5);
     --size-sub-title: clamp(1.25rem, 1.1266rem + 0.4613vw, 1.5625rem);
     --card-pizza: var(--color-5);
     --btn-accent: var(--elem-gradient);
@@ -1098,6 +1100,7 @@ h1, h2, h3, h4, h5, h6, p {
     grid-template-columns: 150px auto 150px 50px;
     gap: 10px;
     padding-top: 20px;
+    color: var(--color-text-dark);
 }
 
 @media (max-width: 767px) {
@@ -1155,7 +1158,7 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
     .cart-item__btn--minus:hover:not(:disabled), .cart-item__btn--plus:hover:not(:disabled) {
-        filter: blur(1px);
+        filter: brightness(1.2);
     }
 }
 
@@ -1168,7 +1171,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .cart-item__controls {
-    background-color: red;
     align-self: center;
 }
 
@@ -1185,10 +1187,12 @@ h1, h2, h3, h4, h5, h6, p {
     align-self: center;
     width: 22px;
     height: 22px;
+    background-color: var(--color-danger);
     background-image: url("../img/icons/cross.svg");
     background-repeat: no-repeat;
     background-size: 60% 60%;
     background-position: center;
+    border: solid 1px var(--color-5);
 }
 
 @media (max-width: 767px) {
@@ -1295,6 +1299,7 @@ h1, h2, h3, h4, h5, h6, p {
 .cart {
     display: flex;
     flex-direction: column;
+    color: var(--color-text-dark);
 }
 
 .cart__header {
@@ -1763,6 +1768,7 @@ h1, h2, h3, h4, h5, h6, p {
 .panel-pizza {
     display: flex;
     flex-direction: column;
+    color: var(--color-text-dark);
 }
 
 .panel-pizza__header {
@@ -1864,9 +1870,22 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .panel-pizza__btn-quantity {
+    position: relative;
+    z-index: 1;
     padding: 10px 20px;
     background-color: transparent;
-    border: solid 1px;
+    border: solid 1px var(--color-5);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.panel-pizza__btn-quantity::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--btn-accent);
+    opacity: 0;
 }
 
 @media (max-width: 767px) {
@@ -1876,12 +1895,12 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 @media (any-hover: hover) and (any-pointer: fine) {
-    .panel-pizza__btn-quantity {
-        transition: filter 0.3s;
+    .panel-pizza__btn-quantity::before {
+        transition: opacity 0.3s;
     }
 
-    .panel-pizza__btn-quantity:hover:not(:disabled) {
-        filter: blur(1px);
+    .panel-pizza__btn-quantity:hover:not(:disabled)::before {
+        opacity: 1;
     }
 }
 
@@ -1891,6 +1910,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .panel-pizza__btn-quantity:disabled {
     cursor: initial;
+    opacity: 0.4;
 }
 
 .panel-pizza__quantity {
@@ -1904,6 +1924,7 @@ h1, h2, h3, h4, h5, h6, p {
     position: relative;
     font-size: 20px;
     background-color: inherit;
+    color: var(--color-text-dark);
 }
 
 .panel-ingredients::before {
@@ -2871,6 +2892,13 @@ body {
     .main {
         padding-top: 150px;
     }
+}
+
+.empty-cart {
+    display: grid;
+    gap: 20px;
+    justify-items: center;
+    padding-top: 100px;
 }
 
 #menuPizza,

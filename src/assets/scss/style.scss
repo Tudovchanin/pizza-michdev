@@ -71,6 +71,14 @@ body {
   }
 }
 
+.empty-cart {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  padding-top: 100px;
+  // color: var(--color-text-secondary);
+}
+
 
 
 #menuPizza,

@@ -3,8 +3,7 @@
 
 
 const MAX_PIZZA = 10;
-
-console.log(MAX_PIZZA, 'MAX PIZZA');
+console.log(MAX_PIZZA, "MAX PIZZA");
 
 function formatUtils() {
   return {
@@ -195,7 +194,7 @@ function renderUtils() {
       return cardsIngredients;
     },
 
-    renderTextIngredients(ingredients, initialVal = '') {
+    renderTextIngredients(ingredients, initialVal = "") {
       if (!ingredients.length) {
         return `<span>${initialVal}</span>`;
       }
@@ -267,13 +266,66 @@ function renderUtils() {
             <span class="panel-pizza__quantity quantity">${pizzaQuantity}</span>
             <button class="panel-pizza__btn-quantity  increment-quantity">+</button>
           </div>
-          <p class="panel-pizza__price-total">Total <span class="total-price">${
-            totalPrice
-          }</span> $</p>
+          <p class="panel-pizza__price-total">Total <span class="total-price">${totalPrice}</span> $</p>
         </div>
       `;
 
       container.innerHTML = panelInfo;
+    },
+
+    // {"4_22_no-custom-ingredients":{"namePizza":"Pepperoni Classic","image":"meat-pizza","pizzaQuantity":1,"sizePizza":22,"totalPrice":11,"addedIngredients":[]}}
+    renderCartItem(data) {
+      const isMinusDisabled = data[1].pizzaQuantity <= 1 ? "disabled" : "";
+      // const isPlusDisabled =
+      //   data[1].pizzaQuantity >= MAX_PIZZA ? "disabled" : "";
+
+      let addedIngredients = [];
+
+      if (data[1].addedIngredients.length) {
+        addedIngredients = data[1].addedIngredients.map(
+          (objIngr) => objIngr.name
+        );
+      }
+
+      const cartItem = `
+      <article class="cart-item" data-id="${data[0]}">
+      <img src="./assets/img/pizza/${data[1].image}.webp" alt="${
+        data[1].namePizza
+      } size ${data[1].sizePizza}" class="cart-item__img" />
+      <div class="cart-item__info">
+        <h3 class="cart-item__name">${data[1].namePizza}</h3>
+        <p class="cart-item__size">X ${data[1].sizePizza}</p>
+        <p class="cart-item__price">
+          <span class="cart-item-price">${
+            (data[1].totalPrice).toFixed(2)}</span> $
+        </p>
+        <section class="cart-item__custom-ingredients">
+          <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
+          <p class="cart-item__addons">
+          ${this.renderTextIngredients(
+            addedIngredients,
+            "no additional ingredients"
+          )}
+          </p>
+        </section>
+      </div>
+      <div class="cart-item__controls">
+        <button class="cart-item__btn cart-item__btn--minus decrement-quantity" aria-label="Reduce quantity" ${isMinusDisabled}>
+          −
+        </button>
+        <span class="cart-item__quantity" aria-live="polite">${
+          data[1].pizzaQuantity
+        }</span>
+        <button class="cart-item__btn cart-item__btn--plus increment-quantity" aria-label="Increase quantity">
+          +
+        </button>
+      </div>
+      <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу ${
+        data[1].namePizza
+      }"></button>
+    </article>
+      `;
+      return cartItem;
     },
   };
 }
@@ -337,8 +389,8 @@ function pizzaUtils() {
     }) {
       const $quantityPizza = pizzaCardElem.querySelector(".quantity");
       $quantityPizza.textContent = pizzaQuantity;
-      const btnIncrement = pizzaCardElem.querySelector('.increment-quantity');
-      const btnDecrement = pizzaCardElem.querySelector('.decrement-quantity');
+      const btnIncrement = pizzaCardElem.querySelector(".increment-quantity");
+      const btnDecrement = pizzaCardElem.querySelector(".decrement-quantity");
 
       const $radioBtnSize = pizzaCardElem.querySelector(
         `input[name="size"][value="${sizeValue}"]`
@@ -355,7 +407,6 @@ function pizzaUtils() {
       $radioBtnSize.checked = true;
       btnIncrement.disabled = false;
       btnDecrement.disabled = true;
-
     },
 
     getPizzaSize(form) {
@@ -377,8 +428,13 @@ function pizzaUtils() {
       return +$quantityPizza.textContent;
     },
 
-  
-    setPizzaQuantity({ parentElement, quantity, selector, min = 1, max = MAX_PIZZA }) {
+    setPizzaQuantity({
+      parentElement,
+      quantity,
+      selector,
+      min = 1,
+      max = MAX_PIZZA,
+    }) {
       const $quantityPizza = parentElement.querySelector(selector);
       if (quantity > max) {
         quantity = max;
@@ -397,6 +453,7 @@ function pizzaUtils() {
       console.log("update btn function");
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
+
       $btnDecrement.disabled = pizzaQuantity <= min;
       $btnIncrement.disabled = pizzaQuantity >= max;
     },
@@ -405,31 +462,43 @@ function pizzaUtils() {
 
 function cartUtils() {
   return {
-    updateCartItemCount({targetElement, quantity, activeClass}) {
-
-      console.log(quantity,'count cart pizza');
-      if(quantity < 1) {
+    updateCartItemCount({ targetElement, quantity, activeClass }) {
+      console.log(quantity, "count cart pizza");
+      if (quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
       } else {
-        const displayQuantity = quantity > 99 ? '99+' : quantity;
+        const displayQuantity = quantity > 99 ? "99+" : quantity;
         targetElement.classList.add(activeClass);
         targetElement.textContent = displayQuantity;
       }
     },
 
-    getQuantity({cart, propertyQuantity}) {
+    getQuantity({ cart, propertyQuantity }) {
       // console.log(cart, propertyQuantity);
-     const pizzaOrder =  Object.values(cart);
+      const pizzaOrder = Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
-      sum += order[propertyQuantity];
-      return sum
-     },0);
+        sum += order[propertyQuantity];
+        return sum;
+      }, 0);
 
-     return totalQuantity;
+      return totalQuantity;
+    },
 
+    calculateItemTotalPrice({cart, idCartItem}) {
+      cart[idCartItem].totalPrice = (cart[idCartItem].pricePerPizza *  cart[idCartItem].pizzaQuantity);
+    },
+
+
+    sumCartItemsPrice({cart}) {
+      const sumItemsPrice = Object.values(cart).reduce((sum, item)=> {
+        return sum + item.totalPrice;
+       
+      },0)
+
+      return sumItemsPrice;
     }
-  }
+  };
 }
 function getIngredients() {
   return {
@@ -1434,6 +1503,7 @@ function addToCart({
       pizzaQuantity,
       sizePizza,
       totalPrice: pizzaQuantity * pricePerPizza,
+      pricePerPizza,
       addedIngredients
     };
   }
@@ -1470,20 +1540,126 @@ window.addEventListener('scroll', (e) => {
 
 // CART PANEL
 
+// "2_22_no-custom-ingredients": {
+//     "namePizza": "Argentina",
+//     "image": "argentina-pizza",
+//     "pizzaQuantity": 1,
+//     "sizePizza": 22,
+//     "totalPrice": 13,
+//     "pricePerPizza": 13,
+//     "addedIngredients": []
+// }
+
 
 const $aside = document.getElementById('modal-aside');
+const $containerItems = document.getElementById('items-cart');
+const $totalItemsPrice = document.getElementById('total-items-price');
+
+const renderCartPanel = () => {
+  const arrCartData = Object.entries(cart);
+  
+  if (!arrCartData.length) {
+    renderEmptyCart();
+  } else {
+    renderCartWithItems(arrCartData);
+  }
+};
+
+const renderEmptyCart = () => {
+  $containerItems.innerHTML = `
+    <div class="empty-cart">
+      <p>🛒 Cart is empty</p>
+      <p>Fill the form and we'll call you back</p>
+      <p>Or add pizzas to order</p>
+    </div>
+  `;
+  setCartPanelTexts('Get a call', 'Request a call');
+};
+
+const renderCartWithItems = (arrCartData) => {
+  $containerItems.innerHTML = arrCartData
+    .map(item => utilsRender.renderCartItem(item))
+    .join('');
+  setCartPanelTexts('Order details', 'Order with call');
+};
+
+const setCartPanelTexts = (title, buttonText) => {
+  document.getElementById('aside-title').textContent = title;
+  document.getElementById('btn-footer-cart').textContent = buttonText;
+};
+
 
 $cartBtn.addEventListener('click', (e) => {
-  console.log('click cart btn');
   $aside.classList.add('aside--active');
   utilsDOM.lockScroll();
-
+  renderCartPanel();
+  $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
 });
 
 $aside.addEventListener('click', (e) => {
-  if( !e.target.closest(".aside__panel") || e.target.closest("#aside-close")) {
+  console.log('aside click');
+
+  if (!e.target.closest(".aside__panel") || e.target.closest("#aside-close")) {
     $aside.classList.remove('aside--active');
     utilsDOM.unlockScroll();
   }
-  
+
+  if (e.target.closest(".cart-item__btn")) {
+
+    const $cartItem = e.target.closest(".cart-item");
+    const idCartItem = $cartItem.getAttribute('data-id');
+
+
+    const isDeleteBtn = e.target.classList.contains('cart-item__remove');
+    if (isDeleteBtn) {
+      delete cart[idCartItem];
+      utilsStorage.saveCart(cart);
+      renderCartPanel();
+      $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
+
+
+      utilsCart.updateCartItemCount({
+        targetElement: $countCart,
+        quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+        activeClass: 'cart-btn__count--active',
+      });
+      return;
+    }
+    const isMinusBtn = e.target.classList.contains('cart-item__btn--minus');
+    if (isMinusBtn && (cart[idCartItem].pizzaQuantity > 1)) {
+      --cart[idCartItem].pizzaQuantity;
+      utilsCart.calculateItemTotalPrice({ cart, idCartItem });
+      utilsStorage.saveCart(cart);
+      renderCartPanel();
+      $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
+
+
+      utilsCart.updateCartItemCount({
+        targetElement: $countCart,
+        quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+        activeClass: 'cart-btn__count--active',
+      });
+
+      return;
+    }
+
+    const isPlusBtn = e.target.classList.contains('cart-item__btn--plus');
+    if (isPlusBtn) {
+      ++cart[idCartItem].pizzaQuantity;
+      utilsCart.calculateItemTotalPrice({ cart, idCartItem });
+
+      utilsStorage.saveCart(cart);
+      renderCartPanel();
+      $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
+
+      utilsCart.updateCartItemCount({
+        targetElement: $countCart,
+        quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+        activeClass: 'cart-btn__count--active',
+      });
+      return;
+    }
+
+  }
+
 });

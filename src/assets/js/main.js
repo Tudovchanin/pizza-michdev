@@ -632,6 +632,7 @@ function addToCart({
       pizzaQuantity,
       sizePizza,
       totalPrice: pizzaQuantity * pricePerPizza,
+      pricePerPizza,
       addedIngredients
     };
   }
@@ -668,20 +669,126 @@ window.addEventListener('scroll', (e) => {
 
 // CART PANEL
 
+// "2_22_no-custom-ingredients": {
+//     "namePizza": "Argentina",
+//     "image": "argentina-pizza",
+//     "pizzaQuantity": 1,
+//     "sizePizza": 22,
+//     "totalPrice": 13,
+//     "pricePerPizza": 13,
+//     "addedIngredients": []
+// }
+
 
 const $aside = document.getElementById('modal-aside');
+const $containerItems = document.getElementById('items-cart');
+const $totalItemsPrice = document.getElementById('total-items-price');
+
+const renderCartPanel = () => {
+  const arrCartData = Object.entries(cart);
+  
+  if (!arrCartData.length) {
+    renderEmptyCart();
+  } else {
+    renderCartWithItems(arrCartData);
+  }
+};
+
+const renderEmptyCart = () => {
+  $containerItems.innerHTML = `
+    <div class="empty-cart">
+      <p>🛒 Cart is empty</p>
+      <p>Fill the form and we'll call you back</p>
+      <p>Or add pizzas to order</p>
+    </div>
+  `;
+  setCartPanelTexts('Get a call', 'Request a call');
+};
+
+const renderCartWithItems = (arrCartData) => {
+  $containerItems.innerHTML = arrCartData
+    .map(item => utilsRender.renderCartItem(item))
+    .join('');
+  setCartPanelTexts('Order details', 'Order with call');
+};
+
+const setCartPanelTexts = (title, buttonText) => {
+  document.getElementById('aside-title').textContent = title;
+  document.getElementById('btn-footer-cart').textContent = buttonText;
+};
+
 
 $cartBtn.addEventListener('click', (e) => {
-  console.log('click cart btn');
   $aside.classList.add('aside--active');
   utilsDOM.lockScroll();
-
+  renderCartPanel();
+  $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
 });
 
 $aside.addEventListener('click', (e) => {
-  if( !e.target.closest(".aside__panel") || e.target.closest("#aside-close")) {
+  console.log('aside click');
+
+  if (!e.target.closest(".aside__panel") || e.target.closest("#aside-close")) {
     $aside.classList.remove('aside--active');
     utilsDOM.unlockScroll();
   }
-  
+
+  if (e.target.closest(".cart-item__btn")) {
+
+    const $cartItem = e.target.closest(".cart-item");
+    const idCartItem = $cartItem.getAttribute('data-id');
+
+
+    const isDeleteBtn = e.target.classList.contains('cart-item__remove');
+    if (isDeleteBtn) {
+      delete cart[idCartItem];
+      utilsStorage.saveCart(cart);
+      renderCartPanel();
+      $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
+
+
+      utilsCart.updateCartItemCount({
+        targetElement: $countCart,
+        quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+        activeClass: 'cart-btn__count--active',
+      });
+      return;
+    }
+    const isMinusBtn = e.target.classList.contains('cart-item__btn--minus');
+    if (isMinusBtn && (cart[idCartItem].pizzaQuantity > 1)) {
+      --cart[idCartItem].pizzaQuantity;
+      utilsCart.calculateItemTotalPrice({ cart, idCartItem });
+      utilsStorage.saveCart(cart);
+      renderCartPanel();
+      $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
+
+
+      utilsCart.updateCartItemCount({
+        targetElement: $countCart,
+        quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+        activeClass: 'cart-btn__count--active',
+      });
+
+      return;
+    }
+
+    const isPlusBtn = e.target.classList.contains('cart-item__btn--plus');
+    if (isPlusBtn) {
+      ++cart[idCartItem].pizzaQuantity;
+      utilsCart.calculateItemTotalPrice({ cart, idCartItem });
+
+      utilsStorage.saveCart(cart);
+      renderCartPanel();
+      $totalItemsPrice.textContent = `${(utilsCart.sumCartItemsPrice({ cart })).toFixed(2)} $`
+
+      utilsCart.updateCartItemCount({
+        targetElement: $countCart,
+        quantity: utilsCart.getQuantity({ cart, propertyQuantity: 'pizzaQuantity' }),
+        activeClass: 'cart-btn__count--active',
+      });
+      return;
+    }
+
+  }
+
 });
