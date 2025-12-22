@@ -1,4 +1,6 @@
 @use './helperMixins';
+@use "../utils/mediaMixins" as *;
+
 
 .container {
   max-width: 1300px;
@@ -6,6 +8,10 @@
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+  @include max_767 {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
 .visually-hidden {

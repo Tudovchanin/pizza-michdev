@@ -1,22 +1,35 @@
-
-
+@use "../utils/helperMixins";
+@use "../utils/mediaMixins" as *;
 .order-submit {
   position: relative;
   z-index: 1;
   padding-top: 50px;
 
-  &__info {
-   
+  @include max_767 {
+    padding-top: 25px;
   }
+
+  &__info {
+
+    @include max_767 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  }
+
   &::before {
     position: absolute;
     content: "";
     left: 0;
     top: -20px;
     z-index: -1;
-    width: 90%;
+    width: 97%;
     height: 50px;
     background-color: var(--color-1);
     filter: blur(5px);
+
+    @include max_767 {
+      // height:  25px;
+    }
   }
 }

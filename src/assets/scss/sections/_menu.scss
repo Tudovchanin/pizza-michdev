@@ -5,6 +5,17 @@
   display: flex;
   flex-direction: column;
   color: var(--color-text-dark);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 7px;
+    background-color: var(--color-2);
+  }
+  &::-webkit-scrollbar-thumb {
+    border: none;
+  }
 
   &__header {
     display: flex;
@@ -37,6 +48,7 @@
     justify-content: center;
     align-items: center;
     max-width: 200px;
+    width: 100%;
     height: 200px;
 
     @include max_767 {
@@ -204,6 +216,16 @@
     padding-bottom: 30px;
     padding-right: 20px;
     overflow: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 7px;
+      background-color: var(--color-2);
+    }
+    &::-webkit-scrollbar-thumb {
+      border: none;
+    }
 
     &::before {
       content: '';
@@ -223,19 +245,6 @@
       padding-top: 15px;
       // padding-bottom: 25px;
       padding-right: 15px;
-    }
-
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      border-radius: 7px;
-      background-color: var(--color-2);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border: none;
     }
   }
 
@@ -312,7 +321,13 @@
     box-shadow:
       0 0 10px 10px var(--color-1) inset,
       0 0 10px 10px var(--color-1);
+
+      @include max_767 {
+        top: 0;
+        left: 0;
+      }
   }
+
 }
 
 .menu {
@@ -506,12 +521,13 @@
     padding-right: 20px;
     padding-left: 20px;
     background-color: rgba(84, 84, 84, 0.661);
-    overflow: auto;
     opacity: 0;
     transition:
       opacity 0.5s ease-out,
       visibility 0s 0.5s;
     pointer-events: none;
+    overflow: auto;
+
 
     @include max_767 {
       padding-top: 25px;
@@ -541,12 +557,12 @@
     width: 100%;
     height: 800px;
     padding-top: 20px;
-    padding-right: 40px;
     padding-bottom: 20px;
     padding-left: 40px;
+    padding-right: 10px;
+    // margin-bottom: 25px;ллл
     border-radius: 28px;
     background-color: var(--color-1);
-    padding-right: 10px;
 
     @include max_767 {
       border-radius: 20px;
@@ -557,17 +573,6 @@
 
   &__panel-pizza {
     flex: 1 1 50%;
-    overflow: auto;
-
-    @include max_767 {}
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: inherit;
-    }
   }
 
   &__panel-ingredients {

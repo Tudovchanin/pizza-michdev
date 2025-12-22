@@ -31,10 +31,10 @@
     background-color: var(--color-1);
     height: 100vh;
     overflow-y: auto;
+    
     @include max_767 {
       padding-right: 16px;
       padding-left: 16px;
     }
-    
   }
 }
