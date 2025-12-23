@@ -167,7 +167,7 @@ function renderUtils() {
       let cardsIngredients = "";
       ingredients.forEach((ingredient) => {
         cardsIngredients += `
-          <li class="panel-ingredients__value" data-id="${ingredient.id}">
+          <li tabindex="0" class="panel-ingredients__value" data-id="${ingredient.id}">
           <p class="panel-ingredients__price" area-label="price pizza">${(
             ingredient.price * coefficient
           ).toFixed(2)} $</p>
@@ -445,7 +445,6 @@ function pizzaUtils() {
     },
 
     updateBtn({ parentElement, pizzaQuantity, min = 1, max = MAX_PIZZA }) {
-      console.log("update btn function");
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
 
@@ -458,7 +457,6 @@ function pizzaUtils() {
 function cartUtils() {
   return {
     updateCartItemCount({ targetElement, quantity, activeClass }) {
-      console.log(quantity, "count cart pizza");
       if (quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
@@ -470,7 +468,6 @@ function cartUtils() {
     },
 
     getQuantity({ cart, propertyQuantity }) {
-      // console.log(cart, propertyQuantity);
       const pizzaOrder = Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
         sum += order[propertyQuantity];

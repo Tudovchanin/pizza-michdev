@@ -100,11 +100,16 @@
 
   &__form {
     align-self: stretch;
+    // display: flex;
+    // justify-content: center;
+    // gap: 15%;
+    margin-bottom: 22px;
+    user-select: none;
+  }
+  &__fieldset {
     display: flex;
     justify-content: center;
     gap: 15%;
-    margin-bottom: 22px;
-    user-select: none;
   }
 
   &__size-label {

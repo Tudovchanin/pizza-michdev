@@ -6,13 +6,16 @@
   flex-direction: column;
   color: var(--color-text-dark);
   overflow-y: auto;
+
   &::-webkit-scrollbar {
     width: 6px;
   }
+
   &::-webkit-scrollbar-track {
     border-radius: 7px;
     background-color: var(--color-2);
   }
+
   &::-webkit-scrollbar-thumb {
     border: none;
   }
@@ -116,6 +119,7 @@
     border: solid 1px var(--color-5);
     font-size: 16px;
     font-weight: 500;
+
     &::before {
       content: '';
       position: absolute;
@@ -124,6 +128,7 @@
       background: var(--btn-accent);
       opacity: 0;
     }
+
     @include max_767 {
       padding: 5px 10px;
     }
@@ -132,6 +137,7 @@
       &::before {
         transition: opacity 0.3s;
       }
+
       &:hover:not(:disabled)::before {
         opacity: 1;
       }
@@ -216,13 +222,16 @@
     padding-bottom: 30px;
     padding-right: 20px;
     overflow: auto;
+
     &::-webkit-scrollbar {
       width: 6px;
     }
+
     &::-webkit-scrollbar-track {
       border-radius: 7px;
       background-color: var(--color-2);
     }
+
     &::-webkit-scrollbar-thumb {
       border: none;
     }
@@ -322,10 +331,10 @@
       0 0 10px 10px var(--color-1) inset,
       0 0 10px 10px var(--color-1);
 
-      @include max_767 {
-        top: 0;
-        left: 0;
-      }
+    @include max_767 {
+      top: 0;
+      left: 0;
+    }
   }
 
 }
@@ -601,6 +610,10 @@
     position: absolute;
     top: 16px;
     right: 20px;
+
+    &:focus-visible {
+      background-color: var(--color-danger);
+    }
   }
 }
 

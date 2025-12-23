@@ -65,6 +65,10 @@ h1, h2, h3, h4, h5, h6, p {
     font-weight: normal;
 }
 
+fieldset {
+    border: none;
+}
+
 @font-face {
     font-family: "Muller";
   src: url("../fonts/Fontfabric-MullerRegular.woff") format("woff");
@@ -595,13 +599,16 @@ h1, h2, h3, h4, h5, h6, p {
 
 .pizza-card__form {
     align-self: stretch;
-    display: flex;
-    justify-content: center;
-    gap: 15%;
     margin-bottom: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+}
+
+.pizza-card__fieldset {
+    display: flex;
+    justify-content: center;
+    gap: 15%;
 }
 
 .pizza-card__size-label {
@@ -956,6 +963,7 @@ h1, h2, h3, h4, h5, h6, p {
     height: 150%;
     -o-object-fit: cover;
     object-fit: cover;
+    filter: blur(3px);
 }
 
 .event {
@@ -1379,6 +1387,7 @@ h1, h2, h3, h4, h5, h6, p {
     flex-grow: 1;
     padding-bottom: 50px;
     overflow-y: auto;
+    contain: layout style size;
 }
 
 .cart__items::-webkit-scrollbar {
@@ -2473,6 +2482,10 @@ h1, h2, h3, h4, h5, h6, p {
     position: absolute;
     top: 16px;
     right: 20px;
+}
+
+.menu__panel-close:focus-visible {
+    background-color: var(--color-danger);
 }
 
 @keyframes rotate {

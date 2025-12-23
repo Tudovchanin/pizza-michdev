@@ -63,12 +63,12 @@ title: Pizzashop
 
     <div class="order-submit">
       <p class="order-submit__info">Enter details. Call within 10 min: +7(123)456-78-90</p>
-      <form class="order-submit__form form-order">
+      <form id="form-order" class="order-submit__form form-order">
 
         <div class="form-order__field">
           <label class="form-order__label" for="tel">Your phone</label>
-          <input class="form-order__input" title="your phone" type="tel" name="user_tel" id="tel"
-            placeholder="+1 (555) 123-4567" required>
+          <input class="form-order__input" title="Enter only digits (10+)" type="tel" name="user_tel" id="tel"
+            pattern="[0-9]{10,15}" placeholder="+7 (123) 456-78-98" required minlength="10">
         </div>
 
       </form>

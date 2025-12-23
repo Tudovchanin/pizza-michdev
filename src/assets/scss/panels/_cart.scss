@@ -33,7 +33,8 @@
     flex-grow: 1;
     padding-bottom: 50px;
     overflow-y: auto;
-    // contain: layout style size;
+    // фиксит скачки при рендере карточек, все карточки рендерятся при любом изменении их состояния
+    contain: layout style size;
    
 
     &::-webkit-scrollbar {
