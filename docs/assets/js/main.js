@@ -47,7 +47,11 @@ function domUtils() {
         elem.textContent = text.slice(0, num) + "...";
       }
     },
-    removeClassFromAll({ selector = null, className, arrElements = null }) {
+    removeClassFromAll({
+      selector = null,
+      className,
+      arrElements = null
+    }) {
       let elements = [];
       if (selector !== null) {
         elements = document.querySelectorAll(selector);
@@ -57,7 +61,11 @@ function domUtils() {
       if (!elements.length) return;
       elements.forEach((el) => el.classList.remove(className));
     },
-    addClassToAll({ selector = null, className, arrElements = null }) {
+    addClassToAll({
+      selector = null,
+      className,
+      arrElements = null
+    }) {
       let elements = [];
       if (selector !== null) {
         elements = document.querySelectorAll(selector);
@@ -106,7 +114,7 @@ function renderUtils() {
         <figure class="pizza-card__figure">
           <img class="pizza-card__img" src="./assets/img/pizza/${
             data.image
-          }.png" alt="${data.namePizza}" />
+          }.webp " alt="${data.namePizza}" />
         </figure>
         <h3 class="pizza-card__title">${data.namePizza}</h3>
       </header>
@@ -124,34 +132,38 @@ function renderUtils() {
             : ""
         }
       </div>
-    
       <form class="pizza-card__form">
-        ${sizeRadios}
+        <fieldset class="pizza-card__fieldset">
+          <legend class="visually-hidden">Select pizza size</legend>
+            ${sizeRadios}
+        </fieldset>
       </form>
     
-      <button class="pizza-card__customize-btn">
+      <button aria-expanded="false" aria-haspopup="dialog" aria-label="Customize ingredients for ${
+        data.namePizza
+      }" class="pizza-card__customize-btn">
         <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
       </button>
       <div class="pizza-card__order-controls">
-        <p class="pizza-card__price text-ellipsis">
+        <p aria-label="Price: ${firstPrice} dollars" class="pizza-card__price text-ellipsis">
           <span class="total-price">${firstPrice}</span>
           <span class="pizza-card__currency">$</span>
         </p>
         <div class="pizza-card__quantity-controls">
-          <button disabled class="pizza-card__quantity-btn decrement-quantity">
+          <button aria-label="Decrease quantity" disabled class="pizza-card__quantity-btn decrement-quantity">
             <svg width="8" height="2" viewBox="0 0 12 2">
               <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
             </svg>
           </button>
-          <p class="pizza-card__quantity quantity">1</p>
-          <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+          <p aria-live="polite" class="pizza-card__quantity quantity">1</p>
+          <button aria-label="Increase quantity" class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
             <svg width="8" height="8" viewBox="0 0 12 12">
               <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
             </svg>
           </button>
         </div>
       </div>
-      <button class="pizza-card__order btn btn--accent btn--small">
+      <button aria-label="Order ${data.namePizza} now" class="pizza-card__order btn btn--accent btn--small">
         Order Now
       </button>
     </article>
@@ -172,8 +184,10 @@ function renderUtils() {
       let cardsIngredients = "";
       ingredients.forEach((ingredient) => {
         cardsIngredients += `
-          <li tabindex="0" class="panel-ingredients__value" data-id="${ingredient.id}">
-          <p class="panel-ingredients__price" area-label="price pizza">${(
+          <li tabindex="0" role="checkbox" aria-checked="false" class="panel-ingredients__value" data-id="${
+            ingredient.id
+          }">
+          <p class="panel-ingredients__price" aria-label="Ingredient price">${(
             ingredient.price * coefficient
           ).toFixed(2)} $</p>
             <figure class="ingredient-card">
@@ -239,14 +253,14 @@ function renderUtils() {
       const panelInfo = `
       <header class="panel-pizza__header">
         <h3 class="panel-pizza__title">${pizzaData.namePizza}</h3>
-        <p area-label="Pizza size" class="panel-pizza__size">X ${sizePizza}</p>
+        <p aria-label="Pizza size" class="panel-pizza__size">X ${sizePizza}</p>
       </header>
 
       <div class="panel-pizza__info-container">
         <div class="panel-pizza__img">
           <img src="./assets/img/pizza/${pizzaData.image}.png" alt="${
         pizzaData.namePizza
-      }}">
+      }">
          </div>
         <div class="panel-pizza__info">
           <p class="panel-pizza__description">${pizzaData.description}</p>
@@ -296,8 +310,9 @@ function renderUtils() {
         <h3 class="cart-item__name">${data[1].namePizza}</h3>
         <p class="cart-item__size">X ${data[1].sizePizza}</p>
         <p class="cart-item__price">
-          <span class="cart-item-price">${
-            (data[1].totalPrice).toFixed(2)}</span> $
+          <span class="cart-item-price">${data[1].totalPrice.toFixed(
+            2
+          )}</span> $
         </p>
         <section class="cart-item__custom-ingredients">
           <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
@@ -320,9 +335,9 @@ function renderUtils() {
           +
         </button>
       </div>
-      <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу ${
-        data[1].namePizza
-      }"></button>
+      <button class="cart-item__btn cart-item__remove" aria-label="Delete ${
+        data[1].pizzaQuantity
+      } ${data[1].namePizza}"></button>
     </article>
       `;
       return cartItem;
@@ -444,12 +459,21 @@ function pizzaUtils() {
       $quantityPizza.textContent = quantity;
     },
 
-    setPricePizza({ parentElement, price, selector }) {
+    setPricePizza({
+      parentElement,
+      price,
+      selector
+    }) {
       const $totalPricePizza = parentElement.querySelector(selector);
       $totalPricePizza.textContent = price;
     },
 
-    updateBtn({ parentElement, pizzaQuantity, min = 1, max = MAX_PIZZA }) {
+    updateBtn({
+      parentElement,
+      pizzaQuantity,
+      min = 1,
+      max = MAX_PIZZA
+    }) {
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
 
@@ -461,7 +485,11 @@ function pizzaUtils() {
 
 function cartUtils() {
   return {
-    updateCartItemCount({ targetElement, quantity, activeClass }) {
+    updateCartItemCount({
+      targetElement,
+      quantity,
+      activeClass
+    }) {
       if (quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
@@ -472,7 +500,10 @@ function cartUtils() {
       }
     },
 
-    getQuantity({ cart, propertyQuantity }) {
+    getQuantity({
+      cart,
+      propertyQuantity
+    }) {
       const pizzaOrder = Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
         sum += order[propertyQuantity];
@@ -482,19 +513,23 @@ function cartUtils() {
       return totalQuantity;
     },
 
-    calculateItemTotalPrice({cart, idCartItem}) {
-      cart[idCartItem].totalPrice = (cart[idCartItem].pricePerPizza *  cart[idCartItem].pizzaQuantity);
+    calculateItemTotalPrice({
+      cart,
+      idCartItem
+    }) {
+      cart[idCartItem].totalPrice =
+        cart[idCartItem].pricePerPizza * cart[idCartItem].pizzaQuantity;
     },
 
-
-    sumCartItemsPrice({cart}) {
-      const sumItemsPrice = Object.values(cart).reduce((sum, item)=> {
+    sumCartItemsPrice({
+      cart
+    }) {
+      const sumItemsPrice = Object.values(cart).reduce((sum, item) => {
         return sum + item.totalPrice;
-       
-      },0)
+      }, 0);
 
       return sumItemsPrice;
-    }
+    },
   };
 }
 function getIngredients() {
@@ -911,10 +946,20 @@ const KEY = {
 
 // sections page
 const $menuPizza = document.getElementById("menuPizza");
+// const $modalMenu = document.getElementById('#overlay-menu');
+
+
+// ДЛЯ РАБОТЫ ЛОГИКИ ОТКРЫТИЯ/ЗАКРЫТИЯ POP UP КАСТОМИЗАЦИИ ПИЦЦЫ,
+// ИСПОЛЬЗУЕМ НАТИВНЫЙ  html тег dialog
+const $menuOverlay = document.getElementById("overlay-menu");
+
+
+
 const $heroPizza = document.getElementById("hero");
 const $eventsPizza = document.getElementById("events");
 const $aboutPizza = document.getElementById("about");
 const $footer = document.getElementById("footer");
+
 
 
 
@@ -939,7 +984,6 @@ const $staticBottomContainerCards = document.getElementById(
 const $allStaticCards = document.querySelectorAll(
   "#top-static-cards .pizza-card, #bottom-static-cards .pizza-card"
 );
-const $menuOverlay = document.getElementById("overlay-menu");
 const $ingredientsPanel = document.getElementById("panel-ingredients");
 const $pizzaInfoPanel = document.getElementById("panel-info-pizza");
 
@@ -947,6 +991,9 @@ const $pizzaInfoPanel = document.getElementById("panel-info-pizza");
 const savedCart = localStorage.getItem("cart");
 let cart = savedCart ? JSON.parse(savedCart) : {};
 let popUpPizzaData = {};
+
+
+// контейнер для добавленных ингредиентов.ВСЕГДА ОЧИЩАТЬ ПРИ ЗАКРЫТИИ ПАНЕЛИ КАСТОМИЗАЦИИ ПИЦЦЫ
 let addedIngredients = [];
 
 // logic cart icon count
@@ -1060,14 +1107,7 @@ $menuOverlay.addEventListener("click", (e) => {
     !e.target.closest(".menu__panel") ||
     e.target.closest("#custom-panel-close")
   ) {
-    handleClosePopUpPizza({
-      pizzaCardElem: popUpPizzaData.cardElement,
-      sizeValue: popUpPizzaData.pizzaData.size,
-      pizzaQuantity: popUpPizzaData.pizzaData.defaultQuantity,
-      callbackFormat: utilsFormat.formatPrice,
-    });
-    popUpPizzaData = {};
-
+    $menuOverlay.close();
     return;
   }
 
@@ -1147,12 +1187,16 @@ $menuOverlay.addEventListener("click", (e) => {
       (ingredient) => ingredient.id === idIngredient
     );
     const nameIngredient = ingredient.name;
+    // Цена ингредиентов в зависимости от размера пиццы, рассчитывается через коэффициент 
     const priceIngredient = ingredient.price * INGR_PRICE_COEFF[sizePizza];
 
+    // ui - выбор ингредиента 
     btnIngredient.classList.toggle("panel-ingredients__value--add");
+    // проверяем добавлен ли ингредиент 
     const ingredientIsSelected = btnIngredient.classList.contains(
       "panel-ingredients__value--add"
     );
+    btnIngredient.setAttribute("aria-checked", ingredientIsSelected);
 
     if (ingredientIsSelected) {
       popUpPizzaData.pizzaData.customPizza.price[sizePizza] =
@@ -1179,6 +1223,7 @@ $menuOverlay.addEventListener("click", (e) => {
       }
     }
 
+    // рендер добавленных ингредиентов, аргумент  "-"  рендерится если ингредиентов доп. нет !
     $customPanelIngredients.innerHTML = utilsRender.renderTextIngredients(
       addedIngredients.map((ingredient) => ingredient.name),
       "-"
@@ -1216,6 +1261,7 @@ $menuOverlay.addEventListener("click", (e) => {
     return;
   }
 
+
   const btnOrderNow = e.target.closest(".menu__panel-btn");
 
   if (btnOrderNow) {
@@ -1238,15 +1284,8 @@ $menuOverlay.addEventListener("click", (e) => {
       addedIngredients,
     });
     utilsStorage.saveCart(cart);
-
-    console.log(cart);
     alert("Pizza added to cart");
-    handleClosePopUpPizza({
-      pizzaCardElem: popUpPizzaData.cardElement,
-      sizeValue: 22,
-      pizzaQuantity: 1,
-      callbackFormat: utilsFormat.formatPrice,
-    });
+   
 
     utilsCart.updateCartItemCount({
       targetElement: $countCart,
@@ -1256,19 +1295,46 @@ $menuOverlay.addEventListener("click", (e) => {
       }),
       activeClass: "cart-btn__count--active",
     });
+    $menuOverlay.close();
   }
 });
 
+$menuOverlay.addEventListener("keydown", (e) => {
+  
+  if (e.key === "Enter" || e.key === " ") {
+    const btnIngredient = e.target.closest(".panel-ingredients__value");
+    
+    if (btnIngredient) {
+      e.preventDefault(); // Чтобы страница не скроллилась при нажатии на пробел
+
+      // имитируем клик
+      btnIngredient.click();
+
+    }
+  }
+});
+
+$menuOverlay.addEventListener('close',(e)=> {
+  console.log('CLOSE POP UP');
+  cleanupPizzaPopup({
+    pizzaCardElem: popUpPizzaData.cardElement,
+    sizeValue: popUpPizzaData.pizzaData.size,
+    pizzaQuantity: popUpPizzaData.pizzaData.defaultQuantity,
+    callbackFormat: utilsFormat.formatPrice,
+  });
+  popUpPizzaData = {};
+})
 
 
 
-function handleClosePopUpPizza({
+function cleanupPizzaPopup({
   pizzaCardElem,
   sizeValue = 22,
   pizzaQuantity = 1,
   callbackFormat,
 }) {
-  $menuOverlay.classList.remove("menu__overlay--active");
+  // $menuOverlay.classList.remove("menu__overlay--active");
+  console.log('cleanupPizzaPopup');
   utilsDOM.unlockScroll();
   utilsDOM.clearContainer($pizzaInfoPanel);
   utilsDOM.clearContainer($ingredientsPanel);
@@ -1289,25 +1355,35 @@ function handleClosePopUpPizza({
   });
 
   // remove active state card ingredients
-  utilsDOM.removeClassFromAll({
-    selector: ".panel-ingredients__value--add",
-    className: "panel-ingredients__value--add",
-  });
+  // метод не нужен, так как рендер карточек ингредиентов при каждом открытии pop up доп. кастомизации пиццы
+  // utilsDOM.removeClassFromAll({
+  //   selector: ".panel-ingredients__value--add",
+  //   className: "panel-ingredients__value--add",
+  // });
 
   // AREA
   $activeCustomizeTrigger.setAttribute('aria-expanded', false);
   console.log($activeCustomizeTrigger);
-  $activeCustomizeTrigger.focus();
-  $activeCustomizeTrigger = null;
+  // $activeCustomizeTrigger.focus();   
+  $activeCustomizeTrigger = null;   
 }
 
-// HANDLE CUSTOM PIZZA IN THE CARD
+
+
+
+
+
+
+
+
+// HANDLE CUSTOM PIZZA IN THE CARD ------------------------------------------
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__customize-btn")) return;
 
   // get dom elements
   const $pizzaCard = e.target.closest(".pizza-card");
   const $form = $pizzaCard.querySelector(".pizza-card__form");
+  // AREA
   $activeCustomizeTrigger = e.target.closest(".pizza-card__customize-btn");
 
   if (!$pizzaCard || !$form) return;
@@ -1334,7 +1410,7 @@ $menuPizza.addEventListener("click", (e) => {
     cardElement: $pizzaCard,
   };
 
-  // set elements ingredients in the obj
+  // set elements cards ingredients in the obj
   const ingredientsHTML = {};
   ingredientsHTML.meats = utilsRender.renderCardsIngredients(
     ingredients.meats,
@@ -1358,21 +1434,21 @@ $menuPizza.addEventListener("click", (e) => {
     container: $pizzaInfoPanel,
     callbackFormat: utilsFormat.formatPrice,
   });
-  // set style btn for the customs ingredients (on/off)
+  // set style btn Quantity, for the customs ingredients pop up panel (on/off)
   utilsPizza.updateBtn({
     parentElement: $pizzaInfoPanel,
     pizzaQuantity: popUpPizzaData.pizzaData.customQuantity,
   });
 
-  $menuOverlay.classList.add("menu__overlay--active");
+  // $menuOverlay.classList.add("menu__overlay--active");
   utilsDOM.lockScroll();
+
   // Area
   $activeCustomizeTrigger.setAttribute('aria-expanded', true);
-  $btnCloseCustomPanel.focus();
+  // $btnCloseCustomPanel.focus();
+  $menuOverlay .showModal(); 
 });
-
-
-// HANDLE CLICK ORDER NOW IN THE CARD
+// HANDLE CLICK ORDER NOW IN THE  CARD---------------------------------------
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__order")) return;
 
@@ -1387,6 +1463,7 @@ $menuPizza.addEventListener("click", (e) => {
   const sizePizza = utilsPizza.getPizzaSize($form);
   const pricePerPizza = pizzaData.price[sizePizza];
 
+
   addToCart({
     cart,
     idPizza,
@@ -1399,8 +1476,6 @@ $menuPizza.addEventListener("click", (e) => {
     separator: KEY.SEPARATOR,
   });
 
-  console.log(cart, "CART");
-
   utilsCart.updateCartItemCount({
     targetElement: $countCart,
     quantity: utilsCart.getQuantity({
@@ -1409,19 +1484,18 @@ $menuPizza.addEventListener("click", (e) => {
     }),
     activeClass: "cart-btn__count--active",
   });
-
   utilsPizza.resetPizzaCard({
     pizzaCardElem: $pizzaCard,
     sizeValue: 22,
     pizzaQuantity: 1,
     callbackFormat: utilsFormat.formatPrice,
   });
+  utilsStorage.saveCart(cart);
 
   alert("Pizza added to cart");
-  utilsStorage.saveCart(cart);
-});
 
-// HANDLE CHANGE QUANTITY BTN PIZZA IN THE CARD
+});
+// HANDLE CHANGE QUANTITY BTN PIZZA IN THE CARD ----------------------------
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__quantity-btn")) return;
 
@@ -1458,8 +1532,7 @@ $menuPizza.addEventListener("click", (e) => {
     selector: ".quantity",
   });
 });
-
-// HANDLE CHANGE SIZE PIZZA IN THE CARD
+// HANDLE CHANGE SIZE PIZZA IN THE CARD ------------------------------
 $menuPizza.addEventListener("change", (e) => {
   if (!e.target.closest(".pizza-card__size-radio")) return;
 

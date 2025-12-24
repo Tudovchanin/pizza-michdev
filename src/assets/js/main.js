@@ -43,10 +43,20 @@ const KEY = {
 
 // sections page
 const $menuPizza = document.getElementById("menuPizza");
+// const $modalMenu = document.getElementById('#overlay-menu');
+
+
+// ДЛЯ РАБОТЫ ЛОГИКИ ОТКРЫТИЯ/ЗАКРЫТИЯ POP UP КАСТОМИЗАЦИИ ПИЦЦЫ,
+// ИСПОЛЬЗУЕМ НАТИВНЫЙ  html тег dialog
+const $menuOverlay = document.getElementById("overlay-menu");
+
+
+
 const $heroPizza = document.getElementById("hero");
 const $eventsPizza = document.getElementById("events");
 const $aboutPizza = document.getElementById("about");
 const $footer = document.getElementById("footer");
+
 
 
 
@@ -71,7 +81,6 @@ const $staticBottomContainerCards = document.getElementById(
 const $allStaticCards = document.querySelectorAll(
   "#top-static-cards .pizza-card, #bottom-static-cards .pizza-card"
 );
-const $menuOverlay = document.getElementById("overlay-menu");
 const $ingredientsPanel = document.getElementById("panel-ingredients");
 const $pizzaInfoPanel = document.getElementById("panel-info-pizza");
 
@@ -79,6 +88,9 @@ const $pizzaInfoPanel = document.getElementById("panel-info-pizza");
 const savedCart = localStorage.getItem("cart");
 let cart = savedCart ? JSON.parse(savedCart) : {};
 let popUpPizzaData = {};
+
+
+// контейнер для добавленных ингредиентов.ВСЕГДА ОЧИЩАТЬ ПРИ ЗАКРЫТИИ ПАНЕЛИ КАСТОМИЗАЦИИ ПИЦЦЫ
 let addedIngredients = [];
 
 // logic cart icon count
@@ -192,14 +204,7 @@ $menuOverlay.addEventListener("click", (e) => {
     !e.target.closest(".menu__panel") ||
     e.target.closest("#custom-panel-close")
   ) {
-    handleClosePopUpPizza({
-      pizzaCardElem: popUpPizzaData.cardElement,
-      sizeValue: popUpPizzaData.pizzaData.size,
-      pizzaQuantity: popUpPizzaData.pizzaData.defaultQuantity,
-      callbackFormat: utilsFormat.formatPrice,
-    });
-    popUpPizzaData = {};
-
+    $menuOverlay.close();
     return;
   }
 
@@ -279,12 +284,16 @@ $menuOverlay.addEventListener("click", (e) => {
       (ingredient) => ingredient.id === idIngredient
     );
     const nameIngredient = ingredient.name;
+    // Цена ингредиентов в зависимости от размера пиццы, рассчитывается через коэффициент 
     const priceIngredient = ingredient.price * INGR_PRICE_COEFF[sizePizza];
 
+    // ui - выбор ингредиента 
     btnIngredient.classList.toggle("panel-ingredients__value--add");
+    // проверяем добавлен ли ингредиент 
     const ingredientIsSelected = btnIngredient.classList.contains(
       "panel-ingredients__value--add"
     );
+    btnIngredient.setAttribute("aria-checked", ingredientIsSelected);
 
     if (ingredientIsSelected) {
       popUpPizzaData.pizzaData.customPizza.price[sizePizza] =
@@ -311,6 +320,7 @@ $menuOverlay.addEventListener("click", (e) => {
       }
     }
 
+    // рендер добавленных ингредиентов, аргумент  "-"  рендерится если ингредиентов доп. нет !
     $customPanelIngredients.innerHTML = utilsRender.renderTextIngredients(
       addedIngredients.map((ingredient) => ingredient.name),
       "-"
@@ -348,6 +358,7 @@ $menuOverlay.addEventListener("click", (e) => {
     return;
   }
 
+
   const btnOrderNow = e.target.closest(".menu__panel-btn");
 
   if (btnOrderNow) {
@@ -370,15 +381,8 @@ $menuOverlay.addEventListener("click", (e) => {
       addedIngredients,
     });
     utilsStorage.saveCart(cart);
-
-    console.log(cart);
     alert("Pizza added to cart");
-    handleClosePopUpPizza({
-      pizzaCardElem: popUpPizzaData.cardElement,
-      sizeValue: 22,
-      pizzaQuantity: 1,
-      callbackFormat: utilsFormat.formatPrice,
-    });
+   
 
     utilsCart.updateCartItemCount({
       targetElement: $countCart,
@@ -388,19 +392,46 @@ $menuOverlay.addEventListener("click", (e) => {
       }),
       activeClass: "cart-btn__count--active",
     });
+    $menuOverlay.close();
   }
 });
 
+$menuOverlay.addEventListener("keydown", (e) => {
+  
+  if (e.key === "Enter" || e.key === " ") {
+    const btnIngredient = e.target.closest(".panel-ingredients__value");
+    
+    if (btnIngredient) {
+      e.preventDefault(); // Чтобы страница не скроллилась при нажатии на пробел
+
+      // имитируем клик
+      btnIngredient.click();
+
+    }
+  }
+});
+
+$menuOverlay.addEventListener('close',(e)=> {
+  console.log('CLOSE POP UP');
+  cleanupPizzaPopup({
+    pizzaCardElem: popUpPizzaData.cardElement,
+    sizeValue: popUpPizzaData.pizzaData.size,
+    pizzaQuantity: popUpPizzaData.pizzaData.defaultQuantity,
+    callbackFormat: utilsFormat.formatPrice,
+  });
+  popUpPizzaData = {};
+})
 
 
 
-function handleClosePopUpPizza({
+function cleanupPizzaPopup({
   pizzaCardElem,
   sizeValue = 22,
   pizzaQuantity = 1,
   callbackFormat,
 }) {
-  $menuOverlay.classList.remove("menu__overlay--active");
+  // $menuOverlay.classList.remove("menu__overlay--active");
+  console.log('cleanupPizzaPopup');
   utilsDOM.unlockScroll();
   utilsDOM.clearContainer($pizzaInfoPanel);
   utilsDOM.clearContainer($ingredientsPanel);
@@ -421,25 +452,35 @@ function handleClosePopUpPizza({
   });
 
   // remove active state card ingredients
-  utilsDOM.removeClassFromAll({
-    selector: ".panel-ingredients__value--add",
-    className: "panel-ingredients__value--add",
-  });
+  // метод не нужен, так как рендер карточек ингредиентов при каждом открытии pop up доп. кастомизации пиццы
+  // utilsDOM.removeClassFromAll({
+  //   selector: ".panel-ingredients__value--add",
+  //   className: "panel-ingredients__value--add",
+  // });
 
   // AREA
   $activeCustomizeTrigger.setAttribute('aria-expanded', false);
   console.log($activeCustomizeTrigger);
-  $activeCustomizeTrigger.focus();
-  $activeCustomizeTrigger = null;
+  // $activeCustomizeTrigger.focus();   
+  $activeCustomizeTrigger = null;   
 }
 
-// HANDLE CUSTOM PIZZA IN THE CARD
+
+
+
+
+
+
+
+
+// HANDLE CUSTOM PIZZA IN THE CARD ------------------------------------------
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__customize-btn")) return;
 
   // get dom elements
   const $pizzaCard = e.target.closest(".pizza-card");
   const $form = $pizzaCard.querySelector(".pizza-card__form");
+  // AREA
   $activeCustomizeTrigger = e.target.closest(".pizza-card__customize-btn");
 
   if (!$pizzaCard || !$form) return;
@@ -466,7 +507,7 @@ $menuPizza.addEventListener("click", (e) => {
     cardElement: $pizzaCard,
   };
 
-  // set elements ingredients in the obj
+  // set elements cards ingredients in the obj
   const ingredientsHTML = {};
   ingredientsHTML.meats = utilsRender.renderCardsIngredients(
     ingredients.meats,
@@ -490,21 +531,21 @@ $menuPizza.addEventListener("click", (e) => {
     container: $pizzaInfoPanel,
     callbackFormat: utilsFormat.formatPrice,
   });
-  // set style btn for the customs ingredients (on/off)
+  // set style btn Quantity, for the customs ingredients pop up panel (on/off)
   utilsPizza.updateBtn({
     parentElement: $pizzaInfoPanel,
     pizzaQuantity: popUpPizzaData.pizzaData.customQuantity,
   });
 
-  $menuOverlay.classList.add("menu__overlay--active");
+  // $menuOverlay.classList.add("menu__overlay--active");
   utilsDOM.lockScroll();
+
   // Area
   $activeCustomizeTrigger.setAttribute('aria-expanded', true);
-  $btnCloseCustomPanel.focus();
+  // $btnCloseCustomPanel.focus();
+  $menuOverlay .showModal(); 
 });
-
-
-// HANDLE CLICK ORDER NOW IN THE CARD
+// HANDLE CLICK ORDER NOW IN THE  CARD---------------------------------------
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__order")) return;
 
@@ -519,6 +560,7 @@ $menuPizza.addEventListener("click", (e) => {
   const sizePizza = utilsPizza.getPizzaSize($form);
   const pricePerPizza = pizzaData.price[sizePizza];
 
+
   addToCart({
     cart,
     idPizza,
@@ -531,8 +573,6 @@ $menuPizza.addEventListener("click", (e) => {
     separator: KEY.SEPARATOR,
   });
 
-  console.log(cart, "CART");
-
   utilsCart.updateCartItemCount({
     targetElement: $countCart,
     quantity: utilsCart.getQuantity({
@@ -541,19 +581,18 @@ $menuPizza.addEventListener("click", (e) => {
     }),
     activeClass: "cart-btn__count--active",
   });
-
   utilsPizza.resetPizzaCard({
     pizzaCardElem: $pizzaCard,
     sizeValue: 22,
     pizzaQuantity: 1,
     callbackFormat: utilsFormat.formatPrice,
   });
+  utilsStorage.saveCart(cart);
 
   alert("Pizza added to cart");
-  utilsStorage.saveCart(cart);
-});
 
-// HANDLE CHANGE QUANTITY BTN PIZZA IN THE CARD
+});
+// HANDLE CHANGE QUANTITY BTN PIZZA IN THE CARD ----------------------------
 $menuPizza.addEventListener("click", (e) => {
   if (!e.target.closest(".pizza-card__quantity-btn")) return;
 
@@ -590,8 +629,7 @@ $menuPizza.addEventListener("click", (e) => {
     selector: ".quantity",
   });
 });
-
-// HANDLE CHANGE SIZE PIZZA IN THE CARD
+// HANDLE CHANGE SIZE PIZZA IN THE CARD ------------------------------
 $menuPizza.addEventListener("change", (e) => {
   if (!e.target.closest(".pizza-card__size-radio")) return;
 

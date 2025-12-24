@@ -45,10 +45,14 @@
   </button>
 
   <div class="pizza-card__order-controls">
-    <p class="pizza-card__price text-ellipsis">
+    <p
+      aria-label="Price: {{#each price}}{{#if @first}}{{this}}{{/if}}{{/each}} dollars"
+      class="pizza-card__price text-ellipsis"
+    >
       <span class="total-price">
         {{#each price}}{{#if @first}}{{this}}{{/if}}{{/each}}</span
-      ><span class="pizza-card__currency"> $</span>
+      >
+      <span class="pizza-card__currency"> $</span>
     </p>
     <div class="pizza-card__quantity-controls">
       <button

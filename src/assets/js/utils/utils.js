@@ -42,7 +42,11 @@ function domUtils() {
         elem.textContent = text.slice(0, num) + "...";
       }
     },
-    removeClassFromAll({ selector = null, className, arrElements = null }) {
+    removeClassFromAll({
+      selector = null,
+      className,
+      arrElements = null
+    }) {
       let elements = [];
       if (selector !== null) {
         elements = document.querySelectorAll(selector);
@@ -52,7 +56,11 @@ function domUtils() {
       if (!elements.length) return;
       elements.forEach((el) => el.classList.remove(className));
     },
-    addClassToAll({ selector = null, className, arrElements = null }) {
+    addClassToAll({
+      selector = null,
+      className,
+      arrElements = null
+    }) {
       let elements = [];
       if (selector !== null) {
         elements = document.querySelectorAll(selector);
@@ -101,7 +109,7 @@ function renderUtils() {
         <figure class="pizza-card__figure">
           <img class="pizza-card__img" src="./assets/img/pizza/${
             data.image
-          }.png" alt="${data.namePizza}" />
+          }.webp " alt="${data.namePizza}" />
         </figure>
         <h3 class="pizza-card__title">${data.namePizza}</h3>
       </header>
@@ -119,34 +127,38 @@ function renderUtils() {
             : ""
         }
       </div>
-    
       <form class="pizza-card__form">
-        ${sizeRadios}
+        <fieldset class="pizza-card__fieldset">
+          <legend class="visually-hidden">Select pizza size</legend>
+            ${sizeRadios}
+        </fieldset>
       </form>
     
-      <button class="pizza-card__customize-btn">
+      <button aria-expanded="false" aria-haspopup="dialog" aria-label="Customize ingredients for ${
+        data.namePizza
+      }" class="pizza-card__customize-btn">
         <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
       </button>
       <div class="pizza-card__order-controls">
-        <p class="pizza-card__price text-ellipsis">
+        <p aria-label="Price: ${firstPrice} dollars" class="pizza-card__price text-ellipsis">
           <span class="total-price">${firstPrice}</span>
           <span class="pizza-card__currency">$</span>
         </p>
         <div class="pizza-card__quantity-controls">
-          <button disabled class="pizza-card__quantity-btn decrement-quantity">
+          <button aria-label="Decrease quantity" disabled class="pizza-card__quantity-btn decrement-quantity">
             <svg width="8" height="2" viewBox="0 0 12 2">
               <path d="M0 1H12" stroke="currentColor" stroke-width="2" />
             </svg>
           </button>
-          <p class="pizza-card__quantity quantity">1</p>
-          <button class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
+          <p aria-live="polite" class="pizza-card__quantity quantity">1</p>
+          <button aria-label="Increase quantity" class="pizza-card__quantity-btn pizza-card__quantity-btn--active increment-quantity">
             <svg width="8" height="8" viewBox="0 0 12 12">
               <path d="M0 6H12M6 0V12" stroke="currentColor" stroke-width="2" />
             </svg>
           </button>
         </div>
       </div>
-      <button class="pizza-card__order btn btn--accent btn--small">
+      <button aria-label="Order ${data.namePizza} now" class="pizza-card__order btn btn--accent btn--small">
         Order Now
       </button>
     </article>
@@ -167,8 +179,10 @@ function renderUtils() {
       let cardsIngredients = "";
       ingredients.forEach((ingredient) => {
         cardsIngredients += `
-          <li tabindex="0" class="panel-ingredients__value" data-id="${ingredient.id}">
-          <p class="panel-ingredients__price" area-label="price pizza">${(
+          <li tabindex="0" role="checkbox" aria-checked="false" class="panel-ingredients__value" data-id="${
+            ingredient.id
+          }">
+          <p class="panel-ingredients__price" aria-label="Ingredient price">${(
             ingredient.price * coefficient
           ).toFixed(2)} $</p>
             <figure class="ingredient-card">
@@ -234,14 +248,14 @@ function renderUtils() {
       const panelInfo = `
       <header class="panel-pizza__header">
         <h3 class="panel-pizza__title">${pizzaData.namePizza}</h3>
-        <p area-label="Pizza size" class="panel-pizza__size">X ${sizePizza}</p>
+        <p aria-label="Pizza size" class="panel-pizza__size">X ${sizePizza}</p>
       </header>
 
       <div class="panel-pizza__info-container">
         <div class="panel-pizza__img">
           <img src="./assets/img/pizza/${pizzaData.image}.png" alt="${
         pizzaData.namePizza
-      }}">
+      }">
          </div>
         <div class="panel-pizza__info">
           <p class="panel-pizza__description">${pizzaData.description}</p>
@@ -291,8 +305,9 @@ function renderUtils() {
         <h3 class="cart-item__name">${data[1].namePizza}</h3>
         <p class="cart-item__size">X ${data[1].sizePizza}</p>
         <p class="cart-item__price">
-          <span class="cart-item-price">${
-            (data[1].totalPrice).toFixed(2)}</span> $
+          <span class="cart-item-price">${data[1].totalPrice.toFixed(
+            2
+          )}</span> $
         </p>
         <section class="cart-item__custom-ingredients">
           <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
@@ -315,9 +330,9 @@ function renderUtils() {
           +
         </button>
       </div>
-      <button class="cart-item__btn cart-item__remove" aria-label="Удалить пиццу ${
-        data[1].namePizza
-      }"></button>
+      <button class="cart-item__btn cart-item__remove" aria-label="Delete ${
+        data[1].pizzaQuantity
+      } ${data[1].namePizza}"></button>
     </article>
       `;
       return cartItem;
@@ -439,12 +454,21 @@ function pizzaUtils() {
       $quantityPizza.textContent = quantity;
     },
 
-    setPricePizza({ parentElement, price, selector }) {
+    setPricePizza({
+      parentElement,
+      price,
+      selector
+    }) {
       const $totalPricePizza = parentElement.querySelector(selector);
       $totalPricePizza.textContent = price;
     },
 
-    updateBtn({ parentElement, pizzaQuantity, min = 1, max = MAX_PIZZA }) {
+    updateBtn({
+      parentElement,
+      pizzaQuantity,
+      min = 1,
+      max = MAX_PIZZA
+    }) {
       const $btnDecrement = parentElement.querySelector(".decrement-quantity");
       const $btnIncrement = parentElement.querySelector(".increment-quantity");
 
@@ -456,7 +480,11 @@ function pizzaUtils() {
 
 function cartUtils() {
   return {
-    updateCartItemCount({ targetElement, quantity, activeClass }) {
+    updateCartItemCount({
+      targetElement,
+      quantity,
+      activeClass
+    }) {
       if (quantity < 1) {
         targetElement.classList.remove(activeClass);
         targetElement.textContent = 0;
@@ -467,7 +495,10 @@ function cartUtils() {
       }
     },
 
-    getQuantity({ cart, propertyQuantity }) {
+    getQuantity({
+      cart,
+      propertyQuantity
+    }) {
       const pizzaOrder = Object.values(cart);
       const totalQuantity = pizzaOrder.reduce((sum, order) => {
         sum += order[propertyQuantity];
@@ -477,18 +508,22 @@ function cartUtils() {
       return totalQuantity;
     },
 
-    calculateItemTotalPrice({cart, idCartItem}) {
-      cart[idCartItem].totalPrice = (cart[idCartItem].pricePerPizza *  cart[idCartItem].pizzaQuantity);
+    calculateItemTotalPrice({
+      cart,
+      idCartItem
+    }) {
+      cart[idCartItem].totalPrice =
+        cart[idCartItem].pricePerPizza * cart[idCartItem].pizzaQuantity;
     },
 
-
-    sumCartItemsPrice({cart}) {
-      const sumItemsPrice = Object.values(cart).reduce((sum, item)=> {
+    sumCartItemsPrice({
+      cart
+    }) {
+      const sumItemsPrice = Object.values(cart).reduce((sum, item) => {
         return sum + item.totalPrice;
-       
-      },0)
+      }, 0);
 
       return sumItemsPrice;
-    }
+    },
   };
 }
