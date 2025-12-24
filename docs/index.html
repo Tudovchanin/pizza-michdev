@@ -27,10 +27,10 @@
 <body>
     <header class="header">
       <div class="header__content container">
-        <a class="header__logo logo" href="/">
-          <img src="./assets/img/pizzashop.png" alt="pizza shop">
+        <a class="header__logo logo" href="/" aria-label="Pizza Shop - Home page">
+          <img src="./assets/img/pizzashop.png" alt="" aria-hidden="true">
         </a>
-        <nav class="header__nav">
+        <nav class="header__nav" aria-label="Primary navigation">
           <ul class="list header__list">
             <li class="list__item"><a class="link-nav link-nav--active" href="#">Home</a></li>
             <li class="list__item"><a class="link-nav" href="#menuPizza">Menu</a></li>
@@ -38,9 +38,9 @@
             <li class="list__item"><a class="link-nav" href="#about">About us</a></li>
           </ul>
         </nav>
-        <button id="cartBtn" class="header__cart-btn cart-btn">
-          <?xml version="1.0" ?><svg data-name="Layer 2" id="Layer_2" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:42px;}.cls-2{fill:#fcfcfc;}</style></defs><path class="cls-1" d="M709.5,827.2h-419a14.13,14.13,0,0,1-14.07-15.52l45-441.52a6.41,6.41,0,0,1,6.38-5.78h344.3a6.41,6.41,0,0,1,6.38,5.78l45,441.52A14.13,14.13,0,0,1,709.5,827.2Z"/><path class="cls-1" d="M402.55,459.26v-189c0-53.6,43.85-97.45,97.45-97.45h0c53.6,0,97.45,43.85,97.45,97.45v189"/><circle class="cls-2" cx="402.55" cy="459.26" r="18.56"/><circle class="cls-2" cx="597.45" cy="459.26" r="18.56"/><line class="cls-1" x1="345.94" x2="327.86" y1="552.65" y2="711.61"/><line class="cls-1" x1="616.78" x2="525.43" y1="801.68" y2="801.68"/><line class="cls-1" x1="442.19" x2="321.89" y1="801.68" y2="801.68"/></svg>
-          <span class="cart-btn__count"></span>
+        <button id="cartBtn" class="header__cart-btn cart-btn" aria-label="View shopping cart">
+          <svg aria-hidden="true" data-name="Layer 2" id="Layer_2" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:42px;}.cls-2{fill:#fcfcfc;}</style></defs><path class="cls-1" d="M709.5,827.2h-419a14.13,14.13,0,0,1-14.07-15.52l45-441.52a6.41,6.41,0,0,1,6.38-5.78h344.3a6.41,6.41,0,0,1,6.38,5.78l45,441.52A14.13,14.13,0,0,1,709.5,827.2Z"/><path class="cls-1" d="M402.55,459.26v-189c0-53.6,43.85-97.45,97.45-97.45h0c53.6,0,97.45,43.85,97.45,97.45v189"/><circle class="cls-2" cx="402.55" cy="459.26" r="18.56"/><circle class="cls-2" cx="597.45" cy="459.26" r="18.56"/><line class="cls-1" x1="345.94" x2="327.86" y1="552.65" y2="711.61"/><line class="cls-1" x1="616.78" x2="525.43" y1="801.68" y2="801.68"/><line class="cls-1" x1="442.19" x2="321.89" y1="801.68" y2="801.68"/></svg>
+          <span aria-live="polite" class="cart-btn__count">0</span>
         </button>
       </div>
     </header>    

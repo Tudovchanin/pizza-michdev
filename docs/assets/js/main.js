@@ -268,9 +268,9 @@ function renderUtils() {
 
         <div class="panel-pizza__footer">
           <div class="panel-pizza__quantity-controls">
-            <button class="panel-pizza__btn-quantity decrement-quantity">-</button>
-            <span class="panel-pizza__quantity quantity">${pizzaQuantity}</span>
-            <button class="panel-pizza__btn-quantity  increment-quantity">+</button>
+            <button aria-label="Decrease quantity" class="panel-pizza__btn-quantity decrement-quantity">-</button>
+            <span aria-live="polite" class="panel-pizza__quantity quantity">${pizzaQuantity}</span>
+            <button aria-label="Increase quantity" class="panel-pizza__btn-quantity  increment-quantity">+</button>
           </div>
           <p class="panel-pizza__price-total">Total <span class="total-price">${totalPrice}</span> $</p>
         </div>
