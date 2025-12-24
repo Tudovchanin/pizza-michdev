@@ -112,9 +112,8 @@ function renderUtils() {
     <article data-id="${data.id}" class="pizza-card">
       <header class="pizza-card__header">
         <figure class="pizza-card__figure">
-          <img class="pizza-card__img" src="./assets/img/pizza/${
-            data.image
-          }.webp " alt="${data.namePizza}" />
+          <img class="pizza-card__img" src="./assets/img/pizza/${data.image
+        }.webp" alt="${data.namePizza}" />
         </figure>
         <h3 class="pizza-card__title">${data.namePizza}</h3>
       </header>
@@ -122,14 +121,13 @@ function renderUtils() {
         <p class="pizza-card__first-line text-ellipsis w-17vw">
           Filling: ${firstThreeIngredients}${remainingIngredients ? "," : ""}
         </p>
-        ${
-          remainingIngredients
-            ? `
+        ${remainingIngredients
+          ? `
           <p class="pizza-card__second-line text-ellipsis">
             ${remainingIngredients}
           </p>
         `
-            : ""
+          : ""
         }
       </div>
       <form class="pizza-card__form">
@@ -139,13 +137,12 @@ function renderUtils() {
         </fieldset>
       </form>
     
-      <button aria-expanded="false" aria-haspopup="dialog" aria-label="Customize ingredients for ${
-        data.namePizza
-      }" class="pizza-card__customize-btn">
+      <button aria-expanded="false" aria-haspopup="dialog" aria-label="Customize ingredients for ${data.namePizza
+        }" class="pizza-card__customize-btn">
         <span class="text-gradient ps-rel-idx-100">+ Ingredients</span>
       </button>
       <div class="pizza-card__order-controls">
-        <p aria-label="Price: ${firstPrice} dollars" class="pizza-card__price text-ellipsis">
+        <p class="pizza-card__price text-ellipsis">
           <span class="total-price">${firstPrice}</span>
           <span class="pizza-card__currency">$</span>
         </p>
@@ -184,23 +181,19 @@ function renderUtils() {
       let cardsIngredients = "";
       ingredients.forEach((ingredient) => {
         cardsIngredients += `
-          <li tabindex="0" role="checkbox" aria-checked="false" class="panel-ingredients__value" data-id="${
-            ingredient.id
+          <li tabindex="0" role="checkbox" aria-checked="false" class="panel-ingredients__value" data-id="${ingredient.id
           }">
           <p class="panel-ingredients__price" aria-label="Ingredient price">${(
             ingredient.price * coefficient
           ).toFixed(2)} $</p>
             <figure class="ingredient-card">
               <div class="ingredient-card__wrapper-img">
-                <img src="./assets/img/ingredients/${
-                  ingredient.nameImg
-                }.png" alt="image ingredient ${
-          ingredient.name
-        }" class="ingredient-card__img" />
+                <img src="./assets/img/ingredients/${ingredient.nameImg
+          }.png" alt="image ingredient ${ingredient.name
+          }" class="ingredient-card__img" />
               </div>
-              <figcaption class="ingredient-card__title">${
-                ingredient.name
-              }</figcaption>
+              <figcaption class="ingredient-card__title">${ingredient.name
+          }</figcaption>
             </figure>
           </li>
         `;
@@ -258,9 +251,8 @@ function renderUtils() {
 
       <div class="panel-pizza__info-container">
         <div class="panel-pizza__img">
-          <img src="./assets/img/pizza/${pizzaData.image}.png" alt="${
-        pizzaData.namePizza
-      }">
+          <img src="./assets/img/pizza/${pizzaData.image}.png" alt="${pizzaData.namePizza
+        }">
          </div>
         <div class="panel-pizza__info">
           <p class="panel-pizza__description">${pizzaData.description}</p>
@@ -270,8 +262,8 @@ function renderUtils() {
       </div>
   
       <p class="panel-pizza__ingredients"><span class="fw-500">Ingredients:</span> ${this.renderTextIngredients(
-        pizzaData.ingredients
-      )}</p>
+          pizzaData.ingredients
+        )}</p>
       <p class="panel-pizza__ingredients"><span class="fw-500">Extra Ingredients:</span> <span id="custom-ingredients">-</span></p>
 
         <div class="panel-pizza__footer">
@@ -303,24 +295,23 @@ function renderUtils() {
 
       const cartItem = `
       <article class="cart-item" data-id="${data[0]}">
-      <img src="./assets/img/pizza/${data[1].image}.webp" alt="${
-        data[1].namePizza
-      } size ${data[1].sizePizza}" class="cart-item__img" />
+      <img src="./assets/img/pizza/${data[1].image}.webp" alt="${data[1].namePizza
+        } size ${data[1].sizePizza}" class="cart-item__img" />
       <div class="cart-item__info">
         <h3 class="cart-item__name">${data[1].namePizza}</h3>
         <p class="cart-item__size">X ${data[1].sizePizza}</p>
         <p class="cart-item__price">
           <span class="cart-item-price">${data[1].totalPrice.toFixed(
-            2
-          )}</span> $
+          2
+        )}</span> $
         </p>
         <section class="cart-item__custom-ingredients">
           <h3 class="cart-item__title-ingredients">Extra ingredients:</h3>
           <p class="cart-item__addons">
           ${this.renderTextIngredients(
-            addedIngredients,
-            "no additional ingredients"
-          )}
+          addedIngredients,
+          "no additional ingredients"
+        )}
           </p>
         </section>
       </div>
@@ -328,16 +319,14 @@ function renderUtils() {
         <button class="cart-item__btn cart-item__btn--minus decrement-quantity" aria-label="Reduce quantity" ${isMinusDisabled}>
           −
         </button>
-        <span class="cart-item__quantity" aria-live="polite">${
-          data[1].pizzaQuantity
+        <span class="cart-item__quantity" aria-live="polite">${data[1].pizzaQuantity
         }</span>
         <button class="cart-item__btn cart-item__btn--plus increment-quantity" aria-label="Increase quantity">
           +
         </button>
       </div>
-      <button class="cart-item__btn cart-item__remove" aria-label="Delete ${
-        data[1].pizzaQuantity
-      } ${data[1].namePizza}"></button>
+      <button class="cart-item__btn cart-item__remove" aria-label="Delete ${data[1].pizzaQuantity
+        } ${data[1].namePizza}"></button>
     </article>
       `;
       return cartItem;
@@ -459,14 +448,14 @@ function pizzaUtils() {
       $quantityPizza.textContent = quantity;
     },
 
-    setPricePizza({
-      parentElement,
-      price,
-      selector
-    }) {
-      const $totalPricePizza = parentElement.querySelector(selector);
-      $totalPricePizza.textContent = price;
-    },
+    setPricePizza({ parentElement, price, selector }) {
+      const $priceSpan = parentElement.querySelector(selector);
+      if ($priceSpan) {
+        $priceSpan.textContent = price;
+      }
+    }
+    
+    ,
 
     updateBtn({
       parentElement,
