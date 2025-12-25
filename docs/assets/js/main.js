@@ -1741,7 +1741,6 @@ $aside.addEventListener("click", async (e) => {
   }
 
   if (e.target.closest("#btn-footer-cart")) {
-    console.log(e.target);
 
     if (!$inputTel.checkValidity()) {
       $inputTel.reportValidity();
@@ -1758,7 +1757,6 @@ $aside.addEventListener("click", async (e) => {
     cart = {};
     utilsStorage.saveCart(cart);
 
-    console.log(cart, 'cart');
     $formOrder.reset();
     renderEmptyCart();
     $totalItemsPrice.textContent = "0.00 $"
@@ -1768,16 +1766,16 @@ $aside.addEventListener("click", async (e) => {
 
 
 
-    // let response = await fetch('/send-form.php', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8'
-    //   },
-    //   body: JSON.stringify(body)
-    // });
+    let response = await fetch('/send-form.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(body)
+    });
 
-    // let result = await response.json();
-    // alert(result.message);
+    let result = await response.json();
+    alert(result.message);
   }
 });
 

@@ -849,7 +849,6 @@ $aside.addEventListener("click", async (e) => {
   }
 
   if (e.target.closest("#btn-footer-cart")) {
-    console.log(e.target);
 
     if (!$inputTel.checkValidity()) {
       $inputTel.reportValidity();
@@ -866,7 +865,6 @@ $aside.addEventListener("click", async (e) => {
     cart = {};
     utilsStorage.saveCart(cart);
 
-    console.log(cart, 'cart');
     $formOrder.reset();
     renderEmptyCart();
     $totalItemsPrice.textContent = "0.00 $"
