@@ -91,8 +91,6 @@ function serve() {
         }
     });
 }
-
-
 //  {{!-- {{>events}} --}}    способ закомментить в panini
 
 // Функция для обработки HTML файлов с использованием Panini
@@ -117,10 +115,6 @@ function php() {
         .pipe(dest(path.build.php))  // Сохраняет собранные php файлы в выходную папку
         .pipe(browserSync.reload({ stream: true }));  // Обновляет страницу в браузере при изменении HTML файла
 }
-
-
-
-
 
 // Функция для обработки SCSS файлов и их компиляции в CSS
 function css() {

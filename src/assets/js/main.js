@@ -876,16 +876,16 @@ $aside.addEventListener("click", async (e) => {
 
 
 
-    // let response = await fetch('/send-form.php', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8'
-    //   },
-    //   body: JSON.stringify(body)
-    // });
+    let response = await fetch('/send-form.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(body)
+    });
 
-    // let result = await response.json();
-    // alert(result.message);
+    let result = await response.json();
+    alert(result.message);
   }
 });
 
