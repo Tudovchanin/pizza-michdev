@@ -1,4 +1,4 @@
-2025-12-25 13:14:56 | {"Order ID":"ORD-1766657695518","Type":"Order call","Phone client":"3333333333333"}
-2025-12-25 13:15:48 | {"Order ID":"ORD-1766657747562","Type":"Order call","Phone client":"3333333333333"}
-2025-12-25 13:17:28 | {"Order ID":"ORD-1766657847490","Type":"Order pizza","orders":[{"Name pizza":"Meat","Quantity":9,"Size":"22см","Additional ingredients":"HAM, PEPPERONI, BACON","Total price pizza":"162 $"}],"Phone client":"3333333333333","Total price orders":"162.00 $"}
-2025-12-25 13:18:00 | {"Order ID":"ORD-1766657878874","Type":"Order call","Phone client":"22222222222"}
+2025-12-26 15:21:26 | {"Order ID":"ORD-1766751686294","Type":"Order pizza","orders":[{"Name pizza":"Venecia","Quantity":1,"Size":"22см","Additional ingredients":"no additional ingredients","Total price pizza":"12 $"}],"Phone client":"22222222222","Total price orders":"12.00 $"}
+2025-12-26 15:21:58 | {"Order ID":"ORD-1766751718189","Type":"Order pizza","orders":[{"Name pizza":"Venecia","Quantity":1,"Size":"22см","Additional ingredients":"no additional ingredients","Total price pizza":"12 $"}],"Phone client":"22222222222","Total price orders":"12.00 $"}
+2025-12-26 15:26:10 | {"Order ID":"ORD-1766751970127","Type":"Order pizza","orders":[{"Name pizza":"Venecia","Quantity":1,"Size":"22см","Additional ingredients":"no additional ingredients","Total price pizza":"12 $"}],"Phone client":"79531234567","Total price orders":"12.00 $"}
+2025-12-26 15:27:14 | {"Order ID":"ORD-1766752034343","Type":"Order call","Phone client":"22222222222"}

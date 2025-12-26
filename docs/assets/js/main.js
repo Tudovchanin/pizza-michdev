@@ -1274,7 +1274,7 @@ $menuOverlay.addEventListener("click", (e) => {
     });
     utilsStorage.saveCart(cart);
     alert("Pizza added to cart");
-   
+
 
     utilsCart.updateCartItemCount({
       targetElement: $countCart,
@@ -1289,10 +1289,10 @@ $menuOverlay.addEventListener("click", (e) => {
 });
 
 $menuOverlay.addEventListener("keydown", (e) => {
-  
+
   if (e.key === "Enter" || e.key === " ") {
     const btnIngredient = e.target.closest(".panel-ingredients__value");
-    
+
     if (btnIngredient) {
       e.preventDefault(); // Чтобы страница не скроллилась при нажатии на пробел
 
@@ -1303,7 +1303,7 @@ $menuOverlay.addEventListener("keydown", (e) => {
   }
 });
 
-$menuOverlay.addEventListener('close',(e)=> {
+$menuOverlay.addEventListener('close', (e) => {
   console.log('CLOSE POP UP');
   cleanupPizzaPopup({
     pizzaCardElem: popUpPizzaData.cardElement,
@@ -1354,7 +1354,7 @@ function cleanupPizzaPopup({
   $activeCustomizeTrigger.setAttribute('aria-expanded', false);
   console.log($activeCustomizeTrigger);
   // $activeCustomizeTrigger.focus();   
-  $activeCustomizeTrigger = null;   
+  $activeCustomizeTrigger = null;
 }
 
 
@@ -1435,7 +1435,7 @@ $menuPizza.addEventListener("click", (e) => {
   // Area
   $activeCustomizeTrigger.setAttribute('aria-expanded', true);
   // $btnCloseCustomPanel.focus();
-  $menuOverlay .showModal(); 
+  $menuOverlay.showModal();
 });
 // HANDLE CLICK ORDER NOW IN THE  CARD---------------------------------------
 $menuPizza.addEventListener("click", (e) => {
@@ -1754,28 +1754,43 @@ $aside.addEventListener("click", async (e) => {
     });
 
 
-    cart = {};
-    utilsStorage.saveCart(cart);
+    const originalText = $btnFooterCart.textContent;
+    $btnFooterCart.disabled = true;
+    $btnFooterCart.textContent = "Send...";
 
-    $formOrder.reset();
-    renderEmptyCart();
-    $totalItemsPrice.textContent = "0.00 $"
-    $countCart.classList.remove('cart-btn__count--active');
-    $countCart.textContent = 0;
-    alert("Your order has been sent! We'll call you back.");
+    try {
 
+      let response = await fetch('/send-form.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(body)
+      });
 
+      const result = await response.json();
 
-    let response = await fetch('/send-form.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(body)
-    });
+      if (result.success) {
 
-    let result = await response.json();
-    alert(result.message);
+        cart = {};
+        utilsStorage.saveCart(cart);
+        $formOrder.reset();
+        renderEmptyCart();
+        $totalItemsPrice.textContent = "0.00 $"
+        $countCart.classList.remove('cart-btn__count--active');
+        $countCart.textContent = 0;
+        alert(result.message);
+      } else {
+        throw new Error(result.error || 'Server error');
+      }
+
+    } catch (error) {
+      alert('Ошибка отправки. Попробуйте ещё раз.');
+      console.error('Order failed:', error);
+    } finally {
+      $btnFooterCart.disabled = false;
+      $btnFooterCart.textContent = originalText;
+    }
   }
 });
 

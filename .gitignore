@@ -2,3 +2,5 @@ node_modules/
 
 src/config.php
 docs/config.php
+
+config.txt
